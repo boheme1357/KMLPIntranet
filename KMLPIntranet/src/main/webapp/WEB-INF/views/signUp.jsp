@@ -539,7 +539,7 @@
                 <option value="11">11월</option>
                 <option value="12">12월</option>
             </select>&nbsp;
-            <select id="m_com_date" name="m_com_date" style="width:120px; height:32px">
+            <select id="m_com_day" name="m_com_day" style="width:120px; height:32px">
                 <option value="1" selected>1일</option>
                 <option value="2">2일</option>
                 <option value="3">3일</option>
