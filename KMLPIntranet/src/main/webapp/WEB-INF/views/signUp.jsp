@@ -613,10 +613,7 @@
 	</table>
     <br>
       
-        <div align="center">
-            <input type="radio" name="service" value="1" checked>&nbsp;동의
-            &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="service" value="2">&nbsp;동의안함
-        </div>
+       
         <br>
         
 	        <div align="center">
