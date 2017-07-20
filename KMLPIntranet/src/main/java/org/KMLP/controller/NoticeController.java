@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/notice")
+@RequestMapping("/notice/*")
 public class NoticeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
@@ -18,7 +18,7 @@ public class NoticeController {
 
 		logger.info("notice_ListGET PAGE...............");
 
-		return "notice_list";
+		return "/notice/notice_list";
 	}
 
 	@RequestMapping(value = "/notice_list", method = RequestMethod.POST)
@@ -26,7 +26,7 @@ public class NoticeController {
 
 		logger.info("notice_ListPOST post ...........");
 
-		return "notice_list";
+		return "/notice/notice_list";
 	}
 	
 	@RequestMapping(value = "/notice_content", method = RequestMethod.GET)
@@ -34,7 +34,7 @@ public class NoticeController {
 
 		logger.info("notice_ContentGET PAGE...............");
 
-		return "notice_content";
+		return "/notice/notice_content";
 	}
 
 	@RequestMapping(value = "/notice_content", method = RequestMethod.POST)
@@ -42,7 +42,7 @@ public class NoticeController {
 
 		logger.info("notice_ContentPOST post ...........");
 
-		return "notice_content";
+		return "/notice/notice_content";
 	}
 	
 	@RequestMapping(value = "/notice_modify", method = RequestMethod.GET)
@@ -50,7 +50,7 @@ public class NoticeController {
 
 		logger.info("notice_ModifyGET PAGE...............");
 
-		return "notice_modify";
+		return "/notice/notice_modify";
 	}
 
 	@RequestMapping(value = "/notice_modify", method = RequestMethod.POST)
@@ -58,7 +58,7 @@ public class NoticeController {
 
 		logger.info("notice_ModifyPOST post ...........");
 
-		return "notice_modify";
+		return "/notice/notice_modify";
 	}
 	
 	@RequestMapping(value = "/notice_regist", method = RequestMethod.GET)
@@ -66,7 +66,7 @@ public class NoticeController {
 
 		logger.info("notice_RegistGET PAGE...............");
 
-		return "notice_regist";
+		return "/notice/notice_regist";
 	}
 
 	@RequestMapping(value = "/notice_regist", method = RequestMethod.POST)
@@ -74,6 +74,6 @@ public class NoticeController {
 
 		logger.info("notice_RegistPOST post ...........");
 
-		return "notice_regist";
+		return "/notice/notice_regist";
 	}
 }
