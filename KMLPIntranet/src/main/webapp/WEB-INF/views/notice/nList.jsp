@@ -43,11 +43,11 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="#"><button type="button" class="btn btn-primary">��������</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-default">��&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-default">��&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-default">Ŀ�´�Ƽ</button></a></p>
-       <p><a href="#"> <button type="button" class="btn btn-default">�������</button></a></p>
+      <p><a href="#"><button type="button" class="btn btn-primary">공지사항</button></a></p>
+      <p><a href="#"><button type="button" class="btn btn-default">결&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;재</button></a></p>
+      <p><a href="#"><button type="button" class="btn btn-default">쪽&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;지</button></a></p>
+      <p><a href="#"><button type="button" class="btn btn-default">커뮤니티</button></a></p>
+       <p><a href="#"> <button type="button" class="btn btn-default">멤버 관리</button></a></p>
     </div>
     <br>
     <div class="col-sm-8 text-left"> 

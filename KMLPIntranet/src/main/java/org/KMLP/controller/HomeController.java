@@ -49,23 +49,23 @@ public class HomeController {
 
 		logger.info("loginPOST post ...........");
 
-		return "redirect:/notice/notice_list";
+		return "redirect:/notice/nList";
 	}
 	
-	@RequestMapping(value = "/mypage_modify", method = RequestMethod.GET)
-	public String mypageGET(Model model) {
+	@RequestMapping(value = "/myModify", method = RequestMethod.GET)
+	public String myModifyGET(Model model) {
 
-		logger.info("mypageGET PAGE...............");
+		logger.info("myModifyGET PAGE...............");
 
-		return "mypage_modify";
+		return "myModify";
 	}
 
-	@RequestMapping(value = "/mypage_modify", method = RequestMethod.POST)
-	public String mypagePOST(Model model) throws Exception {
+	@RequestMapping(value = "/myModify", method = RequestMethod.POST)
+	public String myModifyPOST(Model model) throws Exception {
 
-		logger.info("mypagePOST post ...........");
+		logger.info("myModifyPOST post ...........");
 
-		return "redirect:/notice/notice_list";
+		return "redirect:/notice/nList";
 	}
 	
 }

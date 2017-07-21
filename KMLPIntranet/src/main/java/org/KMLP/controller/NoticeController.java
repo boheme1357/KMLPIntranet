@@ -13,67 +13,67 @@ public class NoticeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
 	
-	@RequestMapping(value = "/notice_list", method = RequestMethod.GET)
-	public String notice_ListGET(Model model) {
+	@RequestMapping(value = "/nList", method = RequestMethod.GET)
+	public String nListGET(Model model) {
 
-		logger.info("notice_ListGET PAGE...............");
+		logger.info("nListGET PAGE...............");
 
-		return "/notice/notice_list";
+		return "/notice/nList";
 	}
 
-	@RequestMapping(value = "/notice_list", method = RequestMethod.POST)
-	public String notice_ListPOST(Model model) throws Exception {
+	@RequestMapping(value = "/nList", method = RequestMethod.POST)
+	public String nListPOST(Model model) throws Exception {
 
-		logger.info("notice_ListPOST post ...........");
+		logger.info("nListPOST post ...........");
 
-		return "/notice/notice_list";
-	}
-	
-	@RequestMapping(value = "/notice_content", method = RequestMethod.GET)
-	public String notice_ContentGET(Model model) {
-
-		logger.info("notice_ContentGET PAGE...............");
-
-		return "/notice/notice_content";
-	}
-
-	@RequestMapping(value = "/notice_content", method = RequestMethod.POST)
-	public String notice_ContentPOST(Model model) throws Exception {
-
-		logger.info("notice_ContentPOST post ...........");
-
-		return "/notice/notice_content";
+		return "/notice/nList";
 	}
 	
-	@RequestMapping(value = "/notice_modify", method = RequestMethod.GET)
-	public String notice_ModifyGET(Model model) {
+	@RequestMapping(value = "/nContent", method = RequestMethod.GET)
+	public String nContentGET(Model model) {
 
-		logger.info("notice_ModifyGET PAGE...............");
+		logger.info("nContentGET PAGE...............");
 
-		return "/notice/notice_modify";
+		return "/notice/nContent";
 	}
 
-	@RequestMapping(value = "/notice_modify", method = RequestMethod.POST)
-	public String notice_ModifyPOST(Model model) throws Exception {
+	@RequestMapping(value = "/nContent", method = RequestMethod.POST)
+	public String nContentPOST(Model model) throws Exception {
 
-		logger.info("notice_ModifyPOST post ...........");
+		logger.info("nContentPOST post ...........");
 
-		return "/notice/notice_modify";
+		return "/notice/nContent";
 	}
 	
-	@RequestMapping(value = "/notice_regist", method = RequestMethod.GET)
-	public String notice_RegistGET(Model model) {
+	@RequestMapping(value = "/nModify", method = RequestMethod.GET)
+	public String nModifyGET(Model model) {
 
-		logger.info("notice_RegistGET PAGE...............");
+		logger.info("nModifyGET PAGE...............");
 
-		return "/notice/notice_regist";
+		return "/notice/nModify";
 	}
 
-	@RequestMapping(value = "/notice_regist", method = RequestMethod.POST)
-	public String notice_RegistPOST(Model model) throws Exception {
+	@RequestMapping(value = "/nModify", method = RequestMethod.POST)
+	public String nModifyPOST(Model model) throws Exception {
 
-		logger.info("notice_RegistPOST post ...........");
+		logger.info("nModifyPOST post ...........");
 
-		return "/notice/notice_regist";
+		return "/notice/nModify";
+	}
+	
+	@RequestMapping(value = "/nRegist", method = RequestMethod.GET)
+	public String nRegistGET(Model model) {
+
+		logger.info("nRegistGET PAGE...............");
+
+		return "/notice/nRegist";
+	}
+
+	@RequestMapping(value = "/nRegist", method = RequestMethod.POST)
+	public String nRegistPOST(Model model) throws Exception {
+
+		logger.info("nRegistPOST post ...........");
+
+		return "/notice/nRegist";
 	}
 }

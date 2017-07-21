@@ -13,67 +13,67 @@ public class ApproveController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ApproveController.class);
 	
-	@RequestMapping(value = "/approve_list", method = RequestMethod.GET)
-	public String approve_ListGET(Model model) {
+	@RequestMapping(value = "/aList", method = RequestMethod.GET)
+	public String aListGET(Model model) {
 
-		logger.info("approve_ListGET PAGE...............");
+		logger.info("aListGET PAGE...............");
 
-		return "/approve/approve_list";
+		return "/approve/aList";
 	}
 
-	@RequestMapping(value = "/approve_list", method = RequestMethod.POST)
-	public String approve_ListPOST(Model model) throws Exception {
+	@RequestMapping(value = "/aList", method = RequestMethod.POST)
+	public String aListPOST(Model model) throws Exception {
 
-		logger.info("approve_ListPOST post ...........");
+		logger.info("aListPOST post ...........");
 
-		return "/approve/approve_list";
-	}
-	
-	@RequestMapping(value = "/approve_content", method = RequestMethod.GET)
-	public String approve_ContentGET(Model model) {
-
-		logger.info("approve_ContentGET PAGE...............");
-
-		return "/approve/approve_content";
-	}
-
-	@RequestMapping(value = "/approve_content", method = RequestMethod.POST)
-	public String approve_ContentPOST(Model model) throws Exception {
-
-		logger.info("approve_ContentPOST post ...........");
-
-		return "/approve/approve_content";
+		return "/approve/aList";
 	}
 	
-	@RequestMapping(value = "/approve_modify", method = RequestMethod.GET)
-	public String approve_ModifyGET(Model model) {
+	@RequestMapping(value = "/aContent", method = RequestMethod.GET)
+	public String aContentGET(Model model) {
 
-		logger.info("approve_ModifyGET PAGE...............");
+		logger.info("aContentGET PAGE...............");
 
-		return "/approve/approve_modify";
+		return "/approve/aContent";
 	}
 
-	@RequestMapping(value = "/approve_modify", method = RequestMethod.POST)
-	public String approve_ModifyPOST(Model model) throws Exception {
+	@RequestMapping(value = "/aContent", method = RequestMethod.POST)
+	public String aContentPOST(Model model) throws Exception {
 
-		logger.info("approve_ModifyPOST post ...........");
+		logger.info("aContentPOST post ...........");
 
-		return "/approve/approve_modify";
+		return "/approve/aContent";
 	}
 	
-	@RequestMapping(value = "/approve_regist", method = RequestMethod.GET)
-	public String approve_RegistGET(Model model) {
+	@RequestMapping(value = "/aModify", method = RequestMethod.GET)
+	public String aModifyGET(Model model) {
 
-		logger.info("approve_RegistGET PAGE...............");
+		logger.info("aModifyGET PAGE...............");
 
-		return "/approve/approve_regist";
+		return "/approve/aModify";
 	}
 
-	@RequestMapping(value = "/approve_regist", method = RequestMethod.POST)
-	public String approve_RegistPOST(Model model) throws Exception {
+	@RequestMapping(value = "/aModify", method = RequestMethod.POST)
+	public String aModifyPOST(Model model) throws Exception {
 
-		logger.info("approve_RegistPOST post ...........");
+		logger.info("aModifyGET post ...........");
 
-		return "/approve/approve_regist";
+		return "/approve/aModify";
+	}
+	
+	@RequestMapping(value = "/aRegist", method = RequestMethod.GET)
+	public String aRegistGET(Model model) {
+
+		logger.info("aRegistGET PAGE...............");
+
+		return "/approve/aRegist";
+	}
+
+	@RequestMapping(value = "/aRegist", method = RequestMethod.POST)
+	public String aRegistGETPOST(Model model) throws Exception {
+
+		logger.info("aRegistGET post ...........");
+
+		return "/approve/aRegist";
 	}
 }

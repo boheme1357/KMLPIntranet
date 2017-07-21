@@ -13,67 +13,67 @@ public class MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
-	@RequestMapping(value = "/member_list", method = RequestMethod.GET)
-	public String member_ListGET(Model model) {
+	@RequestMapping(value = "/mList", method = RequestMethod.GET)
+	public String mListGET(Model model) {
 
-		logger.info("member_ListGET PAGE...............");
+		logger.info("mListGET PAGE...............");
 
-		return "/member/member_list";
+		return "/member/mList";
 	}
 
-	@RequestMapping(value = "/member_list", method = RequestMethod.POST)
-	public String member_ListPOST(Model model) throws Exception {
+	@RequestMapping(value = "/mList", method = RequestMethod.POST)
+	public String mListPOST(Model model) throws Exception {
 
-		logger.info("member_ListPOST post ...........");
+		logger.info("mListPOST post ...........");
 
-		return "/member/member_list";
-	}
-	
-	@RequestMapping(value = "/member_content", method = RequestMethod.GET)
-	public String member_ContentGET(Model model) {
-
-		logger.info("member_ContentGET PAGE...............");
-
-		return "/member/member_content";
-	}
-
-	@RequestMapping(value = "/member_content", method = RequestMethod.POST)
-	public String member_ContentPOST(Model model) throws Exception {
-
-		logger.info("member_ContentPOST post ...........");
-
-		return "/member/member_content";
+		return "/member/mList";
 	}
 	
-	@RequestMapping(value = "/member_modify", method = RequestMethod.GET)
-	public String member_ModifyGET(Model model) {
+	@RequestMapping(value = "/mContent", method = RequestMethod.GET)
+	public String mContentGET(Model model) {
 
-		logger.info("member_ModifyGET PAGE...............");
+		logger.info("mContentGET PAGE...............");
 
-		return "/member/member_modify";
+		return "/member/mContent";
 	}
 
-	@RequestMapping(value = "/member_modify", method = RequestMethod.POST)
-	public String member_ModifyPOST(Model model) throws Exception {
+	@RequestMapping(value = "/mContent", method = RequestMethod.POST)
+	public String mContentPOST(Model model) throws Exception {
 
-		logger.info("member_ModifyPOST post ...........");
+		logger.info("mContentPOST post ...........");
 
-		return "/member/member_modify";
+		return "/member/mContent";
 	}
 	
-	@RequestMapping(value = "/member_regist", method = RequestMethod.GET)
-	public String member_RegistGET(Model model) {
+	@RequestMapping(value = "/mModify", method = RequestMethod.GET)
+	public String mModifyGET(Model model) {
 
-		logger.info("member_RegistGET PAGE...............");
+		logger.info("mModifyGET PAGE...............");
 
-		return "/member/member_regist";
+		return "/member/mModify";
 	}
 
-	@RequestMapping(value = "/member_regist", method = RequestMethod.POST)
-	public String member_RegistPOST(Model model) throws Exception {
+	@RequestMapping(value = "/mModify", method = RequestMethod.POST)
+	public String mModifyPOST(Model model) throws Exception {
 
-		logger.info("member_RegistPOST post ...........");
+		logger.info("mModifyPOST post ...........");
 
-		return "/member/member_regist";
+		return "/member/mModify";
+	}
+	
+	@RequestMapping(value = "/mRegist", method = RequestMethod.GET)
+	public String mRegistGET(Model model) {
+
+		logger.info("mRegistGET PAGE...............");
+
+		return "/member/mRegist";
+	}
+
+	@RequestMapping(value = "/mRegist", method = RequestMethod.POST)
+	public String mRegistPOST(Model model) throws Exception {
+
+		logger.info("mRegistPOST post ...........");
+
+		return "/member/mRegist";
 	}
 }
