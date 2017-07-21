@@ -4,7 +4,7 @@
 <html>
 <head>
 
-<title>°øÁö»çÇ× ¸®½ºÆ®</title>
+<title>ê³µì§€ì‚¬í•­ ë¦¬ìŠ¤íŠ¸</title>
   <meta http-equiv="Content-Type" name="viewport" content="width=device-width, initial-scale=1, text/html; charset=UTF-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -43,21 +43,21 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="#"><button type="button" class="btn btn-primary">°øÁö»çÇ×</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-default">°á&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Àç</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-default">ÂÊ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Áö</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-default">Ä¿¹Â´ÏÆ¼</button></a></p>
-       <p><a href="#"> <button type="button" class="btn btn-default">»ç¿ø°ü¸®</button></a></p>
+      <p><a href="#"><button type="button" class="btn btn-primary">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</button></a></p>
+      <p><a href="#"><button type="button" class="btn btn-default">ï¿½ï¿½&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ï¿½ï¿½</button></a></p>
+      <p><a href="#"><button type="button" class="btn btn-default">ï¿½ï¿½&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ï¿½ï¿½</button></a></p>
+      <p><a href="#"><button type="button" class="btn btn-default">Ä¿ï¿½Â´ï¿½Æ¼</button></a></p>
+       <p><a href="#"> <button type="button" class="btn btn-default">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</button></a></p>
     </div>
     <br>
     <div class="col-sm-8 text-left"> 
      <table class="table table-bordered">
     <thead>
       <tr>
-        <th>¹øÈ£</th>
-        <th>Á¦¸ñ</th>
-        <th>ÀÛ¼ºÀÚ</th>
-        <th>ÀÛ¼ºÀÏÀÚ</th> 
+        <th>ï¿½ï¿½È£</th>
+        <th>ï¿½ï¿½ï¿½ï¿½</th>
+        <th>ï¿½Û¼ï¿½ï¿½ï¿½</th>
+        <th>ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½</th> 
         
       </tr>
     </thead>
@@ -71,34 +71,34 @@
       </tr>
       <tr>
        <td>1</td>
-        <td>³î·¯°¡ÀÚ</td>
+        <td>ï¿½î·¯ï¿½ï¿½ï¿½ï¿½</td>
          <td>1</td>
         <td>2017-09-02</td>
      
       </tr>
       <tr>
         <td>1</td>
-        <td>¼¼¹Ì³ª</td>
+        <td>ï¿½ï¿½ï¿½Ì³ï¿½</td>
          <td>1</td>
         <td>2017-03-08</td>
       </tr>
       <tr>
         <td>1</td>
-        <td>Áö±¸ÀÏÁÖ</td>
+        <td>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
          <td>1</td>
         <td>2060-05-20</td>
      
       </tr>
       <tr>
        <td>1</td>
-        <td>È­¼º¿©Çà</td>
+        <td>È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</td>
          <td>1</td>
         <td>2100-05-06</td>
      
       </tr>
       <tr>
        <td>1</td>
-        <td>³²±ØÅ½Çè</td>
+        <td>ï¿½ï¿½ï¿½ï¿½Å½ï¿½ï¿½</td>
          <td>1</td>
         <td>2050-06-23</td>
       </tr>
@@ -107,7 +107,7 @@
       
     </tbody>
   </table>
-  <p align="center"><a href="#"> <button type="button" class="btn btn-primary">µî·Ï</button></a></p>
+  <p align="center"><a href="#"> <button type="button" class="btn btn-primary">ï¿½ï¿½ï¿½</button></a></p>
 </div>
 
 </body>
