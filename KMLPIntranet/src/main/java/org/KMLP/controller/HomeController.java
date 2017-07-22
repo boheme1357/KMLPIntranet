@@ -22,7 +22,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("home PAGE...............");
 		
@@ -33,10 +33,10 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "login";
+		return "home";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGET(Model model) {
 
 		logger.info("loginGET PAGE...............");
@@ -50,7 +50,7 @@ public class HomeController {
 		logger.info("loginPOST post ...........");
 
 		return "redirect:/notice/nList";
-	}
+	}*/
 	
 	@RequestMapping(value = "/myModify", method = RequestMethod.GET)
 	public String myModifyGET(Model model) {
