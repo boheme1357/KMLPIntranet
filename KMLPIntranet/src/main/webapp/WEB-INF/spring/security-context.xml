@@ -6,10 +6,21 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
         
     <!-- 검사 URL -->
-    <http>
-        <intercept-url pattern="/**" access="hasRole('USER')" />
-        <form-login />
-        <logout />
+    <http use-expressions="true">
+        <intercept-url pattern="/login.do" access="permitAll" />
+        <intercept-url pattern="/home.do" access="permitAll" />
+        <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN')" />
+        
+        <form-login login-page="/login.do"
+                    default-target-url="/home.do"
+                    authentication-failure-url="/login.do?error"
+                    username-parameter="m_id"
+                    password-parameter="m_pwd" />
+        <logout logout-url="/logout"
+                logout-success-url="/home.do" />
+                
+        <access-denied-handler error-page="/accessDenied.do" />
     </http>
     
     <!--  provider  -->
@@ -17,6 +28,7 @@
         <authentication-provider>
             <user-service>
                 <user name="user" password="password" authorities="ROLE_USER" />
+                <user name="admin" password="password" authorities="ROLE_ADMIN" />
             </user-service>
         </authentication-provider>
     </authentication-manager>
