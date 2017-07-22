@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 /**
  * Handles requests for the application home page.
@@ -22,7 +22,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("home PAGE...............");
 		
@@ -33,24 +33,33 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "login";
+		return "home";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
 	public String loginGET(Model model) {
 
 		logger.info("loginGET PAGE...............");
 
 		return "login";
 	}
-
+	
+	@RequestMapping(value = "/accessDenied.do", method = RequestMethod.GET)
+	public String accessDeniedGET(Locale locale, Model model) {
+		logger.info("accessDeniedGET PAGE...............");
+		
+		return "accessDenied";
+	}
+	
+	
+	/*
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPOST(Model model, RedirectAttributes rttr) throws Exception {
 
 		logger.info("loginPOST post ...........");
 
 		return "redirect:/notice/nList";
-	}
+	}*/
 	
 	@RequestMapping(value = "/myModify", method = RequestMethod.GET)
 	public String myModifyGET(Model model) {
