@@ -61,7 +61,7 @@ public class HomeController {
 		return "redirect:/notice/nList";
 	}*/
 	
-	@RequestMapping(value = "/myModify", method = RequestMethod.GET)
+	@RequestMapping(value = "/myModify.do", method = RequestMethod.GET)
 	public String myModifyGET(Model model) {
 
 		logger.info("myModifyGET PAGE...............");
@@ -69,12 +69,17 @@ public class HomeController {
 		return "myModify";
 	}
 
-	@RequestMapping(value = "/myModify", method = RequestMethod.POST)
+	@RequestMapping(value = "/myModify.do", method = RequestMethod.POST)
 	public String myModifyPOST(Model model) throws Exception {
 
 		logger.info("myModifyPOST post ...........");
 
 		return "redirect:/notice/nList";
+	}
+	
+	@RequestMapping("newFile.do")
+	public String NewFile(){
+		return "NewFile";
 	}
 	
 }

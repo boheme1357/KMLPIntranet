@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="noticeMapper">
+
+	<!--01. 공지사항전체목록 -->
+	<select id="selectAll" resultType="org.KMLP.domain.NoticeVO">   
+		select * from notice;
+	</select>
+
+
+
+	<!-- 02_02. 공지사항데이터삽입 -->
+	<insert id="insert">
+		insert into notice(n_id, n_title, n_content, n_file)
+		values
+		( #{n_id}, #{n_title}, #{n_content}, #{n_file})
+	</insert>
+
+
+	<!--03. 공지사항 내용 -->
+	<select id="selectContent" resultType="org.KMLP.domain.NoticeVO">
+		select * from notice where n_num=#{n_num}
+	</select>
+
+
+
+	<!--04. 공지사항수정 -->
+	<update id="update">
+		update notice set n_id=#{n_id}, n_title=#{n_title}, n_content=#{n_content}, n_file=#{n_file}
+		where n_num=#{n_num}
+	</update>
+
+
+
+	<!--05. 공지사항삭제 -->
+	<delete id="delete">
+		delete from notice where n_num=#{n_num}
+	</delete>
+
+
+
+
+</mapper>

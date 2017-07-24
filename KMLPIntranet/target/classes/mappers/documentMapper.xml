@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="documentMapper">
+
+	<!--01. 일일업무전체목록 -->
+	<select id="selectAll" resultType="org.KMLP.domain.DocumentVO">
+		select * from document;
+	</select>
+
+
+
+	<!-- 02_02. 일일업무데이터삽입 -->
+	<insert id="insert">
+		insert into document(d_num, d_id, d_title, d_content, d_final_check, d_appr_cnt)
+		values
+		( #{d_num}, #{d_id}, #{d_title}, #{d_content}, #{d_final_check}, #{d_appr_cnt})
+	</insert>
+
+
+	<!--03. 일일업무 내용 -->
+	<select id="selectContent" resultType="org.KMLP.domain.DocumentVO">
+		select * from document where d_num=#{d_num}
+	</select>
+
+
+
+	<!--04. 일일업무수정 -->
+	<update id="update">
+		update document set d_num=#{d_num}, d_date=#{d_date}, d_id=#{d_id}, d_title=#{d_title}, d_content=#{d_content}, d_final_check=#{d_final_check}, d_appr_cnt=#{d_appr_cnt}
+		where d_num=#{d_num}
+	</update>
+
+
+
+	<!--05. 일일업무삭제 -->
+	<delete id="delete">
+		delete from document where d_num=#{d_num}
+	</delete>
+
+
+
+
+</mapper>

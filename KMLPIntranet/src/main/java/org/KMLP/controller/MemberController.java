@@ -1,27 +1,42 @@
 package org.KMLP.controller;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.KMLP.domain.MemberVO;
+import org.KMLP.service.MemberSerive;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/member/*")
 public class MemberController {
+	
+	@Inject
+	MemberSerive memberSerive;
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
-	@RequestMapping(value = "/mList", method = RequestMethod.GET)
+	//01. 사원전체목록
+	@RequestMapping(value = "/mList.do", method = RequestMethod.GET)
 	public String mListGET(Model model) {
-
 		logger.info("mListGET PAGE...............");
+
+		// 멤버리스트 가져오기
+		List<MemberVO> list = memberSerive.selectAll();
+		model.addAttribute("list", list);
 
 		return "/member/mList";
 	}
 
-	@RequestMapping(value = "/mList", method = RequestMethod.POST)
+	@RequestMapping(value = "/mList.do", method = RequestMethod.POST)
 	public String mListPOST(Model model) throws Exception {
 
 		logger.info("mListPOST post ...........");
@@ -29,39 +44,9 @@ public class MemberController {
 		return "/member/mList";
 	}
 	
-	@RequestMapping(value = "/mContent", method = RequestMethod.GET)
-	public String mContentGET(Model model) {
 
-		logger.info("mContentGET PAGE...............");
-
-		return "/member/mContent";
-	}
-
-	@RequestMapping(value = "/mContent", method = RequestMethod.POST)
-	public String mContentPOST(Model model) throws Exception {
-
-		logger.info("mContentPOST post ...........");
-
-		return "/member/mContent";
-	}
-	
-	@RequestMapping(value = "/mModify", method = RequestMethod.GET)
-	public String mModifyGET(Model model) {
-
-		logger.info("mModifyGET PAGE...............");
-
-		return "/member/mModify";
-	}
-
-	@RequestMapping(value = "/mModify", method = RequestMethod.POST)
-	public String mModifyPOST(Model model) throws Exception {
-
-		logger.info("mModifyPOST post ...........");
-
-		return "/member/mModify";
-	}
-	
-	@RequestMapping(value = "/mRegist", method = RequestMethod.GET)
+	//02_01. 사원등록화면
+	@RequestMapping(value = "/mRegist.do", method = RequestMethod.GET)
 	public String mRegistGET(Model model) {
 
 		logger.info("mRegistGET PAGE...............");
@@ -69,11 +54,68 @@ public class MemberController {
 		return "/member/mRegist";
 	}
 
-	@RequestMapping(value = "/mRegist", method = RequestMethod.POST)
-	public String mRegistPOST(Model model) throws Exception {
-
+	//02_02. 사원데이터 삽입
+	@RequestMapping(value = "/mRegist.do", method = RequestMethod.POST)
+	public String mRegistPOST(@ModelAttribute MemberVO vo, Model model) throws Exception {
 		logger.info("mRegistPOST post ...........");
+		
+		System.out.println(vo.getM_name());
+		
+		memberSerive.insert(vo);
 
-		return "/member/mRegist";
+		return "redirect:/member/mList.do";
 	}
+	
+	//03. 사원개인정보조회
+	@RequestMapping(value = "/mContent.do", method = RequestMethod.GET)
+	public String mContentGET(@RequestParam("m_id") String m_id, Model model) {
+		logger.info("mContentGET PAGE...............");
+		
+		model.addAttribute("dto", memberSerive.selectContent(m_id));
+
+		return "/member/mContent";
+	}
+
+	@RequestMapping(value = "/mContent.do", method = RequestMethod.POST)
+	public String mContentPOST(Model model) throws Exception {
+
+		logger.info("mContentPOST post ...........");
+
+		return "/member/mContent";
+	}
+	
+	@RequestMapping(value = "/mModify.do", method = RequestMethod.GET)
+	public String mModifyGET(Model model) {
+
+		logger.info("mModifyGET PAGE...............");
+
+		return "/member/mModify";
+	}
+
+	//04. 사원데이터수정
+	@RequestMapping(value = "/mModify.do", method = RequestMethod.POST)
+	public String mModifyPOST(@ModelAttribute MemberVO vo, Model model) throws Exception {
+		logger.info("mModifyPOST post ...........");
+		
+		boolean result=memberSerive.checkPw(vo.getM_id(), vo.getM_pwd());
+
+		if(result){
+			memberSerive.update(vo);
+			return "redirect:/member/mList.do";
+		}else {
+			model.addAttribute("dto", vo);
+			model.addAttribute("message", "비밀번호 불일치");
+			return "/member/mContent";
+		}
+
+		
+	}
+	
+	
+	//05. 사원데이터삭제
+		@RequestMapping("member/mDelete.do")
+		public String delete(String m_id){
+			memberSerive.delete(m_id);
+			return "redirect:/member/mList.do";
+		}
 }

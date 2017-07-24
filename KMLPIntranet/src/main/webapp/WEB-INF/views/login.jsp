@@ -17,7 +17,7 @@
 	<c:url value="/login" var="loginUrl" />
 	<form:form name="f" action="${loginUrl}" method="POST">
 		<c:if test="${param.error != null}">
-			<p>아이디와 비밀번호가 잘못되었습니다.</p>
+			<p>아이디 또는 비밀번호가 잘못되었습니다.</p>
 		</c:if>
 		<c:if test="${param.logout != null}">
 			<p>로그아웃 하였습니다.</p>
