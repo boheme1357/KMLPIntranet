@@ -13,7 +13,7 @@
         <intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN')" />
         
         <form-login login-page="/login.do"
-                    default-target-url="/home.do"
+                    default-target-url="/notice/nList.do"
                     authentication-failure-url="/login.do?error"
                     username-parameter="m_id"
                     password-parameter="m_pwd" />

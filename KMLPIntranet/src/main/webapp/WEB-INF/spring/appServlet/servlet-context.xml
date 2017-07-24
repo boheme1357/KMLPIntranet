@@ -40,6 +40,19 @@
 		<!-- 파일업로드 디렉토리 -->
 		<beans:constructor-arg value="해당디렉토리" />
 	</beans:bean>
+	
+	<!-- 타일 추가 -->
+	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+        <beans:property name="order" value="1"/>
+    </beans:bean>
+
+    <beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <beans:property name="definitions">
+            <beans:list>
+                 <beans:value>/WEB-INF/views/**/tiles.xml</beans:value>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
 
 
 

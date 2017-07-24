@@ -32,7 +32,7 @@ public class NoticeController {
 		List<NoticeVO> list = noticeSerive.selectAll();
 		model.addAttribute("list", list);
 
-		return "/notice/nList";
+		return "nList";
 	}
 
 	@RequestMapping(value = "/nList.do", method = RequestMethod.POST)
@@ -40,7 +40,7 @@ public class NoticeController {
 
 		logger.info("nListPOST post ...........");
 
-		return "/notice/nList";
+		return "nList";
 	}
 
 	// 02_01. 공지사항등록화면
@@ -49,7 +49,7 @@ public class NoticeController {
 
 		logger.info("nRegistGET PAGE...............");
 
-		return "/notice/nRegist";
+		return "nRegist";
 	}
 
 	// 02_02. 공지사항데이터 삽입
@@ -69,7 +69,7 @@ public class NoticeController {
 
 		model.addAttribute("dto", noticeSerive.selectContent(n_num));
 
-		return "/notice/nContent";
+		return "nContent";
 	}
 
 	@RequestMapping(value = "/nContent.do", method = RequestMethod.POST)
@@ -86,7 +86,7 @@ public class NoticeController {
 
 		logger.info("nModifyGET PAGE...............");
 
-		return "/notice/nModify";
+		return "nModify";
 	}
 
 	// 04. 공지사항데이터수정

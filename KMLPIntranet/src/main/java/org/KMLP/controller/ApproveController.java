@@ -33,7 +33,7 @@ public class ApproveController {
 		List<DocumentVO> list = documentSerive.selectAll();
 		model.addAttribute("list", list);
 
-		return "/approve/aList";
+		return "aList";
 	}
 
 	@RequestMapping(value = "/aList.do", method = RequestMethod.POST)
@@ -41,7 +41,7 @@ public class ApproveController {
 
 		logger.info("aListPOST post ...........");
 
-		return "/approve/aList";
+		return "aList";
 	}
 
 	// 02_01. 일일업무일지 등록화면
@@ -50,7 +50,7 @@ public class ApproveController {
 
 		logger.info("aRegistGET PAGE...............");
 
-		return "/approve/aRegist";
+		return "aRegist";
 	}
 
 	// 02_02. 일일업무일지 데이터 삽입
@@ -72,7 +72,7 @@ public class ApproveController {
 
 		model.addAttribute("dto", documentSerive.selectContent(d_num));
 
-		return "/approve/aContent";
+		return "aContent";
 	}
 
 	// 04. 일일업무일지 데이터수정
@@ -91,7 +91,7 @@ public class ApproveController {
 
 		logger.info("aModifyGET PAGE...............");
 
-		return "/approve/aModify";
+		return "aModify";
 	}
 
 	@RequestMapping(value = "/aModify.do", method = RequestMethod.POST)
@@ -99,7 +99,7 @@ public class ApproveController {
 
 		logger.info("aModifyGET post ...........");
 
-		return "/approve/aModify";
+		return "aModify";
 	}
 
 	// 05. 일일업무일지 데이터삭제

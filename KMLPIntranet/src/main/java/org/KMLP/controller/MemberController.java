@@ -33,7 +33,7 @@ public class MemberController {
 		List<MemberVO> list = memberSerive.selectAll();
 		model.addAttribute("list", list);
 
-		return "/member/mList";
+		return "mList";
 	}
 
 	@RequestMapping(value = "/mList.do", method = RequestMethod.POST)
@@ -41,7 +41,7 @@ public class MemberController {
 
 		logger.info("mListPOST post ...........");
 
-		return "/member/mList";
+		return "mList";
 	}
 	
 
@@ -51,7 +51,7 @@ public class MemberController {
 
 		logger.info("mRegistGET PAGE...............");
 
-		return "/member/mRegist";
+		return "mRegist";
 	}
 
 	//02_02. 사원데이터 삽입
@@ -73,7 +73,7 @@ public class MemberController {
 		
 		model.addAttribute("dto", memberSerive.selectContent(m_id));
 
-		return "/member/mContent";
+		return "mContent";
 	}
 
 	@RequestMapping(value = "/mContent.do", method = RequestMethod.POST)
@@ -81,7 +81,7 @@ public class MemberController {
 
 		logger.info("mContentPOST post ...........");
 
-		return "/member/mContent";
+		return "mContent";
 	}
 	
 	@RequestMapping(value = "/mModify.do", method = RequestMethod.GET)
@@ -89,7 +89,7 @@ public class MemberController {
 
 		logger.info("mModifyGET PAGE...............");
 
-		return "/member/mModify";
+		return "mModify";
 	}
 
 	//04. 사원데이터수정
@@ -105,7 +105,7 @@ public class MemberController {
 		}else {
 			model.addAttribute("dto", vo);
 			model.addAttribute("message", "비밀번호 불일치");
-			return "/member/mContent";
+			return "mContent";
 		}
 
 		
