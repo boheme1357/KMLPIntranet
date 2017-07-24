@@ -7,7 +7,6 @@
 <head>
 <title>Welcome!</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="css/style.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
@@ -67,17 +66,6 @@ h1 {
 </style>
 </head>
 <body>
-
-
-
-
-
-
-
-
-
-
-
 	<div class="w3-center">
 		<!-- CompName start -->
 		<div class="w3-border- w3-border-light-grey" style="margin-top: 100px">
