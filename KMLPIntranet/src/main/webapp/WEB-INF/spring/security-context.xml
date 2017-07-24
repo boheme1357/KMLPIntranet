@@ -7,6 +7,7 @@
         
     <!-- 검사 URL -->
     <http use-expressions="true">
+    	<intercept-url pattern="/resources/**" access="permitAll" />
         <intercept-url pattern="/login.do" access="permitAll" />
         <intercept-url pattern="/home.do" access="permitAll" />
         <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
