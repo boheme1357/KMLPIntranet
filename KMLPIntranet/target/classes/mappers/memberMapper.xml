@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+
+	<!--01. 사원전체목록 -->
+	<select id="selectAll" resultType="org.KMLP.domain.MemberVO">
+		select * from member;
+	</select>
+
+
+
+	<!-- 02_02. 사원데이터삽입 -->
+	<insert id="insert">
+		insert into member(m_id, m_name, m_pwd, m_dept, m_posit, m_email_id, m_email_do, m_cell, m_com_date)
+		values
+		(#{m_id}, #{m_name}, #{m_pwd}, #{m_dept}, #{m_posit}, #{m_email_id}, #{m_email_do}, #{m_cell}, #{m_com_date})
+	</insert>
+
+
+	<!--03. 사원 개인정보 조회 -->
+	<select id="selectContent" resultType="org.KMLP.domain.MemberVO">
+		select * from member where m_id=#{m_id}
+	</select>
+
+
+
+	<!--04. 사원정보수정 -->
+	<update id="update">
+		update member set m_name=#{m_name}, m_dept=#{m_dept}, m_posit=#{m_posit}, m_email_id=#{m_email_id}, m_email_do=#{m_email_do}, m_cell=#{m_cell}
+		where m_id=#{m_id}
+	</update>
+
+
+
+	<!--05. 사원정보삭제 -->
+	<delete id="delete">
+		delete from member where m_id=#{m_id}
+	</delete>
+
+
+	<!--06. 비밀번호체크 -->
+	<select id="checkPw" resultType="int">
+		select count(*) from member where m_id=#{m_id} and m_pwd=#{m_pwd}
+	</select>
+
+
+</mapper>
