@@ -1,5 +1,7 @@
 <%@ page pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- 시큐리티 태그lib -->
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,6 +41,12 @@
 <body>
 <div class="w3-bar w3-card-2 w3-left-align w3-blue-grey">
 	<h4 class="w3-left">K.M.L.P Intranet</h4>
+	<sec:authorize access="isAuthenticated()">
+				<sf:form action="${pageContext.request.contextPath}/logout"
+					method="POST" class="w3-bar-item w3-button w3-padding-large w3-right w3-hover-none"><i class="fa fa-sign-out">
+					<input type="submit" value="로그아웃" />
+				</sf:form>
+			</sec:authorize>
 	<a href="#" class="w3-bar-item w3-button w3-padding-large w3-right w3-hover-none"><i class="fa fa-sign-out"></i> 로그아웃</a>
 	<a href="#" class="w3-bar-item w3-button w3-padding-large w3-right w3-hover-none"><i class="fa fa-user"></i> 마이페이지</a>
 </div>

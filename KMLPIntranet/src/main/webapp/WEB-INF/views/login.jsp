@@ -1,11 +1,13 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>Welcome!</title>
+<title>KMLP Intranet Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -79,42 +81,53 @@ h1 {
 		<div class="container" style="margin-top: 120px">
 
 			<c:url value="/login" var="loginUrl" />
-			<form:form id="login" name="login" method="post" action="${loginUrl}"
-				onsubmit="return checkValue()">
-				<table align="center">
-					<tr>
-						<th>사원번호</th>
-						<td><input type="text" id="m_id" name="m_id"
-							style="width: 200px; height: 32px"></td>
-						<td rowspan="2"><input type="submit" id="submit"
-							class="w3-btn" value="로그인" onclick="submit_click();"></td>
-					</tr>
-					<tr>
-						<th>비밀번호</th>
-						<td><input type="password" id="m_pwd" name="m_pwd"
-							style="width: 200px; height: 32px"></td>
-					</tr>
-				</table>
+
+			<sec:authorize access="isAnonymous()">
+				<sf:form id="login" name="login" method="post"
+					action="${loginUrl}" onsubmit="return checkValue()">
+					<table align="center">
+						<tr>
+							<th>사원번호</th>
+							<td><input type="text" id="m_id" name="m_id"
+								style="width: 200px; height: 32px"></td>
+							<td rowspan="2"><input type="submit" id="submit"
+								class="w3-btn" value="로그인" onclick="submit_click();"></td>
+						</tr>
+						<tr>
+							<th>비밀번호</th>
+							<td><input type="password" id="m_pwd" name="m_pwd"
+								style="width: 200px; height: 32px"></td>
+						</tr>
+					</table>
 
 
-				<!-- 시작 : 아이디 및 비번 틀렸을 때 처리하는 화면 -->
-				<c:if test="${param.error != null}">
-					<p>아이디 또는 비밀번호가 잘못되었습니다.</p>
-				</c:if>
-				<c:if test="${param.logout != null}">
-					<p>로그아웃 하였습니다.</p>
-				</c:if>
-
-				<!-- 끝 : 아이디 및 비번 틀렸을 때 처리하는 화면 -->
-
+					<!-- 시작 : 아이디 및 비번 틀렸을 때 처리하는 화면 -->
+					<c:if test="${param.error != null}">
+						<p>아이디 또는 비밀번호가 잘못되었습니다.</p>
+					</c:if>
+					<c:if test="${param.logout != null}">
+						<p>로그아웃 하였습니다.</p>
+					</c:if>
+					<!-- 끝 : 아이디 및 비번 틀렸을 때 처리하는 화면 -->
 
 
-			</form:form>
+				</sf:form>
 
-			<div style="margin-top: 20px">
-				<a href=""><input type="button" id="find" name="find"
-					class="w3-btn w3-white w3-round-xlarge" value="비밀번호 찾기"></a>
-			</div>
+				<div style="margin-top: 20px">
+					<a href=""><input type="button" id="find" name="find"
+						class="w3-btn w3-white w3-round-xlarge" value="비밀번호 찾기"></a>
+				</div>
+
+
+			</sec:authorize>
+			<sec:authorize access="isAuthenticated()">
+				<sf:form action="${pageContext.request.contextPath}/logout"
+					method="POST">
+					<input type="submit" value="로그아웃" />
+				</sf:form>
+			</sec:authorize>
+
+
 		</div>
 		<!-- body end -->
 	</div>

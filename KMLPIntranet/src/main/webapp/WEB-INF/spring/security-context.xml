@@ -10,7 +10,7 @@
     	<intercept-url pattern="/resources/**" access="permitAll" />
         <intercept-url pattern="/login.do" access="permitAll" />
         <intercept-url pattern="/home.do" access="permitAll" />
-        <intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
+        <intercept-url pattern="/member/**" access="hasRole('ADMIN')" />
         <intercept-url pattern="/**" access="hasAnyRole('USER, ADMIN')" />
         
         <form-login login-page="/login.do"
@@ -19,7 +19,7 @@
                     username-parameter="m_id"
                     password-parameter="m_pwd" />
         <logout logout-url="/logout"
-                logout-success-url="/home.do" />
+                logout-success-url="/login.do" />
                 
         <access-denied-handler error-page="/accessDenied.do" />
     </http>
