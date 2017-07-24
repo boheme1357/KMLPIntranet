@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<h2> 사원목록 </h2>
+<h2> 사원 리스트 </h2>
 
 <form action="register">
 <input type="button" value="회원등록" onclick="location.href='${path}/member/mRegist.do'">
