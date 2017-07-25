@@ -25,14 +25,17 @@
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
 
+
+	<jdbc-user-service data-source-ref="dataSource" id="userService"
+		role-prefix="ROLE_" users-by-username-query="select m_id, m_pwd, m_enabled from member where m_id = ?"
+		authorities-by-username-query="select au_id, authority from authorities where au_id = ?" />
+
 	<!-- provider -->
 	<authentication-manager>
-		<authentication-provider>
-			<jdbc-user-service data-source-ref="dataSource"
-				role-prefix="ROLE_" users-by-username-query="select m_id, m_pwd, m_enabled from member where m_id = ?"
-				authorities-by-username-query="select au_id, authority from authorities where au_id = ?" />
-				
-				
+		<authentication-provider user-service-ref="userService">
+
+
+
 			<!-- 부서 권한 테이블이 있을 경우 추가 : group-authorities-by-username-query="select 
 				g.id, g.group_name, ga.authority from groups g, group_members gm, group_authorities 
 				ga where gm.username = ? and g.id = ga.group_id and g.id = gm.group_id" -->
