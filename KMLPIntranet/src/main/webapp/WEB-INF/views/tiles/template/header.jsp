@@ -8,10 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy"
-	rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 
 <style>
 h4 {
@@ -20,6 +18,10 @@ h4 {
 	font-size: 1.4em;
 	color: white;
 	margin-left: 20px;
+}
+
+#submit{
+	font-family: FontAwesome;
 }
 
 a:link {
@@ -43,20 +45,15 @@ a:active {
 	<div class="w3-bar w3-card-2 w3-left-align w3-blue-grey">
 		<h4 class="w3-left">K.M.L.P Intranet</h4>
 
-		<!-- 로그아웃 추가 -->
 		<sec:authorize access="isAuthenticated()">
 			<sf:form action="${pageContext.request.contextPath}/logout"
-				method="POST"
-				class="w3-bar-item w3-button w3-padding-large w3-right w3-hover-none">
-				<i class="fa fa-sign-out"> <input type="submit" value="로그아웃" />
+				method="POST">
+				<input type="submit" id="submit" value="&#xf08b; 로그아웃" class="w3-bar-item w3-button w3-padding-large w3-hover-none w3-right"/>
 			</sf:form>
 		</sec:authorize>
-		<!-- 로그아웃 추가 -->
-		<a href="#"
-			class="w3-bar-item w3-button w3-padding-large w3-right w3-hover-none"><i
-			class="fa fa-sign-out"></i> 로그아웃</a> <a href="#"
-			class="w3-bar-item w3-button w3-padding-large w3-right w3-hover-none"><i
-			class="fa fa-user"></i> 마이페이지</a>
+		
+		<a href="${pageContext.request.contextPath}/myModify.do" class="w3-bar-item w3-button w3-padding-large w3-right w3-hover-none">
+		<i class="fa fa-user"></i> 마이페이지</a>
 	</div>
 </body>
 </html>

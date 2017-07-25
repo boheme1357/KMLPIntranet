@@ -123,15 +123,6 @@
 	
 	
 </table>
-
 </form>
-
-
-
-
-
-
-
-
 </body>
 </html>
