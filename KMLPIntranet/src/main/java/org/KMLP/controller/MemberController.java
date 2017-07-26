@@ -1,7 +1,9 @@
 package org.KMLP.controller;
 
+import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.KMLP.domain.MemberVO;
@@ -10,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +24,10 @@ public class MemberController {
 	
 	@Inject
 	MemberSerive memberSerive;
+	
+	@Resource(name = "uploadPath")
+	String uploadPath;
+	
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
@@ -55,14 +62,22 @@ public class MemberController {
 	}
 
 	//02_02. 사원데이터 삽입
-	@RequestMapping(value = "/mRegist.do", method = RequestMethod.POST)
-	public String mRegistPOST(@ModelAttribute MemberVO vo, Model model) throws Exception {
+	@RequestMapping(value = "/mRegist.do", method = RequestMethod.POST, headers = ("content-type=multipart/*"))
+	public String mRegistPOST(MemberVO vo) throws Exception {
 		logger.info("mRegistPOST post ...........");
 		
-		System.out.println(vo.getM_name());
+		//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+file.getOriginalFilename());
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+vo.getM_id());
 		
-		memberSerive.insert(vo);
-
+		//System.out.println(vo.getM_id());
+		//System.out.println(vo.getFile().toString());
+		
+		String savedName = vo.getFile().getOriginalFilename();
+        File target = new File(uploadPath, savedName);
+        FileCopyUtils.copy(vo.getFile().getBytes(), target); // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사,  FileCopyUtils.copy(바이트배열, 파일객체)
+        
+        vo.setSavedName(savedName);
+        memberSerive.insert(vo);
 		return "redirect:/member/mList.do";
 	}
 	

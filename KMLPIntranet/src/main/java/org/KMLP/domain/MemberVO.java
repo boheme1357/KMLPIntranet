@@ -1,5 +1,7 @@
 package org.KMLP.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberVO {			//사원정보
 
 	private String m_id;		//사번
@@ -12,6 +14,8 @@ public class MemberVO {			//사원정보
 	private String m_cell;		//핸드폰번호
 	private String m_com_date;	//입사일자
 	private String m_quit_date;	//퇴사일자
+	private MultipartFile file;
+	private String savedName;
 	
 	public String getM_id() {
 		return m_id;
@@ -72,6 +76,18 @@ public class MemberVO {			//사원정보
 	}
 	public void setM_quit_date(String m_quit_date) {
 		this.m_quit_date = m_quit_date;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public String getSavedName() {
+		return savedName;
+	}
+	public void setSavedName(String savedName) {
+		this.savedName = savedName;
 	}
 	
 	

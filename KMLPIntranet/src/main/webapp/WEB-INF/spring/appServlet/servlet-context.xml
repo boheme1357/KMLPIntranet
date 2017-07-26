@@ -22,7 +22,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
-		<beans:property name="contentType" value="text/html; charset=UTF-8"/>
+		<beans:property name="contentType" value="text/html; charset=UTF-8" />
 	</beans:bean>
 
 	<context:component-scan base-package="org.KMLP.controller" />
@@ -34,25 +34,29 @@
 		<beans:property name="maxUploadSize" value="10485760" />
 	</beans:bean>
 
+
 	<!-- 파일업로드를 위한 디렉토리 설정 -->
 	<!-- String uploadPath = new String("업로드 경로") -->
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<!-- 파일업로드 디렉토리 -->
-		<beans:constructor-arg value="해당디렉토리" />
+		<beans:constructor-arg
+			value="D:\\kmlp\\KMLPIntranet\\KMLPIntranet\\src\\main\\webapp\\resources\\img\\" />
 	</beans:bean>
-	
-	<!-- 타일 추가 -->
-	<beans:bean id="tilesViewResolver" class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
-        <beans:property name="order" value="1"/>
-    </beans:bean>
 
-    <beans:bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-        <beans:property name="definitions">
-            <beans:list>
-                 <beans:value>/WEB-INF/views/**/tiles.xml</beans:value>
-            </beans:list>
-        </beans:property>
-    </beans:bean>
+	<!-- 타일 추가 -->
+	<beans:bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+		<beans:property name="order" value="1" />
+	</beans:bean>
+
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/views/**/tiles.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
 
 
 
