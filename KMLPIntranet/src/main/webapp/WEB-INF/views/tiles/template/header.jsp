@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 
 <style>
-h4 {
+#h4 {
 	font-style: italic;
 	font-family: 'Luckiest Guy', cursive;
 	font-size: 1.4em;
@@ -20,7 +20,7 @@ h4 {
 	margin-left: 20px;
 }
 
-#submit{
+#submit {
 	font-family: FontAwesome;
 }
 
@@ -43,7 +43,7 @@ a:active {
 </head>
 <body>
 	<div class="w3-bar w3-card-2 w3-left-align w3-blue-grey">
-		<h4 class="w3-left">K.M.L.P Intranet</h4>
+		<a href="${pageContext.request.contextPath}/notice/nList.do"><h4 class="w3-left" id="h4">K.M.L.P Intranet</h4></a>
 
 		<sec:authorize access="isAuthenticated()">
 			<sf:form action="${pageContext.request.contextPath}/logout"

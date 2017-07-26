@@ -17,7 +17,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <title>공지사항 상세보기</title>
 
-<script>
+<script type="text/javascript">
 	$(document).ready(function() {
 		$("#btnUpdate").click(function() {
 			
@@ -29,19 +29,13 @@
 		});
 
 	});
-	$(document).ready(function() {
-		$("#btnDelete").click(function() {
-			
-				if (confirm("삭제하시겠습니까?")) {
-					document.form.action = "${path}/notice/nDelete.do";
-					document.form.submit();
-				}
-				
-				
-			
-		});
-		
-	});
+
+	//취소버튼 이벤트
+	function check_cancel(){
+		if(confirm("취소 하시겠습니까?")){
+			history.back();
+		}
+	}
 	
 </script>
 
@@ -89,7 +83,7 @@
 	<tr>
 		<td colspan="2" align="center">
 		 <input type="button" value="수정"  id="btnUpdate">
-		 <input type="button" value="삭제"  id="btnDelete">
+		 <input type="button" value="취소" onclick="check_cancel();">
 		 <div style="color: red;">${message}</div></td>
 	</tr>
 	

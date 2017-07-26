@@ -32,22 +32,25 @@
 		});
 	});
 
-	$(document).ready(function() {
-		$("#btnDelete").click(function() {
-			if(!document.form.m_pwd.value){
-				alert("비밀번호입력")
-			} else{
-				
-				if (confirm("삭제하시겠습니까?")) {
-					document.form.action = "${path}/member/mDelete";
-					document.form.submit();
-				}
-				
-			}
-			
-			
-		});
-	});
+	//취소버튼 이벤트
+	function check_cancel(){
+		if(confirm("취소 하시겠습니까?")){
+			history.back();
+		}
+	}
+	
+	//비밀번호 동일여부 확인버튼 이벤트
+	function check_pwd(){
+		if(document.form.m_pwd.value != document.form.m_pwd_check.value){
+			alert("비밀번호를 동일하게 입력하세요.");
+			m_pwd_check.focus();
+			return false;
+		} else {
+			alert("비밀번호가 일치합니다.");
+			m_email_id.focus();
+			return true;
+		}
+	}
 </script>
 
 </head>
@@ -73,17 +76,18 @@
 	
 	<tr>
 		<td>비밀번호</td>
-		<td><input type="password" name="m_pwd"></td>
+		<td><input type="password" name="m_pwd" id="m_pwd"></td>
 	</tr>
 
 	<tr>
 		<td>비밀번호 확인</td>
-		<td><input type="password" name="m_pwd"></td>
+		<td><input type="password" name="m_pwd_check" id="m_pwd_check">
+		<input type="button" id="pwd_check" value="확인" onclick="check_pwd();"></td>
 	</tr>
 	
 	<tr>
 		<td>부서명</td>
-		<td><input name="m_dept"  value="${dto.m_dept}" disabled></td>
+		<td><input name="m_dept" value="${dto.m_dept}" disabled></td>
 	</tr>
 
 
@@ -94,7 +98,7 @@
 	
 	<tr>
 		<td>이메일아이디</td>
-		<td><input name="m_email_id" value="${dto.m_email_id}"></td>
+		<td><input name="m_email_id" id="m_email_id" value="${dto.m_email_id}"></td>
 	</tr>
 	
 	<tr>
@@ -122,11 +126,9 @@
 	<tr>
 		<td colspan="2" align="center">
 			<input type="button" value="수정"  id="btnUpdate">&emsp;&emsp;&emsp;
-			<input type="button" value="취소"  id="btnDelete">
+			<input type="button" value="취소"  id="btnDelete" onclick="check_cancel();">
 		<div style="color: red;">${message}</div></td>
 	</tr>
-	
-	
 </table>
 </form>
 </body>

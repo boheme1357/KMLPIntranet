@@ -14,18 +14,37 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<script type="text/javascript">
+//초기화버튼 이벤트
+function check_reset(){
+	if(confirm("초기화 하시겠습니까?")){
+		document.form.reset();
+	}
+}
+
+//취소버튼 이벤트
+function check_cancel(){
+	if(confirm("취소 하시겠습니까?")){
+		history.back();
+	}
+}
+
+//등록버튼 이벤트
+function check_regist(){
+	if(confirm("등록 하시겠습니까?")){
+		document.form.submit();
+	}
+}
+</script>
+
 <title>공지사항 등록</title>
 </head>
 <body>
-
-
-
 <h2>공지사항폼</h2>
 <sf:form action="${path}/notice/nRegist.do" name="form" method="post">
 
 <table border="1" width="400px">
-
-
 	<!--  일련번호, 작성일자는  default값으로 자동추가
 	<tr>
 		<td>일련번호</td>
@@ -39,11 +58,7 @@
 	</tr> 
 	
 	-->
-	
-	
-	
-	
-	
+
 	<tr>
 		<td>작성자</td>
 		<td><input name="n_id"></td>
@@ -53,8 +68,7 @@
 		<td>제목</td>
 		<td><input name="n_title"></td>
 	</tr>
-
-
+	
 	<tr>
 		<td>내용</td>
 		<td><input name="n_content"></td>
@@ -64,34 +78,14 @@
 		<td>첨부파일</td>
 		<td><input name="n_file"></td>
 	</tr>
-	
 
-	
-
-	
-	
-	
 	<tr>
 		<td colspan="2" align="center">
-		 <input type="submit" value="확인">
-		 <input type="reset" value="취소">
+		 <input type="button" value="등록" onclick="check_regist();">
+		 <input type="button" value="초기화" onclick="check_reset();">
+		 <input type="button" value="취소" onclick="check_cancel();">
 	</tr>
-	
-	
 </table>
-
 </sf:form>
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
