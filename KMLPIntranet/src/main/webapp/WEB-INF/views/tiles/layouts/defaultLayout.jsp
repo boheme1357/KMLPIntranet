@@ -17,7 +17,7 @@
 	</tr>
 	
 	<tr>
-		<td valign="top" style="height: 100%;">
+		<td valign="top" style="height: 100%; width: 12%">
 			<tiles:insertAttribute name="menu" />
 		</td>
 		<td width="88%" valign="top" id="body">

@@ -112,6 +112,11 @@
 		<td><input name="m_com_date" value="${dto.m_quit_date}"></td>
 	</tr>
 	
+	<tr>
+		<td>권한설정</td>
+		<td><input type="radio" name="ADMIN" value="ADMIN"> Admin
+  			<input type="radio" name="USER" value="USER" checked> User</td>
+	</tr>
 	
 	<tr>
 		<td colspan="2" align="center">

@@ -14,21 +14,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<%-- <link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css"> --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <title>공지사항 상세보기</title>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#btnUpdate").click(function() {
-			
-			
-				if (confirm("수정하시겠습니까?")) {
-					document.form.submit();
-				}
-			
-		});
-
-	});
+	//수정버튼 이벤트
+	function check_update(){
+		if(confirm("수정 하시겠습니까?")) {
+			document.form.submit();
+		}
+	}
 
 	//취소버튼 이벤트
 	function check_cancel(){
@@ -40,64 +36,46 @@
 </script>
 
 </head>
+<div id="wapper">
 <body>
-
-
-
-<h2>공지사항</h2>
+<h3>공지사항&nbsp;내용</h3>
+<hr>
 <sf:form action="${path}/notice/nContent.do" name="form" method="post">
 
-<table border="1" width="70%">
+<table border="1" width="100%">
 	<tr>
-		<td>일련번호</td>
+		<th>일련번호</th>
 		<td><input name="n_num" value="${dto.n_num}" readonly="readonly"></td>
 	</tr>
 	
-	
 	<tr>
-		<td>사번</td>
+		<th>사번</th>
 		<td><input  name="n_id"  value="${dto.n_id}" ></td>
 	</tr>
 
 	<tr>
-		<td>제목</td>
+		<th>제목</th>
 		<td><input name="n_title"  value="${dto.n_title}"></td>
 	</tr>
 
-
 	<tr>
-		<td>내용</td>
+		<th>내용</th>
 		<td><input name="n_content" value="${dto.n_content}"></td>
 	</tr>
 	
 	<tr>
-		<td>첨부파일</td>
+		<th>첨부파일</th>
 		<td><input name="n_file" value="${dto.n_file}"></td>
 	</tr>
-	
 
-	
-
-	
-	
 	<tr>
 		<td colspan="2" align="center">
-		 <input type="button" value="수정"  id="btnUpdate">
-		 <input type="button" value="취소" onclick="check_cancel();">
-		 <div style="color: red;">${message}</div></td>
+			<input type="button" id="button" class="w3-btn w3-round-large" value="수정" onclick="check_update();">
+			<input type="button" id="button" class="w3-btn w3-round-large" value="취소" onclick="check_cancel();">
+			<div style="color: red;">${message}</div></td>
 	</tr>
-	
-	
 </table>
-
 </sf:form>
-
-
-
-
-
-
-
-
 </body>
+</div>
 </html>
