@@ -22,6 +22,15 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String main(Locale locale, Model model) {
+		logger.info("main PAGE...............");
+
+		
+		return "login";
+	}
+	
+	
 	@RequestMapping(value = "/home.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("home PAGE...............");
@@ -33,7 +42,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "login";
 	}
 	
 	@RequestMapping(value = "/login.do", method = RequestMethod.GET)
