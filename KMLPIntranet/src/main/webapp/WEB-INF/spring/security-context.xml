@@ -4,9 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
+
 	<!-- 검사 URL -->
-	<http use-expressions="true">
-		<intercept-url pattern="/resources/**" access="permitAll" />
+	<http pattern="/resources/**" security="none"></http>
+
+	<http use-expressions="true" create-session="never">
+
 		<intercept-url pattern="/login.do" access="permitAll" />
 		<intercept-url pattern="/home.do" access="permitAll" />
 		<intercept-url pattern="/member/**" access="hasRole('ADMIN')" />
@@ -15,7 +18,14 @@
 		<form-login login-page="/login.do" default-target-url="/notice/nList.do"
 			authentication-failure-url="/login.do?error" username-parameter="m_id"
 			password-parameter="m_pwd" />
-		<logout logout-url="/logout" logout-success-url="/login.do" />
+
+		<session-management>
+			<concurrency-control max-sessions="1"
+				expired-url="/user/loginPage" error-if-maximum-exceeded="true" />
+		</session-management>
+
+		<logout delete-cookies="true" logout-url="/logout"
+			logout-success-url="/login.do" invalidate-session="true" />
 
 		<access-denied-handler error-page="/accessDenied.do" />
 	</http>
@@ -25,14 +35,23 @@
 		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
 
+	<!-- 암호화 인코더 빈 등록 -->
+	<beans:bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.ShaPasswordEncoder">
+		<beans:constructor-arg name="strength" value="256"></beans:constructor-arg>
+	</beans:bean>
+
 	<!-- provider -->
 	<authentication-manager>
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
-				role-prefix="ROLE_" users-by-username-query="select m_id, m_pwd, m_enabled from member where m_id = ?"
+				role-prefix="ROLE_"
+				users-by-username-query="select m_id, m_pwd, m_enabled from member where m_id = ?"
 				authorities-by-username-query="select au_id, authority from authorities where au_id = ?" />
-				
-				
+
+			<password-encoder ref="passwordEncoder" />
+
+
 			<!-- 부서 권한 테이블이 있을 경우 추가 : group-authorities-by-username-query="select 
 				g.id, g.group_name, ga.authority from groups g, group_members gm, group_authorities 
 				ga where gm.username = ? and g.id = ga.group_id and g.id = gm.group_id" -->
