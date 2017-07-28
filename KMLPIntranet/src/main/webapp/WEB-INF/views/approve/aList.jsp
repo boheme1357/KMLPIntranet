@@ -14,7 +14,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/list.css">
 </head>
 <div id="wapper">
 <body>

@@ -23,7 +23,7 @@ $(document).ready(function() {
 		
 		
 			if (confirm("수정하시겠습니까?")) {
-		
+				document.form.action = "${path}/approve/nModify.do";
 				document.form.submit();
 			}
 		
