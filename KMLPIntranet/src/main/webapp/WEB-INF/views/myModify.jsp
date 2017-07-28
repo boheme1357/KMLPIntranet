@@ -40,9 +40,21 @@
 			history.back();
 		}
 	}
-	
+	function check_delete(){
+		if(!document.form.m_pwd.value){
+			alert("비밀번호를 입력하시오.")
+		} else {
+			if (confirm("삭제하시겠습니까?")) {
+				document.form.action = "${path}/member/mDelete.do";
+				document.form.submit();
+			}
+		}
+	}
 	//비밀번호 동일여부 확인버튼 이벤트
 	function check_pwd(){
+		if(!document.form.m_pwd.value){
+			alert("비밀번호를 입력하시오.")
+		} else {
 			if(document.form.m_pwd.value != document.form.m_pwd_check.value){
 				alert("비밀번호를 동일하게 입력하세요.");
 				m_pwd_check.focus();
@@ -52,7 +64,8 @@
 				m_email_id.focus();
 				return true;
 			}
-	}
+		}
+	}		
 </script>
 
 <style>

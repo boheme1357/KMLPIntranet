@@ -87,6 +87,7 @@ function check_regist(){
 	<input type="button" id="button" class="w3-btn w3-round-large" value="초기화" onclick="check_reset();">
 	&emsp;&emsp;
 	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();">
+	<br><br><div style="color: red;">${message}</div>
 </div>
 </sf:form>
 </body>
