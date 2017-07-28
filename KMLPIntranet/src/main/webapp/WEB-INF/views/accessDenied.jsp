@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
     <style>
     	h1{
     		color: firebrick;
@@ -35,7 +35,7 @@
 		<h1>Access Denied!</h1>
 		
 		<div class="container" style="margin-top: 80px;">
-			<a href="<c:url value="/home.do" />"><input type="button" id="button" class="w3-btn w3-orange" value="&#xf015; 홈으로 가기"></a>
+			<a href="#" onClick="history.back()"><input type="button" id="button" class="w3-btn w3-orange" value="&#xf015; 뒤로가기"></a>
 		</div>
 	</div>
 </body>

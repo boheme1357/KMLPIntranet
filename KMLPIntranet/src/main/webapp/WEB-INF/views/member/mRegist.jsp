@@ -31,11 +31,61 @@
 		method="post" enctype="multipart/form-data">
 
 
+<<<<<<< HEAD
 		<table border="1" width="70%">
 			<tr>
 				<td>사번</td>
 				<td><input name="m_id"></td>
 			</tr>
+=======
+	<tr>
+		<td>직급</td>
+		<td><input name="m_posit" value="${dto.m_posit}"></td>
+	</tr>
+	
+	<tr>
+		<td>이메일아이디</td>
+		<td><input name="m_email_id" value="${dto.m_email_id}"></td>
+	</tr>
+	
+	<tr>
+		<td>이메일도메인</td>
+		<td><input name="m_email_do" value="${dto.m_email_do}"></td>
+	</tr>
+	
+	<tr>
+		<td>연락처</td>
+		<td><input name="m_cell" value="${dto.m_cell}"></td>
+	</tr>
+	
+	<tr>
+		<td>입사일자</td>
+		<td><input name="m_com_date" value="${dto.m_com_date}"></td>
+	</tr>
+	
+	<tr>
+		<td>퇴사일자</td>
+		<td><input name="m_com_date" value="${dto.m_quit_date}"></td>
+	</tr>
+	
+	<tr>
+		<td>권한설정</td>
+		<td><input type="radio" name="ADMIN" value="ADMIN"> Admin
+  			<input type="radio" name="USER" value="USER" checked> User</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2" align="center">
+		 <input type="button" value="수정"  id="btnUpdate">
+		 <input type="button" value="삭제"  id="btnDelete">
+		 <div style="color: red;">${message}</div></td>
+	</tr>
+	
+	
+</table>
+
+</form>
+>>>>>>> refs/heads/msy
 
 
 			<tr>
