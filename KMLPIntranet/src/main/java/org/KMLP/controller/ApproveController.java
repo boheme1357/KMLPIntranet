@@ -49,8 +49,8 @@ public class ApproveController {
 		// model.addAttribute("receiveList", list);
 
 		// 3. 미결된 결재문서 넘버, 상태
-		// HashMap<String, Boolean> notApprDocNum = documentSerive.selectUnapproveDoc();
-		// model.addAllAttributes("Map", notApprDocNum);
+		// HashMap<String, Boolean> unapprDocNum = documentSerive.selectUnapproveDoc();
+		// model.addAllAttributes("Map", unapprDocNum);
 
 		return "aList";
 	}
