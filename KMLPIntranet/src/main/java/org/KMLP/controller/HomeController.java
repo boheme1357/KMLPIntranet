@@ -83,7 +83,7 @@ public class HomeController {
 
 		logger.info("myModifyPOST post ...........");
 
-		return "redirect:/notice/nList";
+		return "redirect:/notice/nList.do";
 	}
 	
 	@RequestMapping("newFile.do")

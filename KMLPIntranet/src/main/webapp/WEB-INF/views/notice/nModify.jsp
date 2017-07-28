@@ -1,86 +1,86 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!--jstl 코어 태크  -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!--context경로  -->
+<c:set var="path" value="${pageContext.request.contextPath}"/>
+
+<!-- 시큐리티 태그lib -->
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>공지사항 수정</title>
- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      height: 100%;
-    }
-    
-   
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
-  </style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
+<script type="text/javascript">
+//수정버튼 이벤트
+function check_update(){
+	if(confirm("수정 하시겠습니까?")) {
+		document.form.action ="${path}/notice/nModify.do";
+		document.form.submit();
+	}
+}
+
+//취소버튼 이벤트
+function check_cancel(){
+	if(confirm("취소 하시겠습니까?")){
+		history.back();
+	}
+}
+
+//삭제버튼 이벤트
+function check_delete(){
+	if(confirm("삭제 하시겠습니까?")){
+		document.form.action = "${path}/notice/nDelete.do";
+		document.form.submit();
+	}
+}
+</script>
+
 </head>
+<div id="wapper">
 <body>
+<h3>공지사항&nbsp;수정</h3>
+<hr>
+<sf:form action="${path}/notice/nContent.do" name="form" method="post">
 
-  
-<div class="container-fluid text-center">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-      <p><a href="#"><button type="button" class="btn btn-primary">��������</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-default">��&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-default">��&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-default">Ŀ�´�Ƽ</button></a></p>
-       <p><a href="#"> <button type="button" class="btn btn-default">�������</button></a></p>
-    </div>
-    <br>
-    <div class="col-sm-8 text-left"> 
-     <table class="table table-bordered">
-     
-      <tr>
-       <td>����</td>
-        <td colspan="2">��������</td>
-         </tr>
-         <tr>
-       <td>�ۼ���</td>
-        <td colspan="2">��ǥ</td>
-         </tr>
-         <tr>
-       <td>�ۼ�����</td>
-        <td colspan="2">2017-01-01</td>
-         </tr>
-         <tr>
-       <td>����</td>
-        <td colspan="2"><textarea class="form-control" rows="15" cols="65" id="comment" style="width:500px">
-</textarea></td>
-         </tr>
-        
-    
-      
-   
-  </table>
-  <p align="center"><a href="#"> <button type="button" class="btn btn-primary">����</button></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <a href="#"> <button type="button" class="btn btn-primary">����</button></a></p>
+<table border="1" width="100%" cellpadding="0" cellspacing="0">
+	<tr>
+		<th width="15%">일련번호</th>
+		<td><input name="n_num" value="${dto.n_num}" readonly="readonly" style="width: 100%; height: 100%;"></td>
+	</tr>
+	<tr>
+		<th>사&emsp;번</th>
+		<td><input name="n_id" value="${dto.n_id}" style="width: 100%; height: 100%;"></td>
+	</tr>
+
+	<tr>
+		<th>제&emsp;목</th>
+		<td><input name="n_title" value="${dto.n_title}" style="width: 100%; height: 100%;"></td>
+	</tr>
+	
+	<tr>
+		<th height="400px">내&emsp;용</th>
+		<td><textarea name="n_content" value="${dto.n_content}"></textarea></td>
+	</tr>
+	
+	<tr>
+		<th>첨부파일</th>
+		<td><input name="n_file" value="${dto.n_file}" style="width: 100%; height: 100%;"></td>
+	</tr>
+
+</table>
+<div class="w3-center">
+	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_update();">
+	&emsp;&emsp;
+	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();">
+	&emsp;&emsp;
+	<input type="button" id="button" class="w3-btn w3-round-large" value="삭&nbsp;제" onclick="check_delete();">
 </div>
-
-   
-
-
+</sf:form>
 </body>
+</div>
 </html>

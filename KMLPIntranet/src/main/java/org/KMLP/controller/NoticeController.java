@@ -29,6 +29,7 @@ public class NoticeController {
 	public String nListGET(Model model) {
 		logger.info("nListGET PAGE...............");
 
+		
 		List<NoticeVO> list = noticeSerive.selectAll();
 		model.addAttribute("list", list);
 
@@ -37,8 +38,8 @@ public class NoticeController {
 
 	@RequestMapping(value = "/nList.do", method = RequestMethod.POST)
 	public String nListPOST(Model model) throws Exception {
-
 		logger.info("nListPOST post ...........");
+		
 
 		return "nList";
 	}
@@ -78,7 +79,7 @@ public class NoticeController {
 		
 		noticeSerive.update(vo);
 
-		return "redirect:/notice/nList";
+		return "redirect:/notice/nList.do";
 	}
 
 	@RequestMapping(value = "/nModify.do", method = RequestMethod.GET)
@@ -94,9 +95,10 @@ public class NoticeController {
 	public String nModifyPOST(@ModelAttribute NoticeVO vo, Model model) throws Exception {
 		logger.info("nModifyPOST post ...........");
 
+		
 		noticeSerive.update(vo);
 
-		return "redirect:/notice/nList";
+		return "redirect:/notice/nList.do";
 	}
 
 	// 05. 공지사항데이터삭제
@@ -104,7 +106,7 @@ public class NoticeController {
 	public String delete(String n_num) {
 		System.out.println("삭제");
 		noticeSerive.delete(n_num);
-		return "redirect:/notice/nList";
+		return "redirect:/notice/nList.do";
 	}
 
 }

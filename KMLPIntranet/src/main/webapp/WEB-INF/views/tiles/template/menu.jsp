@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 <style>
-    h4{
+    #h4 {
 		font-style: italic;
 		font-family: 'Luckiest Guy', cursive;
 		font-size: 1.4em;
@@ -17,7 +17,7 @@
 		margin-left: 20px;
 	}
 
-	#input{
+	#input {
         width: 150px; 
         font-size: 1em;
         border: 1px solid dimgray;
