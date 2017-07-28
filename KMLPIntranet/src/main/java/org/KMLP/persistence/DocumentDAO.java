@@ -1,5 +1,6 @@
 package org.KMLP.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.KMLP.domain.MemberVO;
@@ -23,6 +24,15 @@ public interface DocumentDAO {
 	
 	//05. 일일업무일지 
 	public void delete(String n_num);
+
+	// 06. 발신한 결재서류 리스트
+	public List<DocumentVO> selectSentListAll(String d_id);
+	
+	// 07. 수신한 결재서류 리스트
+	public List<DocumentVO> selectReceiveListAll(String d_id);
+	
+	// 08. 미결된 서류 넘버 Map
+	public HashMap<String, Boolean> selectUnapproveDoc(HashMap<String, Boolean> unapprDocMap, String m_id);
 
 
 
