@@ -18,18 +18,18 @@
 
 <script type="text/javascript">
 	//수정버튼 이벤트
-// 	function check_modify(){
-// 		if(confirm("수정페이지로 이동하시겠습니까?")) {
-// 			location.replace("${path}/notice/nModify.do");
-// 		}
-// 	}
-
-	function check_update(){
-		if(confirm("수정 하시겠습니까?")) {
-			document.form.action ="${path}/notice/nModify.do";
-			document.form.submit();
+	function check_modify(){
+		if(confirm("수정페이지로 이동하시겠습니까?")) {
+			location.replace("${path}/notice/nModify.do");
 		}
 	}
+
+// 	function check_update(){
+// 		if(confirm("수정 하시겠습니까?")) {
+// 			document.form.action ="${path}/notice/nModify.do";
+// 			document.form.submit();
+// 		}
+// 	}
 	
 	//취소버튼 이벤트
 	function check_cancel(){
@@ -60,25 +60,25 @@
 
 	<tr>
 		<th>제&emsp;목</th>
-		<td><input name="n_title" class="w3-animate-input w3-left" value="${dto.n_title}" style="width: 50%; height: 30px;"></td>
+		<td><input name="n_title" class="w3-animate-input w3-left" value="${dto.n_title}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 
 	<tr>
 		<th height="400px">내&emsp;용</th>
-		<td><textarea name="n_content">${dto.n_content}</textarea></td>
+		<td><textarea name="n_content" readonly="readonly">${dto.n_content}</textarea></td>
 	</tr>
 	
 	<tr>
 		<th>첨부파일</th>
-		<td><input name="n_file" value="${dto.n_file}" style="width: 100%; height: 30px;"></td>
+		<td><input name="n_file" value="${dto.n_file}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 
 </table>
 <div class="w3-center">
-	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_update();">
+	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_modify();">
 	&emsp;&emsp;&emsp;&emsp;
 	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();">
-	<div style="color: red;">${message}</div>
+	<br><br><div style="color: red;">${message}</div>
 </div>
 </sf:form>
 </body>

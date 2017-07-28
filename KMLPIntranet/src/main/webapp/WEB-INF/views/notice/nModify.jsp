@@ -50,16 +50,16 @@ function check_delete(){
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="15%">일련번호</th>
-		<td><input name="n_num" value="${dto.n_num}" readonly="readonly" style="width: 100%; height: 100%;"></td>
+		<td><input name="n_num" value="${dto.n_num}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 	<tr>
 		<th>사&emsp;번</th>
-		<td><input name="n_id" value="${dto.n_id}" style="width: 100%; height: 100%;"></td>
+		<td><input name="n_id" value="${dto.n_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 
 	<tr>
 		<th>제&emsp;목</th>
-		<td><input name="n_title" value="${dto.n_title}" style="width: 100%; height: 100%;"></td>
+		<td><input name="n_title" class="w3-animate-input w3-left" value="${dto.n_title}" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
@@ -69,16 +69,17 @@ function check_delete(){
 	
 	<tr>
 		<th>첨부파일</th>
-		<td><input name="n_file" value="${dto.n_file}" style="width: 100%; height: 100%;"></td>
+		<td><input name="n_file" class="w3-animate-input w3-left" value="${dto.n_file}" style="width: 50%; height: 30px;"></td>
 	</tr>
 
 </table>
 <div class="w3-center">
 	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_update();">
 	&emsp;&emsp;
-	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();">
-	&emsp;&emsp;
 	<input type="button" id="button" class="w3-btn w3-round-large" value="삭&nbsp;제" onclick="check_delete();">
+	&emsp;&emsp;
+	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();">
+	<br><br><div style="color: red;">${message}</div>
 </div>
 </sf:form>
 </body>
