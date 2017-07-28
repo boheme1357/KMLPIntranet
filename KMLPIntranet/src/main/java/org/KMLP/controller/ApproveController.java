@@ -1,6 +1,5 @@
 package org.KMLP.controller;
 
-
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,6 +9,8 @@ import org.KMLP.service.DocumentService;
 import org.KMLP.domain.DocumentVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,11 +33,22 @@ public class ApproveController {
 
 		logger.info("aListGET PAGE...............");
 
-		// 결재문서 리스트
 		List<DocumentVO> list = documentSerive.selectAll();
 		model.addAttribute("list", list);
+
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		 User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 System.out.println("username = " + user.getUsername());
 		
-		// 미결된 결재문서 넘버
+		// 1. 자신이 작성한 결재문서 리스트
+		// List<DocumentVO> sentList = documentSerive.selectSentListAll();
+		// model.addAttribute("sentList", list);
+
+		// 2. 자신이 수신한 결재문서 리스트
+		// List<DocumentVO> receiveList = documentSerive.selectReceiveListAll();
+		// model.addAttribute("receiveList", list);
+
+		// 3. 미결된 결재문서 넘버, 상태
 		// HashMap<String, Boolean> notApprDocNum = documentSerive.selectUnapproveDoc();
 		// model.addAllAttributes("Map", notApprDocNum);
 
