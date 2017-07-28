@@ -8,7 +8,7 @@ import org.KMLP.persistence.NoticeDAO;
 import org.springframework.stereotype.Service;
 
 @Service
-public class NoticeSeriveImpl implements NoticeSerive {
+public class NoticeServiceImpl implements NoticeService {
 
 	@Inject
 	NoticeDAO dao;

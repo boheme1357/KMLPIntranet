@@ -5,7 +5,7 @@ import java.util.List;
 import org.KMLP.domain.MemberVO;
 import org.KMLP.domain.NoticeVO;
 
-public interface NoticeSerive {
+public interface NoticeService {
 	//01. 공지사항목록
 	public List<NoticeVO> selectAll();
 	

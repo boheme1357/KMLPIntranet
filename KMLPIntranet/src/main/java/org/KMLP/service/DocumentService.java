@@ -1,11 +1,12 @@
 package org.KMLP.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 
 import org.KMLP.domain.DocumentVO;
 
-public interface DocumentSerive {
+public interface DocumentService {
 	//01. 일일업무일지 목록
 	public List<DocumentVO> selectAll();
 	
@@ -21,6 +22,9 @@ public interface DocumentSerive {
 	
 	//05. 일일업무일지 삭제
 	public void delete(String d_num);
+	
+	//06. 일일업무일지 미결된 서류 넘버
+	public HashMap selectUnapproveDoc(String m_id);
 	
 	
 	

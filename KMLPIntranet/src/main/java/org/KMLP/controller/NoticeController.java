@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.KMLP.service.NoticeSerive;
+import org.KMLP.service.NoticeService;
 import org.KMLP.domain.NoticeVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class NoticeController {
 
 	@Inject
-	NoticeSerive noticeSerive;
+	NoticeService noticeSerive;
 
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
 

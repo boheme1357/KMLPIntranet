@@ -9,7 +9,7 @@ import org.KMLP.persistence.MemberDAO;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MemberSeriveImpl implements MemberSerive {
+public class MemberServiceImpl implements MemberService {
 
 	@Inject
 	MemberDAO dao;

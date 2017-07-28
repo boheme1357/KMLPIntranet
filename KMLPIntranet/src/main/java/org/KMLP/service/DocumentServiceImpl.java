@@ -1,5 +1,6 @@
 package org.KMLP.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -8,7 +9,7 @@ import org.KMLP.persistence.DocumentDAO;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DocumentSeriveImpl implements DocumentSerive {
+public class DocumentServiceImpl implements DocumentService {
 
 	@Inject
 	DocumentDAO dao;
@@ -43,6 +44,14 @@ public class DocumentSeriveImpl implements DocumentSerive {
 	@Override
 	public void delete(String d_num) {
 		dao.delete(d_num);
+	}
+
+	// 06. 일일업무일지 미결된 서류 넘버
+	@Override
+	public HashMap selectUnapproveDoc(String m_id) {
+		// db에서 final_check != true 인 문서 중 a_check != true인 문서번호를 검색해서 가져옴
+		
+		return null;
 	}
 
 

@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import javax.inject.Inject;
 
 import org.KMLP.domain.MemberVO;
-import org.KMLP.service.MemberSerive;
+import org.KMLP.service.MemberService;
 import org.KMLP.util.ShaEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MemberController {
 
 	@Inject
-	MemberSerive memberSerive;
+	MemberService memberSerive;
 
 	@Resource(name = "uploadPath")
 	String uploadPath;

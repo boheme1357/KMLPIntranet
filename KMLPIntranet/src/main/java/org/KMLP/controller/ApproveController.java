@@ -1,10 +1,12 @@
 package org.KMLP.controller;
 
+
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import org.KMLP.service.DocumentSerive;
+import org.KMLP.service.DocumentService;
 import org.KMLP.domain.DocumentVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class ApproveController {
 
 	@Inject
-	DocumentSerive documentSerive;
+	DocumentService documentSerive;
 
 	private static final Logger logger = LoggerFactory.getLogger(ApproveController.class);
 
@@ -30,8 +32,13 @@ public class ApproveController {
 
 		logger.info("aListGET PAGE...............");
 
+		// 결재문서 리스트
 		List<DocumentVO> list = documentSerive.selectAll();
 		model.addAttribute("list", list);
+		
+		// 미결된 결재문서 넘버
+		// HashMap<String, Boolean> notApprDocNum = documentSerive.selectUnapproveDoc();
+		// model.addAllAttributes("Map", notApprDocNum);
 
 		return "aList";
 	}

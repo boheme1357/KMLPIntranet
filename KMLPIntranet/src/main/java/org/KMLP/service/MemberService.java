@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.KMLP.domain.MemberVO;
 
-public interface MemberSerive {
+public interface MemberService {
 	//01. 사원전체목록
 	public List<MemberVO> selectAll();
 	
