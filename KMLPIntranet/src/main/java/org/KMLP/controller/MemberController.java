@@ -71,12 +71,18 @@ public class MemberController {
 		// 비번 암호화
 		String tmpPW = encoder.encoding(vo.getM_pwd());
 		vo.setM_pwd(tmpPW);
-				
+		
+		
+			System.out.println(vo.getFile());
 		String savedName = vo.getFile().getOriginalFilename();
+		if(savedName.equals(""))
+			System.out.println("---------------------------------------"+savedName);
+		else {
 		File target = new File(uploadPath, savedName);
 		FileCopyUtils.copy(vo.getFile().getBytes(), target); // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사,
 																// FileCopyUtils.copy(바이트배열, 파일객체)
 		vo.setSavedName(savedName);
+		}
 		memberSerive.insert(vo);
 		
 		return "redirect:/member/mList.do";

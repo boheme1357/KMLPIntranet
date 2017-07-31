@@ -100,7 +100,7 @@
 		<th>비밀번호</th>
 		<td><input type="password" class="w3-animate-input w3-left" name="m_pwd" id="m_pwd" style="width: 50%; height: 30px;"></td>
 	</tr>
-.
+
 	<tr>
 		<th>비밀번호 확인</th>
 		<td><input type="password" class="w3-left" name="m_pwd_check" id="m_pwd_check" style="width: 50%; height: 30px;">
@@ -108,7 +108,7 @@
 	</tr>
 	
 	<tr>
-		<th>부서명</th>
+		<th>부 서 명</th>
 		<td><input name="m_dept" value="${dto.m_dept}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 
@@ -118,17 +118,17 @@
 	</tr>
 	
 	<tr>
-		<th>이메일아이디</th>
+		<th>이메일 아이디</th>
 		<td><input name="m_email_id" id="m_email_id" class="w3-animate-input w3-left" value="${dto.m_email_id}" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
-		<th>이메일도메인</th>
+		<th>이메일 도메인</th>
 		<td><input name="m_email_do" class="w3-animate-input w3-left" value="${dto.m_email_do}" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
-		<th>연락처</th>
+		<th>연 락 처</th>
 		<td><input name="m_cell" class="w3-animate-input w3-left" value="${dto.m_cell}" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
