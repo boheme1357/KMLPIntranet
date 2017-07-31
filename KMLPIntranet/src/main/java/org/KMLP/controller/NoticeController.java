@@ -6,8 +6,12 @@ import javax.inject.Inject;
 
 import org.KMLP.service.NoticeService;
 import org.KMLP.domain.NoticeVO;
+import org.KMLP.service.MemberService;
+import org.KMLP.domain.MemberVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +25,9 @@ public class NoticeController {
 
 	@Inject
 	NoticeService noticeSerive;
+	
+	@Inject
+	MemberService memberSerive;
 
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
 
@@ -49,6 +56,11 @@ public class NoticeController {
 	public String nRegistGET(Model model) {
 
 		logger.info("nRegistGET PAGE...............");
+		
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		 User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		 
+		 model.addAttribute("m_id", user.getUsername());
 
 		return "nRegist";
 	}
@@ -57,7 +69,7 @@ public class NoticeController {
 	@RequestMapping(value = "/nRegist.do", method = RequestMethod.POST)
 	public String nRegistPOST(@ModelAttribute NoticeVO vo, Model model) throws Exception {
 		logger.info("nRegistPOST post ...........");
-
+		
 		noticeSerive.insert(vo);
 
 		return "redirect:/notice/nList.do";
