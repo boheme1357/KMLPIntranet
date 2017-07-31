@@ -59,6 +59,15 @@ h1 {
 	border: 1px solid goldenrod;
 }
 
+#logout {
+	width: 120px;
+	height: 50px;
+	font-size: 1.1em;
+	font-weight: bold;
+	background-color: khaki;
+	border: 1px solid goldenrod;
+}
+
 #find, #join {
 	width: 190px;
 	font-size: 0.9em;
@@ -123,7 +132,7 @@ h1 {
 			<sec:authorize access="isAuthenticated()">
 				<sf:form action="${pageContext.request.contextPath}/logout"
 					method="POST">
-					<input type="submit" value="로그아웃" />
+					<input type="submit" id="logout" class="w3-btn" value="로그아웃" />
 				</sf:form>
 			</sec:authorize>
 
