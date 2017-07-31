@@ -1,6 +1,7 @@
 package org.KMLP.controller;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -33,24 +34,32 @@ public class ApproveController {
 
 		logger.info("aListGET PAGE...............");
 
-		List<DocumentVO> list = documentSerive.selectAll();
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String m_id = user.getUsername();
+		System.out.println("---------------------------------------------------------" + m_id);
+
+		List<DocumentVO> list = documentSerive.selectReceiveListAll(m_id);
 		model.addAttribute("list", list);
 
-		// 시큐리티에서 로그인한 유저 id 받아오는 코드
-		 User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		 System.out.println("username = " + user.getUsername());
-		
 		// 1. 자신이 작성한 결재문서 리스트
-		// List<DocumentVO> sentList = documentSerive.selectSentListAll();
-		// model.addAttribute("sentList", list);
+		List<DocumentVO> sentList = documentSerive.selectSentListAll(m_id);
+		model.addAttribute("sentList", list);
 
 		// 2. 자신이 수신한 결재문서 리스트
-		// List<DocumentVO> receiveList = documentSerive.selectReceiveListAll();
-		// model.addAttribute("receiveList", list);
+		List<DocumentVO> receiveList = documentSerive.selectReceiveListAll(m_id);
+		model.addAttribute("receiveList", list);
 
 		// 3. 미결된 결재문서 넘버, 상태
-		// HashMap<String, Boolean> unapprDocNum = documentSerive.selectUnapproveDoc();
-		// model.addAllAttributes("Map", unapprDocNum);
+		HashMap<String, Boolean> unapprDocMap = documentSerive.selectUnapproveDoc(m_id);
+		model.addAttribute("unapprDocMap", unapprDocMap);
+
+		/* 맵 데이터 확인 로그
+		Iterator<String> iterator = unapprDocMap.keySet().iterator();
+		while (iterator.hasNext()) {
+			String key = (String) iterator.next(); // 키 얻기
+			System.out.println("--------------------------------key=" + key + " / value=" + unapprDocMap.get(key)); // 출력
+		}*/
 
 		return "aList";
 	}
@@ -76,7 +85,7 @@ public class ApproveController {
 	@RequestMapping(value = "/aRegist.do", method = RequestMethod.POST)
 	public String aRegistPOST(@ModelAttribute DocumentVO vo, Model model) throws Exception {
 
-		logger.info("aRegistPOST post ...........");
+		logger.info("aRegistPOST PAGE ...........");
 
 		documentSerive.insert(vo);
 

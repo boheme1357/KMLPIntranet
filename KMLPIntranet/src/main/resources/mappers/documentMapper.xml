@@ -14,23 +14,29 @@
 
 	<!-- 02_02. 일일업무데이터삽입 -->
 	<insert id="insert">
-		insert into document(d_num, d_id, d_title, d_content, d_final_check, d_appr_cnt)
+		insert into document(d_num, d_id, d_title, d_content,
+		d_final_check, d_appr_cnt)
 		values
-		( #{d_num}, #{d_id}, #{d_title}, #{d_content}, #{d_final_check}, #{d_appr_cnt})
+		( #{d_num}, #{d_id}, #{d_title},
+		#{d_content}, #{d_final_check}, #{d_appr_cnt})
 	</insert>
 
 
 	<!--03. 일일업무 내용 -->
 	<select id="selectContent" resultType="org.KMLP.domain.DocumentVO">
-		select * from document where d_num=#{d_num}
+		select * from document
+		where d_num=#{d_num}
 	</select>
 
 
 
 	<!--04. 일일업무수정 -->
 	<update id="update">
-		update document set d_num=#{d_num}, d_date=#{d_date}, d_id=#{d_id}, d_title=#{d_title}, d_content=#{d_content}, d_final_check=#{d_final_check}, d_appr_cnt=#{d_appr_cnt}
-		where d_num=#{d_num}
+		update document set d_num=#{d_num}, d_date=#{d_date},
+		d_id=#{d_id}, d_title=#{d_title}, d_content=#{d_content},
+		d_final_check=#{d_final_check}, d_appr_cnt=#{d_appr_cnt}
+		where
+		d_num=#{d_num}
 	</update>
 
 
@@ -40,6 +46,27 @@
 		delete from document where d_num=#{d_num}
 	</delete>
 
+
+	<!-- 06. 발신한 결재서류 리스트 -->
+	<select id="selectSentListAll" resultType="org.KMLP.domain.DocumentVO">
+		select * from document
+		where d_id = #{d_id}
+	</select>
+
+
+	<!-- 07. 수신한 결재서류 리스트 -->
+	<select id="selectReceiveListAll" resultType="org.KMLP.domain.DocumentVO">
+		select *
+		from document join approve
+		on document.d_num = approve.a_num where a_id = #{m_id}
+	</select>
+
+
+
+	<!-- 08. 미결된 서류 넘버 Map -->
+	<select id="selectUnapproveDoc"  parameterType="java.lang.String" resultType="java.util.HashMap">
+		select a_num, a_check from approve where a_id = #{m_id} and (a_check is null or a_check = false)
+	</select>
 
 
 
