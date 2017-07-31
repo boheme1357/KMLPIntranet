@@ -61,8 +61,8 @@ function check_regist(){
 	-->
 
 	<tr>
-		<th width="15%">작성자</th>
-		<td><input name="n_id" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
+		<th width="15%">사&emsp;번</th>
+		<td><input name="n_id"   value = '${m_id}' readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 
 	<tr>
@@ -77,7 +77,7 @@ function check_regist(){
 	
 	<tr>
 		<th>첨부파일</th>
-		<td><input name="n_file" style="width: 100%; height: 30px;"></td>
+		<td><input type="file" name="file"></td>
 	</tr>
 
 </table>

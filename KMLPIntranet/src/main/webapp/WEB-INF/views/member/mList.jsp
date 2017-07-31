@@ -24,10 +24,10 @@
 	<tr>
 		<th>사&emsp;번</th>
 		<th>이&emsp;름</th>
-		<th>부서명</th>
+		<th>부 서 명</th>
 		<th>직&emsp;급</th>
-		<th>연락처</th>
-		<th>이메일</th>		
+		<th>연 락 처</th>
+		<th>이 메 일</th>		
 		<th>입사일자</th>
 		<th>퇴사일자</th>
 		
