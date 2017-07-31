@@ -3,8 +3,11 @@ package org.KMLP.controller;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Handles requests for the application home page.
  */
+
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
@@ -75,6 +79,10 @@ public class HomeController {
 
 		logger.info("myModifyGET PAGE...............");
 
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("m_id", user.getUsername());
+		
 		return "myModify";
 	}
 

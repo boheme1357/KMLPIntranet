@@ -88,12 +88,12 @@
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="15%">사&emsp;번</th>
-		<td><input name="m_id" value="${dto.m_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td><input name="m_id" value="${m_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>이&emsp;름</th>
-		<td><input name="m_name" value="${dto.m_name}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td><input name="m_name" value="${m_name}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 	
 	<tr>

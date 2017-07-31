@@ -33,9 +33,9 @@
    <c:forEach var="row" items="${list}">
    <tr>
       <!--공지사항 상세조회를 위해 a태그 추가  -->
-      <td><a href="${path}/notice/nContent.do?n_num=${row.n_num}">${row.n_num}</a></td>
+      <td>${row.n_num}</td>
       <td>${row.n_id}</td>
-      <td>${row.n_title}</td>
+      <td><a href="${path}/notice/nContent.do?n_num=${row.n_num}">${row.n_title}</a></td>
       <td>${row.n_file}</td> 
       <td>${row.n_wdate}</td>           
    </tr>

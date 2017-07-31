@@ -77,7 +77,7 @@ function check_regist(){
 	
 	<tr>
 		<th>첨부파일</th>
-		<td><input type="file" name="file"></td>
+		<td><input type="file" name="n_file"></td>
 	</tr>
 
 </table>
