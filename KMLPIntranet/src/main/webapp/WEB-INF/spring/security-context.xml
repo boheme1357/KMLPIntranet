@@ -22,7 +22,7 @@
 
 		<session-management>
 			<concurrency-control max-sessions="1"
-				expired-url="/user/loginPage" error-if-maximum-exceeded="true" />
+				expired-url="/user/loginPage" />
 		</session-management>
 
 		<logout delete-cookies="true" logout-url="/logout"
