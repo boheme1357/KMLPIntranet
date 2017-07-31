@@ -12,11 +12,25 @@
 
 
 
-	<!-- 02_02. 사원데이터삽입 -->
+	<!-- 02_01. 사원데이터삽입 -->
 	<insert id="insert">
 		insert into member(m_id, m_name, m_pwd, m_dept, m_posit, m_email_id, m_email_do, m_cell, m_com_date)
 		values
 		(#{m_id}, #{m_name}, #{m_pwd}, #{m_dept}, #{m_posit}, #{m_email_id}, #{m_email_do}, #{m_cell}, #{m_com_date})
+	</insert>
+	
+	<!-- 02_02. 사원 권한 삽입 -->
+	<insert id="insertAuthority">
+		insert into authorities(au_id, authority)
+		values
+		(#{m_id}, #{authority})
+	</insert>
+	
+	<!-- 02_03. 사원 도장 이미지 삽입 -->
+	<insert id="insertSignImg">
+		insert into member_signimg(ms_id, ms_img)
+		values
+		(#{m_id}, #{savedName})
 	</insert>
 
 
