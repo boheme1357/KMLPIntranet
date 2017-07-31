@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- 시큐리티 태그lib -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -54,6 +55,8 @@ a:active {
 		
 		<a href="${pageContext.request.contextPath}/myModify.do" class="w3-bar-item w3-button w3-padding-large w3-right w3-hover-none">
 		<i class="fa fa-user"></i> 마이페이지</a>
+		
+		<label class="w3-bar-item w3-padding-large w3-right"><sec:authentication property="principal.username"/>님 환영합니다!</label>
 	</div>
 </body>
 </html>
