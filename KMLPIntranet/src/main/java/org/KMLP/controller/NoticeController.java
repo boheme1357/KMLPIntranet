@@ -59,7 +59,7 @@ public class NoticeController {
 		
 		// 시큐리티에서 로그인한 유저 id 받아오는 코드
 		 User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		 
+
 		 model.addAttribute("m_id", user.getUsername());
 
 		return "nRegist";

@@ -54,12 +54,12 @@ public class ApproveController {
 		HashMap<String, Boolean> unapprDocMap = documentSerive.selectUnapproveDoc(m_id);
 		model.addAttribute("unapprDocMap", unapprDocMap);
 
-		/* 맵 데이터 확인 로그
-		Iterator<String> iterator = unapprDocMap.keySet().iterator();
-		while (iterator.hasNext()) {
-			String key = (String) iterator.next(); // 키 얻기
-			System.out.println("--------------------------------key=" + key + " / value=" + unapprDocMap.get(key)); // 출력
-		}*/
+		/*
+		 * 맵 데이터 확인 로그 Iterator<String> iterator = unapprDocMap.keySet().iterator();
+		 * while (iterator.hasNext()) { String key = (String) iterator.next(); // 키 얻기
+		 * System.out.println("--------------------------------key=" + key + " / value="
+		 * + unapprDocMap.get(key)); // 출력 }
+		 */
 
 		return "aList";
 	}
@@ -77,7 +77,12 @@ public class ApproveController {
 	public String aRegistGET(Model model) {
 
 		logger.info("aRegistGET PAGE...............");
+		
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+		model.addAttribute("m_id", user.getUsername());
+		
 		return "aRegist";
 	}
 

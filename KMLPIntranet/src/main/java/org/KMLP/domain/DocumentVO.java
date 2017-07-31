@@ -7,8 +7,8 @@ public class DocumentVO {			//일일업무보고서
 	private String d_id; 			//작성자
 	private String d_title;			//제목
 	private String d_content;		//업무내용
-	private boolean d_final_check; 	//최종승인여부
-	private int d_appr_cnt;			//결재횟수
+	private boolean d_final_condition; 	//최종승인여부
+	private int d_final_cnt;			//총 결재횟수
 	
 	
 	public String getD_num() {
@@ -41,17 +41,17 @@ public class DocumentVO {			//일일업무보고서
 	public void setD_content(String d_content) {
 		this.d_content = d_content;
 	}
-	public boolean isD_final_check() {
-		return d_final_check;
+	public boolean isD_final_condition() {
+		return d_final_condition;
 	}
-	public void setD_final_check(boolean d_final_check) {
-		this.d_final_check = d_final_check;
+	public void setD_final_condition(boolean d_final_condition) {
+		this.d_final_condition = d_final_condition;
 	}
-	public int getD_appr_cnt() {
-		return d_appr_cnt;
+	public int getD_final_cnt() {
+		return d_final_cnt;
 	}
-	public void setD_appr_cnt(int d_appr_cnt) {
-		this.d_appr_cnt = d_appr_cnt;
+	public void setD_final_cnt(int d_final_cnt) {
+		this.d_final_cnt = d_final_cnt;
 	}
 	
 	
