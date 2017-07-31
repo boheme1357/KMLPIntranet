@@ -16,6 +16,7 @@ public class MemberVO {			//사원정보
 	private String m_quit_date;	//퇴사일자
 	private MultipartFile file;
 	private String savedName;
+	private String authority;
 	
 	public String getM_id() {
 		return m_id;
@@ -88,6 +89,12 @@ public class MemberVO {			//사원정보
 	}
 	public void setSavedName(String savedName) {
 		this.savedName = savedName;
+	}
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 	
 	

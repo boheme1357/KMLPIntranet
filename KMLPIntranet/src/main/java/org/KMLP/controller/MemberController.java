@@ -72,17 +72,18 @@ public class MemberController {
 		String tmpPW = encoder.encoding(vo.getM_pwd());
 		vo.setM_pwd(tmpPW);
 		
-		
-			System.out.println(vo.getFile());
+		// 업로드 파일명 확인
 		String savedName = vo.getFile().getOriginalFilename();
+		
 		if(savedName.equals(""))
-			System.out.println("---------------------------------------"+savedName);
+			logger.info("도장 이미지 미등록 ...........");
 		else {
 		File target = new File(uploadPath, savedName);
 		FileCopyUtils.copy(vo.getFile().getBytes(), target); // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사,
 																// FileCopyUtils.copy(바이트배열, 파일객체)
 		vo.setSavedName(savedName);
 		}
+		
 		memberSerive.insert(vo);
 		
 		return "redirect:/member/mList.do";
