@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="approveMapper">
+
+	<!--01. 일일업무전체목록 -->
+	<select id="selectAll" resultType="org.KMLP.domain.ApproveVO">
+		select * from approve;
+	</select>
+
+
+
+	<!-- 02_02. 결재 총 횟수만큼 행 추가 -->
+	<insert id="insert">
+		insert into approve(a_num, a_id, a_cnt)
+		values
+		(
+		#{a_num}, #{a_id}, #{a_cnt})
+	</insert>
+</mapper>

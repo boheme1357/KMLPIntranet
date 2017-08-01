@@ -2,13 +2,14 @@ package org.KMLP.domain;
 
 public class DocumentVO {			//일일업무보고서
 
-	private String d_num; 			//문서번호
-	private String d_date;			//작성일자 
-	private String d_id; 			//작성자
-	private String d_title;			//제목
-	private String d_content;		//업무내용
-	private boolean d_final_condition; 	//최종승인여부
-	private int d_final_cnt;			//총 결재횟수
+	private String d_num; 			// 문서번호
+	private String d_date;			// 작성일자 
+	private String d_id; 			// 작성자
+	private String d_title;			// 제목
+	private String d_content;		// 업무내용
+	private boolean d_final_condition; 	// 최종승인여부
+	private int d_final_cnt;			// 총 결재횟수
+	public static int d_upload_cnt; 		// 총 게시글 수
 	
 	
 	public String getD_num() {
