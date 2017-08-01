@@ -2,18 +2,16 @@
 
 <!--jstl 코어 태크  -->
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <!--context경로  -->
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-
 <!-- 시큐리티 태그lib -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/list.css">
 </head>
 <div id="wapper">
@@ -24,7 +22,7 @@
 <table border="1" width="100%">
 	<tr>
 		<th width="10%">문서번호</th>
-		<th width="10%">작성자(id)</th>
+		<th width="10%">사&emsp;번</th>
 		<th width="25%">제&emsp;목</th>
 		<th width="20%">작 성 일 자</th>
 		<th>최종승인여부</th>	
