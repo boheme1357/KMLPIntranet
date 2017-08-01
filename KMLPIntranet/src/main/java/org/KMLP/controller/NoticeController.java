@@ -6,8 +6,6 @@ import javax.inject.Inject;
 
 import org.KMLP.service.NoticeService;
 import org.KMLP.domain.NoticeVO;
-import org.KMLP.service.MemberService;
-import org.KMLP.domain.MemberVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,9 +23,6 @@ public class NoticeController {
 
 	@Inject
 	NoticeService noticeSerive;
-	
-	@Inject
-	MemberService memberSerive;
 
 	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
 
