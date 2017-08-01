@@ -5,9 +5,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
+
+import org.KMLP.domain.ApproveVO;
 import org.KMLP.domain.DocumentVO;
 import org.KMLP.persistence.DocumentDAO;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.HashMap;
 
 @Service
@@ -15,6 +19,9 @@ public class DocumentServiceImpl implements DocumentService {
 
 	@Inject
 	DocumentDAO dao;
+	
+	@Inject
+	ApproveService approveService;
 
 	// 01. 일일업무일지목록
 	@Override
@@ -25,15 +32,20 @@ public class DocumentServiceImpl implements DocumentService {
 
 	// 02_02. 일일업무일지데이터삽입
 	@Override
-	public void insert(DocumentVO vo) {
+	public void insert(DocumentVO vo, ApproveVO avo) {
 
+		// document 행추가
 		dao.insert(vo);
-		// 결재 횟수만큼 approve 테이블에 행을 추가하는 로직이 추가되어야 함
-		// DB 결과: document 테이블에 1행 추가 + approve 테이블에 결재횟수만큼 행 추가
+		
+		avo.setA_num(vo.getD_num());
+		
+		// d_final_cnt 만큼 approve 행 추가
+		approveService.insert(avo);
+		
 	}
 
 	// 03.일일업무일지내용조회
-	@Override
+	@Override	
 	public DocumentVO selectContent(String d_num) {
 		return dao.selectContent(d_num);
 	}

@@ -3,7 +3,7 @@ package org.KMLP.service;
 import java.util.HashMap;
 import java.util.List;
 
-
+import org.KMLP.domain.ApproveVO;
 import org.KMLP.domain.DocumentVO;
 
 public interface DocumentService {
@@ -11,11 +11,10 @@ public interface DocumentService {
 	public List<DocumentVO> selectAll();
 	
 	//02_02. 일일업무일지 데이터삽입
-	public void insert(DocumentVO vo);
+	public void insert(DocumentVO vo, ApproveVO avo);
 	
 	//03. 일일업무일지 내용조회
 	public DocumentVO selectContent(String d_num);
-	
 	
 	//04. 일일업무일지 수정
 	public void update(DocumentVO vo);

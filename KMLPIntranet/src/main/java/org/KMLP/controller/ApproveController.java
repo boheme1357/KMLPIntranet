@@ -1,12 +1,14 @@
 package org.KMLP.controller;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
+import org.KMLP.service.ApproveService;
 import org.KMLP.service.DocumentService;
+import org.KMLP.domain.ApproveVO;
 import org.KMLP.domain.DocumentVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +27,10 @@ public class ApproveController {
 
 	@Inject
 	DocumentService documentSerive;
+	
+	
+	
+
 
 	private static final Logger logger = LoggerFactory.getLogger(ApproveController.class);
 
@@ -39,16 +45,17 @@ public class ApproveController {
 		String m_id = user.getUsername();
 		System.out.println("---------------------------------------------------------" + m_id);
 
-		List<DocumentVO> list = documentSerive.selectReceiveListAll(m_id);
-		model.addAttribute("list", list);
+		// 0. Document의 모든 리스트
+		//List<DocumentVO> list = documentSerive.selectReceiveListAll(m_id);
+		//model.addAttribute("list", list);
 
 		// 1. 자신이 작성한 결재문서 리스트
 		List<DocumentVO> sentList = documentSerive.selectSentListAll(m_id);
-		model.addAttribute("sentList", list);
+		model.addAttribute("sentList", sentList);
 
 		// 2. 자신이 수신한 결재문서 리스트
 		List<DocumentVO> receiveList = documentSerive.selectReceiveListAll(m_id);
-		model.addAttribute("receiveList", list);
+		model.addAttribute("receiveList", receiveList);
 
 		// 3. 미결된 결재문서 넘버, 상태
 		HashMap<String, Boolean> unapprDocMap = documentSerive.selectUnapproveDoc(m_id);
@@ -88,11 +95,21 @@ public class ApproveController {
 
 	// 02_02. 일일업무일지 데이터 삽입
 	@RequestMapping(value = "/aRegist.do", method = RequestMethod.POST)
-	public String aRegistPOST(@ModelAttribute DocumentVO vo, Model model) throws Exception {
-
+	public String aRegistPOST(@ModelAttribute DocumentVO vo, @RequestParam("a_id_arr[]") String[] a_id_arr, Model model) throws Exception {
+		
 		logger.info("aRegistPOST PAGE ...........");
+		
+		ApproveVO avo = new ApproveVO();
+		avo.setA_id_arr(a_id_arr);
+		
+		//for(String i : avo.getA_id_arr())
+		//	System.out.println("--------------------------------"+i);
+		
+		documentSerive.insert(vo, avo);
+		
+		// a_num set 해주는 부분 추가해야함
+		
 
-		documentSerive.insert(vo);
 
 		return "redirect:/approve/aList.do";
 	}

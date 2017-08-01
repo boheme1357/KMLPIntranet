@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.KMLP.domain.MemberVO;
+import org.springframework.transaction.annotation.Transactional;
 import org.KMLP.domain.DocumentVO;
 
+@Transactional
 public interface DocumentDAO {
 	
 	//01. 일일업무일지 전체목록
@@ -13,6 +15,7 @@ public interface DocumentDAO {
 	
 	
 	//02_02. 일일업무일지 데이터삽입
+	@Transactional
 	public void insert(DocumentVO vo);
 	
 	//03. 일일업무일지 내용조회
