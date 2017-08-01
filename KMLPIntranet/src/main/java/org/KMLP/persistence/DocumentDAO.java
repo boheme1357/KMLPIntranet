@@ -29,13 +29,22 @@ public interface DocumentDAO {
 	public void delete(String n_num);
 
 	// 06. 발신한 결재서류 리스트
-	public List<DocumentVO> selectSentListAll(String d_id);
+	public List<DocumentVO> selectSendListAll_ing(String d_id);
 	
 	// 07. 수신한 결재서류 리스트
-	public List<DocumentVO> selectReceiveListAll(String d_id);
+	public List<DocumentVO> selectReceiveListAll_ing(String d_id);
 	
 	// 08. 미결된 서류 넘버 Map
 	public HashMap<String, Boolean> selectUnapproveDoc(HashMap<String, Boolean> unapprDocMap, String m_id);
+
+
+	public List<DocumentVO> selectReceiveListAll_end(String d_id);
+
+
+	public List<DocumentVO> selectSendListAll_end(String d_id);
+
+
+	public List<DocumentVO> selectSendListAll_return(String d_id);
 
 
 

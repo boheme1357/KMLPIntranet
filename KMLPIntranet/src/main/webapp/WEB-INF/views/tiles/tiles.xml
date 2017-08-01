@@ -48,9 +48,9 @@
        <put-attribute name="body" value="/WEB-INF/views/approve/aApproving.jsp" />  
    </definition> 
    
-   <definition name="aReceive" extends="default-definition">  
+   <definition name="aReturn" extends="default-definition">  
        <put-attribute name="title" value="Receive List" />  
-       <put-attribute name="body" value="/WEB-INF/views/approve/aReceive.jsp" />  
+       <put-attribute name="body" value="/WEB-INF/views/approve/aReturn.jsp" />  
    </definition>  
    
    <definition name="aContent" extends="default-definition">  

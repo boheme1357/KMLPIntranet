@@ -27,89 +27,40 @@ public class ApproveController {
 
 	@Inject
 	DocumentService documentSerive;
-	
-	
-	
-
 
 	private static final Logger logger = LoggerFactory.getLogger(ApproveController.class);
 
-	// 01. 일일업무일지 전체목록
-	@RequestMapping(value = "/aList.do", method = RequestMethod.GET)
-	public String aListGET(Model model) {
-
-		logger.info("aListGET PAGE...............");
-
-		// 시큐리티에서 로그인한 유저 id 받아오는 코드
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String m_id = user.getUsername();
-		System.out.println("---------------------------------------------------------" + m_id);
-
-		// 0. Document의 모든 리스트
-		//List<DocumentVO> list = documentSerive.selectReceiveListAll(m_id);
-		//model.addAttribute("list", list);
-
-		// 1. 자신이 작성한 결재문서 리스트
-		List<DocumentVO> sentList = documentSerive.selectSentListAll(m_id);
-		model.addAttribute("sentList", sentList);
-
-		// 2. 자신이 수신한 결재문서 리스트
-		List<DocumentVO> receiveList = documentSerive.selectReceiveListAll(m_id);
-		model.addAttribute("receiveList", receiveList);
-
-		// 3. 미결된 결재문서 넘버, 상태
-		HashMap<String, Boolean> unapprDocMap = documentSerive.selectUnapproveDoc(m_id);
-		model.addAttribute("unapprDocMap", unapprDocMap);
-
-		/*
-		 * 맵 데이터 확인 로그 Iterator<String> iterator = unapprDocMap.keySet().iterator();
-		 * while (iterator.hasNext()) { String key = (String) iterator.next(); // 키 얻기
-		 * System.out.println("--------------------------------key=" + key + " / value="
-		 * + unapprDocMap.get(key)); // 출력 }
-		 */
-
-		return "aList";
-	}
-
-	@RequestMapping(value = "/aList.do", method = RequestMethod.POST)
-	public String aListPOST(Model model) throws Exception {
-
-		logger.info("aListPOST post ...........");
-
-		return "aList";
-	}
-
+	
 	// 02_01. 일일업무일지 등록화면
 	@RequestMapping(value = "/aRegist.do", method = RequestMethod.GET)
 	public String aRegistGET(Model model) {
 
 		logger.info("aRegistGET PAGE...............");
-		
+
 		// 시큐리티에서 로그인한 유저 id 받아오는 코드
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
 		model.addAttribute("m_id", user.getUsername());
-		
+
 		return "aRegist";
 	}
 
 	// 02_02. 일일업무일지 데이터 삽입
 	@RequestMapping(value = "/aRegist.do", method = RequestMethod.POST)
-	public String aRegistPOST(@ModelAttribute DocumentVO vo, @RequestParam("a_id_arr[]") String[] a_id_arr, Model model) throws Exception {
-		
+	public String aRegistPOST(@ModelAttribute DocumentVO vo, @RequestParam("a_id_arr[]") String[] a_id_arr, Model model)
+			throws Exception {
+
 		logger.info("aRegistPOST PAGE ...........");
-		
+
 		ApproveVO avo = new ApproveVO();
 		avo.setA_id_arr(a_id_arr);
-		
-		//for(String i : avo.getA_id_arr())
-		//	System.out.println("--------------------------------"+i);
-		
-		documentSerive.insert(vo, avo);
-		
-		// a_num set 해주는 부분 추가해야함
-		
 
+		// for(String i : avo.getA_id_arr())
+		// System.out.println("--------------------------------"+i);
+
+		documentSerive.insert(vo, avo);
+
+		// a_num set 해주는 부분 추가해야함
 
 		return "redirect:/approve/aList.do";
 	}
@@ -159,11 +110,23 @@ public class ApproveController {
 		documentSerive.delete(d_num);
 		return "redirect:/document/aList.do";
 	}
-	
+
 	@RequestMapping(value = "/aApproved.do", method = RequestMethod.GET)
 	public String aApprovedGET(Model model) {
 
 		logger.info("aApprovedGET PAGE...............");
+
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String m_id = user.getUsername();
+
+		// 1. 자신이 작성한 결재문서 리스트
+		List<DocumentVO> sentList = documentSerive.selectSendListAll_end(m_id);
+		model.addAttribute("sentList", sentList);
+
+		// 2. 자신이 수신한 결재문서 리스트
+		List<DocumentVO> receiveList = documentSerive.selectReceiveListAll_end(m_id);
+		model.addAttribute("receiveList", receiveList);
 
 		return "aApproved";
 	}
@@ -175,11 +138,23 @@ public class ApproveController {
 
 		return "aApproved";
 	}
-	
+
 	@RequestMapping(value = "/aApproving.do", method = RequestMethod.GET)
 	public String aApprovingGET(Model model) {
 
 		logger.info("aApprovingGET PAGE...............");
+
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String m_id = user.getUsername();
+
+		// 1. 자신이 작성한 결재문서 리스트
+		List<DocumentVO> sentList = documentSerive.selectSendListAll_ing(m_id);
+		model.addAttribute("sentList", sentList);
+
+		// 2. 자신이 수신한 결재문서 리스트
+		List<DocumentVO> receiveList = documentSerive.selectReceiveListAll_ing(m_id);
+		model.addAttribute("receiveList", receiveList);
 
 		return "aApproving";
 	}
@@ -191,21 +166,33 @@ public class ApproveController {
 
 		return "aApproving";
 	}
-	
-	@RequestMapping(value = "/aReceive.do", method = RequestMethod.GET)
-	public String aReceiveGET(Model model) {
 
-		logger.info("aReceiveGET PAGE...............");
+	@RequestMapping(value = "/aReturn.do", method = RequestMethod.GET)
+	public String aReturnGET(Model model) {
 
-		return "aReceive";
+		logger.info("aReturnGET PAGE...............");
+
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String m_id = user.getUsername();
+
+		// 1. 자신이 작성한 결재문서 리스트
+		List<DocumentVO> sentList = documentSerive.selectSendListAll_return(m_id);
+		model.addAttribute("sentList", sentList);
+
+		return "aReturn";
 	}
 
-	@RequestMapping(value = "/aReceive.do", method = RequestMethod.POST)
-	public String aReceivePOST(Model model) throws Exception {
+	@RequestMapping(value = "/aReturn.do", method = RequestMethod.POST)
+	public String aReturnPOST(Model model) throws Exception {
 
-		logger.info("aReceivePOST post ...........");
+		logger.info("aReturnPOST post ...........");
+		
+		// 3. 미결된 결재문서 넘버, 상태
+		//		HashMap<String, Boolean> unapprDocMap = documentSerive.selectUnapproveDoc(m_id);
+		//		model.addAttribute("unapprDocMap", unapprDocMap);
 
-		return "aReceive";
+		return "aReturn";
 	}
 
 }

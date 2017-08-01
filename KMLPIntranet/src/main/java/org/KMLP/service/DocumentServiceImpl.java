@@ -19,7 +19,7 @@ public class DocumentServiceImpl implements DocumentService {
 
 	@Inject
 	DocumentDAO dao;
-	
+
 	@Inject
 	ApproveService approveService;
 
@@ -36,16 +36,16 @@ public class DocumentServiceImpl implements DocumentService {
 
 		// document 행추가
 		dao.insert(vo);
-		
+
 		avo.setA_num(vo.getD_num());
-		
+
 		// d_final_cnt 만큼 approve 행 추가
 		approveService.insert(avo);
-		
+
 	}
 
 	// 03.일일업무일지내용조회
-	@Override	
+	@Override
 	public DocumentVO selectContent(String d_num) {
 		return dao.selectContent(d_num);
 	}
@@ -62,27 +62,48 @@ public class DocumentServiceImpl implements DocumentService {
 		dao.delete(d_num);
 	}
 
-	// 06. 발신한 결재서류 리스트
+	// 06-01. 발신한 결재서류 리스트(진행중)
 	@Override
-	public List<DocumentVO> selectSentListAll(String d_id) {
+	public List<DocumentVO> selectSendListAll_ing(String d_id) {
 		// TODO Auto-generated method stub
-		return dao.selectSentListAll(d_id);
+		return dao.selectSendListAll_ing(d_id);
 	}
 
-	// 07. 수신한 결재서류 리스트
+	// 06-02. 발신한 결재서류 리스트(완료)
 	@Override
-	public List<DocumentVO> selectReceiveListAll(String d_id) {
+	public List<DocumentVO> selectSendListAll_end(String d_id) {
 		// TODO Auto-generated method stub
-		return dao.selectReceiveListAll(d_id);
+		return dao.selectSendListAll_end(d_id);
+	}
+
+	// 07-01. 수신한 결재서류 리스트(진행중)
+	@Override
+	public List<DocumentVO> selectReceiveListAll_ing(String d_id) {
+		// TODO Auto-generated method stub
+		return dao.selectReceiveListAll_ing(d_id);
+	}
+
+	// 07-01. 수신한 결재서류 리스트(완료)
+	@Override
+	public List<DocumentVO> selectReceiveListAll_end(String d_id) {
+		// TODO Auto-generated method stub
+		return dao.selectReceiveListAll_end(d_id);
+	}
+
+	// 08. 발신한 결재서류 리스트(반려)
+	@Override
+	public List<DocumentVO> selectSendListAll_return(String d_id) {
+		// TODO Auto-generated method stub
+		return dao.selectSendListAll_return(d_id);
 	}
 
 	// 08. 미결된 서류 넘버 Map
 	@Override
 	public HashMap<String, Boolean> selectUnapproveDoc(String m_id) {
 		// db에서 final_check != true 인 문서 중 a_check != true인 문서번호를 검색해서 가져옴
-		
+
 		HashMap<String, Boolean> unapprDocMap = new HashMap<String, Boolean>();
-	
+
 		return dao.selectUnapproveDoc(unapprDocMap, m_id);
 	}
 
