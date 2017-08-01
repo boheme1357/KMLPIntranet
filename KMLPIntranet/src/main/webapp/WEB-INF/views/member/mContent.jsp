@@ -8,7 +8,6 @@
 <!-- 시큐리티 태그lib -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,8 +42,8 @@
 </script>
 
 </head>
-<div id="wapper">
 <body>
+<div id="wapper">
 <h3>사원개인정보</h3>
 <hr>
 <sf:form action="${path}/member/mModify.do" name="form" method="post">
@@ -107,6 +106,6 @@
 	<br><br><div style="color: red;">${message}</div>
 </div>
 </sf:form>
-</body>
 </div>
+</body>
 </html>
