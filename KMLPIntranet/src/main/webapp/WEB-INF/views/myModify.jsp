@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-
-<!--jstl 코어 태크  -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<!--context경로  -->
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-
+<!-- jstl 코어 태그 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- jstl 포맷 태그 -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- 컨택스트  패스-->
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- 시큐리티 태그lib -->
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -77,10 +76,10 @@
 		background-color: lightblue;
 	}
 </style>
-
 </head>
-<div id="wapper">
+
 <body>
+<div id="wapper">
 <h3>사원개인정보</h3>
 <hr>
 <sf:form action="${path}/member/insert" name="form" method="post">
@@ -149,6 +148,6 @@
 	<div style="color: red;">${message}</div>
 </div>
 </sf:form>
-</body>
 </div>
+</body>
 </html>
