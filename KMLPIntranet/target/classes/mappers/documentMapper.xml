@@ -15,10 +15,10 @@
 	<!-- 02_02. 일일업무데이터삽입 -->
 	<insert id="insert">
 		insert into document(d_num, d_id, d_title, d_content,
-		d_final_check, d_appr_cnt)
+		d_final_condition, d_final_cnt)
 		values
 		( #{d_num}, #{d_id}, #{d_title},
-		#{d_content}, #{d_final_check}, #{d_appr_cnt})
+		#{d_content}, #{d_final_condition}, #{d_final_cnt})
 	</insert>
 
 
@@ -34,7 +34,7 @@
 	<update id="update">
 		update document set d_num=#{d_num}, d_date=#{d_date},
 		d_id=#{d_id}, d_title=#{d_title}, d_content=#{d_content},
-		d_final_check=#{d_final_check}, d_appr_cnt=#{d_appr_cnt}
+		d_final_condition=#{d_final_condition}, d_final_cnt=#{d_final_cnt}
 		where
 		d_num=#{d_num}
 	</update>

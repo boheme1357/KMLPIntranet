@@ -36,6 +36,21 @@
    <definition name="aList" extends="default-definition">  
        <put-attribute name="title" value="Approve List" />  
        <put-attribute name="body" value="/WEB-INF/views/approve/aList.jsp" />  
+   </definition> 
+   
+   <definition name="aApproved" extends="default-definition">  
+       <put-attribute name="title" value="Approved List" />  
+       <put-attribute name="body" value="/WEB-INF/views/approve/aApproved.jsp" />  
+   </definition> 
+   
+   <definition name="aApproving" extends="default-definition">  
+       <put-attribute name="title" value="Approving List" />  
+       <put-attribute name="body" value="/WEB-INF/views/approve/aApproving.jsp" />  
+   </definition> 
+   
+   <definition name="aReceive" extends="default-definition">  
+       <put-attribute name="title" value="Receive List" />  
+       <put-attribute name="body" value="/WEB-INF/views/approve/aReceive.jsp" />  
    </definition>  
    
    <definition name="aContent" extends="default-definition">  

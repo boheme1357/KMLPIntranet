@@ -142,5 +142,53 @@ public class ApproveController {
 		documentSerive.delete(d_num);
 		return "redirect:/document/aList.do";
 	}
+	
+	@RequestMapping(value = "/aApproved.do", method = RequestMethod.GET)
+	public String aApprovedGET(Model model) {
+
+		logger.info("aApprovedGET PAGE...............");
+
+		return "aApproved";
+	}
+
+	@RequestMapping(value = "/aApproved.do", method = RequestMethod.POST)
+	public String aApprovedPOST(Model model) throws Exception {
+
+		logger.info("aApprovedPOST post ...........");
+
+		return "aApproved";
+	}
+	
+	@RequestMapping(value = "/aApproving.do", method = RequestMethod.GET)
+	public String aApprovingGET(Model model) {
+
+		logger.info("aApprovingGET PAGE...............");
+
+		return "aApproving";
+	}
+
+	@RequestMapping(value = "/aApproving.do", method = RequestMethod.POST)
+	public String aApprovingPOST(Model model) throws Exception {
+
+		logger.info("aApprovingPOST post ...........");
+
+		return "aApproving";
+	}
+	
+	@RequestMapping(value = "/aReceive.do", method = RequestMethod.GET)
+	public String aReceiveGET(Model model) {
+
+		logger.info("aReceiveGET PAGE...............");
+
+		return "aReceive";
+	}
+
+	@RequestMapping(value = "/aReceive.do", method = RequestMethod.POST)
+	public String aReceivePOST(Model model) throws Exception {
+
+		logger.info("aReceivePOST post ...........");
+
+		return "aReceive";
+	}
 
 }
