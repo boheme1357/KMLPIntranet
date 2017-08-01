@@ -7,12 +7,23 @@
 
 	<!--01. 일일업무전체목록 -->
 	<select id="selectAll" resultType="org.KMLP.domain.DocumentVO">
-		select * from document;
+		select * from document ORDER BY d_date DESC
 	</select>
 
 
 
-	<!-- 02_02. 일일업무데이터삽입 -->
+	<!--02_01. 일일업무 업로드 카운팅 +1 -->
+	<update id="update_upload_cnt">
+		update document_cnt set dc_upload_cnt=dc_upload_cnt+1
+	</update>
+
+	<!--02_02. 결재문서 업로드 카운트 가져오기 -->
+	<select id="select_upload_cnt" resultType="int">
+		select dc_upload_cnt
+		from document_cnt
+	</select>
+
+	<!-- 02_03. 일일업무데이터삽입 -->
 	<insert id="insert">
 		insert into document(d_num, d_id, d_title, d_content,
 		d_final_condition, d_final_cnt)
@@ -20,6 +31,8 @@
 		( #{d_num}, #{d_id}, #{d_title},
 		#{d_content}, #{d_final_condition}, #{d_final_cnt})
 	</insert>
+
+
 
 
 	<!--03. 일일업무 내용 -->
@@ -51,21 +64,27 @@
 	<select id="selectSentListAll" resultType="org.KMLP.domain.DocumentVO">
 		select * from document
 		where d_id = #{d_id}
+		ORDER BY d_date DESC
 	</select>
 
 
 	<!-- 07. 수신한 결재서류 리스트 -->
 	<select id="selectReceiveListAll" resultType="org.KMLP.domain.DocumentVO">
 		select *
-		from document join approve
-		on document.d_num = approve.a_num where a_id = #{m_id}
+		from
+		document join approve
+		on document.d_num = approve.a_num where a_id =
+		#{m_id}
+		ORDER BY d_date DESC
 	</select>
 
 
 
 	<!-- 08. 미결된 서류 넘버 Map -->
-	<select id="selectUnapproveDoc"  parameterType="java.lang.String" resultType="java.util.HashMap">
-		select a_num, a_condition from approve where a_id = #{m_id} and (a_condition is null or a_condition = false)
+	<select id="selectUnapproveDoc" parameterType="java.lang.String"
+		resultType="java.util.HashMap">
+		select a_num, a_condition from approve where a_id = #{m_id}
+		and (a_condition is null or a_condition = false)
 	</select>
 
 

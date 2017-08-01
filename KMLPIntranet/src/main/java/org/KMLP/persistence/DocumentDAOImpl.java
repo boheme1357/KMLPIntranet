@@ -1,5 +1,7 @@
 package org.KMLP.persistence;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -10,8 +12,10 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.KMLP.domain.DocumentVO;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
+@Transactional
 public class DocumentDAOImpl implements DocumentDAO {
 
 	private static final String namespace = "documentMapper";
@@ -27,8 +31,23 @@ public class DocumentDAOImpl implements DocumentDAO {
 
 	// 02_02. 일일업무일지 데이터삽입
 	@Override
+	@Transactional
 	public void insert(DocumentVO vo) {
+		
+		// 업로드 카운트 1 증가
+		sqlSession.update(namespace + ".update_upload_cnt");
+		
+		// 업로드 카운트 수 가져오기
+		DocumentVO.d_upload_cnt = sqlSession.selectOne(namespace + ".select_upload_cnt");
+		
+		// 파일명 생성-설정
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		vo.setD_num(sdf.format(date).toString()+"-"+Integer.toString(DocumentVO.d_upload_cnt));
+		
+		// 결재문서 업로드
 		sqlSession.insert(namespace + ".insert", vo);
+
 	}
 
 	// 03. 일일업무일지 내용조회

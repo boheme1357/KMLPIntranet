@@ -5,7 +5,7 @@ package org.KMLP.domain;
 public class ApproveVO {
 
 	private String a_num;		//문서번호
-	private String a_cnt;	//결재단계
+	private int a_cnt;	//결재단계
 	private String[] a_id_arr;		//수신자들
 	private boolean a_condition;	//승인여부
 	private String a_id; //특정수신자
@@ -16,10 +16,10 @@ public class ApproveVO {
 	public void setA_num(String a_num) {
 		this.a_num = a_num;
 	}
-	public String getA_cnt() {
+	public int getA_cnt() {
 		return a_cnt;
 	}
-	public void setA_cnt(String a_cnt) {
+	public void setA_cnt(int a_cnt) {
 		this.a_cnt = a_cnt;
 	}
 

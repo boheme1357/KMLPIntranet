@@ -59,7 +59,8 @@
 
 
 			<tr>
-				<td colspan="2" align="center"><input type="submit" value="확인">
+				<td colspan="2" align="center">
+					<input type="submit" value="확인">
 					<input type="reset" value="취소">
 			</tr>
 
@@ -83,7 +84,7 @@
 									for(var i=0 ; i<d_final_cnt ; i++){
 										++i;
 											$('#approve_table > tbody:last').append(
-												'<tr><td><input name="a_cnt+'+i+'" value="'+i+'" readonly="readonly" size="1" style="text-align: center;"></td>'
+												'<tr><td>'+i+'</td>'
 												+
 												'<td><input name="a_id_arr[]"></td></tr>'
 											);
@@ -102,11 +103,7 @@
 									event.preventDefault();
 								});
 						
-						// 확인 버튼 클릭
-						$('#form').submit(function() {
-							
-							
-						});
+						
 
 					});
 		</script>

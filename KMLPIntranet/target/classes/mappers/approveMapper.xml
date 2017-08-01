@@ -3,11 +3,11 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="documentMapper">
+<mapper namespace="approveMapper">
 
 	<!--01. 일일업무전체목록 -->
-	<select id="selectAll" resultType="org.KMLP.domain.DocumentVO">
-		select * from document;
+	<select id="selectAll" resultType="org.KMLP.domain.ApproveVO">
+		select * from approve;
 	</select>
 
 
