@@ -23,7 +23,7 @@ div#wapper table {
     line-height: 24px;
     margin: 30px auto;
 	text-align: center;
-    width: 1300px;
+    width: 100%;
 }   
 
 div#wapper th {

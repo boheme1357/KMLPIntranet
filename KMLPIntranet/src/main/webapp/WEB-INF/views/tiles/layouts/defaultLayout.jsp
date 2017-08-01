@@ -22,19 +22,26 @@ html, body {
     display: inline-block;
     width: 200px;
     height: 100%;
+<<<<<<< HEAD
 
 }
 
 #body {
     margin-left:2%;
     margin-right:2%;
+=======
+}
+
+#body {
+    margin-left: 2%;
+    margin-right: 2%;
+>>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
     display: inline-block;
     position: absolute;
     left: 200px; right: 0;
 }
 </style>
 </head>
-  
 <body>
 <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
    <tr>
@@ -44,8 +51,12 @@ html, body {
    </tr>
    
    <tr>
+<<<<<<< HEAD
    
       <td id="menu" valign="top" style="height: 100%; width: 12%">
+=======
+      <td valign="top" id="menu"style="height: 100%; width: 12%">
+>>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
          <tiles:insertAttribute name="menu" />
       </td>
       

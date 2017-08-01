@@ -9,16 +9,19 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 =======
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-
-<!--jstl 코어 태크  -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
-<!--context경로  -->
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-
+<!-- jstl 코어 태그 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- jstl 포맷 태그 -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- 컨택스트  패스-->
+<c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- 시큐리티 태그lib -->
+<<<<<<< HEAD
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 
+>>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
+=======
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 >>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -30,21 +33,20 @@
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/list.css">
 >>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
 </head>
-<div id="wapper">
+
 <body>
+<div id="wapper">
 <h3>결재 완료&nbsp;리스트</h3>
 <hr>
 <sf:form action="register">
 
 자신이 작성한 결재문서 리스트
-<table border="1" width="100%">
+<table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="10%">문서번호</th>
-		<th width="10%">작성자(id)</th>
+		<th width="12%">작성자(사번)</th>
 		<th width="25%">제&emsp;목</th>
 		<th width="20%">작 성 일 자</th>
-	
-
 	</tr>
 	
 	<c:forEach var="row" items="${sentList}">
@@ -54,16 +56,15 @@
 		<td>${row.d_id}</td>
 		<td>${row.d_title}</td>
 		<td>${row.d_date}</td>
-
 	</tr>
 	</c:forEach>
-</table>
+</table><br><br>
 
 자신이 수신한 결재문서 리스트
 <table border="1" width="100%">
 	<tr>
 		<th width="10%">문서번호</th>
-		<th width="10%">작성자(id)</th>
+		<th width="12%">작성자(사번)</th>
 		<th width="25%">제&emsp;목</th>
 		<th width="20%">작 성 일 자</th>
 	</tr>
@@ -79,11 +80,10 @@
 	</c:forEach>
 </table>
 
-
 <div class="w3-center">
 	<input type="button" id="button" class="w3-btn w3-round-large" value="문서&nbsp;등록" onclick="location.href='${path}/approve/aRegist.do'">
 </div>
 </sf:form>
-</body>
 </div>
+</body>
 </html>

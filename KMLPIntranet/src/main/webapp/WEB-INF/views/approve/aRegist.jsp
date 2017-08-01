@@ -1,34 +1,33 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-<!--jstl 코어 태크  -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-<!--context경로  -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<!-- jstl 코어 태그 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- jstl 포맷 태그 -->
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- 컨택스트  패스-->
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
 <!-- 시큐리티 태그lib -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
-
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>결재 서류 등록</title>
+
+<style>
+hr{
+	border: solid 0.5px lightgray;
+}
+</style>
 </head>
+
 <body>
-
-
-
-	<h2>일일업무보고</h2>
+<h3>일일업무보고</h3>
+<hr>
 	<sf:form action="${path}/approve/aRegist.do" name="form" method="post" id='form'>
 
 		<table border="1" width="400px">
-			
 			<tr>
-				<td>작성자(id)</td>
+				<td>작성자(사번)</td>
 				<td><input name="d_id" value='${m_id}' readonly="readonly"></td>
 			</tr>
 
@@ -50,21 +49,16 @@
 					<button id='btn-delete-row'>초기화</button></td>
 			</tr>
 
-			
-
 			<!-- 결재 단계 설정 테이블 -->
 			<table border="1" width="400px" id='approve_table'>
 				<tbody></tbody>
 			</table>
-
 
 			<tr>
 				<td colspan="2" align="center">
 					<input type="submit" value="확인">
 					<input type="reset" value="취소">
 			</tr>
-
-
 		</table>
 		<!-- 결재 단계 테이블 행 추가 스크립트 -->
 		<script src="//code.jquery.com/jquery.min.js"></script>
@@ -102,24 +96,9 @@
 											.remove();
 									event.preventDefault();
 								});
-						
-						
 
 					});
 		</script>
-
 	</sf:form>
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
