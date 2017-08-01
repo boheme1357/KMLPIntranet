@@ -26,18 +26,7 @@
 	<sf:form action="${path}/approve/aRegist.do" name="form" method="post" id='form'>
 
 		<table border="1" width="400px">
-			<tr>
-				<td>문서번호</td>
-				<td><input name="d_num"></td>
-			</tr>
-
-
-			<tr>
-				<td>작성일자</td>
-				<td><input name="d_date"></td>
-			</tr>
-
-
+			
 			<tr>
 				<td>작성자(id)</td>
 				<td><input name="d_id" value='${m_id}' readonly="readonly"></td>
@@ -82,22 +71,25 @@
 			$(document).ready(
 					function() {
 						
+						var d_final_cnt;
+						
 						// 입력 버튼 클릭
 						$('#btn-add-row').click(
 								function() {
 									var arr = new Array();
-									var d_final_cnt = $('#d_final_cnt').val();
+									d_final_cnt = $('#d_final_cnt').val();
 									var time = new Date().toLocaleTimeString();
 										
 									for(var i=0 ; i<d_final_cnt ; i++){
 										++i;
 											$('#approve_table > tbody:last').append(
-													'<tr><td><input name="a_cnt+'+i+'" value="'+i+'" readonly="readonly" size="1" style="text-align: center;"></td>'+
-													'<td><input name="a_id+'+i+'"></td></tr>'
-													);
+												'<tr><td><input name="a_cnt+'+i+'" value="'+i+'" readonly="readonly" size="1" style="text-align: center;"></td>'
+												+
+												'<td><input name="a_id_arr[]"></td></tr>'
+											);
 											
-											event.preventDefault();
-											--i;
+										event.preventDefault();
+										--i;
 									}
 											
 									});
@@ -112,8 +104,8 @@
 						
 						// 확인 버튼 클릭
 						$('#form').submit(function() {
-							alert('Handler for .submit() called.'); 
-							 
+							
+							
 						});
 
 					});

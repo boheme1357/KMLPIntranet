@@ -1,12 +1,14 @@
 package org.KMLP.controller;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.List;
 
 import javax.inject.Inject;
 
+import org.KMLP.service.ApproveService;
 import org.KMLP.service.DocumentService;
+import org.KMLP.domain.ApproveVO;
 import org.KMLP.domain.DocumentVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +27,9 @@ public class ApproveController {
 
 	@Inject
 	DocumentService documentSerive;
+	
+	@Inject
+	ApproveService approveSerive;
 
 	private static final Logger logger = LoggerFactory.getLogger(ApproveController.class);
 
@@ -88,11 +93,18 @@ public class ApproveController {
 
 	// 02_02. 일일업무일지 데이터 삽입
 	@RequestMapping(value = "/aRegist.do", method = RequestMethod.POST)
-	public String aRegistPOST(@ModelAttribute DocumentVO vo, Model model) throws Exception {
-
+	public String aRegistPOST(@ModelAttribute DocumentVO vo, @RequestParam(value="a_id_arr[]") ApproveVO avo, Model model) throws Exception {
+		
 		logger.info("aRegistPOST PAGE ...........");
-
+		
+		
+		vo.setD_num("2017-08-01-1");
 		documentSerive.insert(vo);
+		
+		// a_num set 해주는 부분 추가해야함
+		
+		avo.setA_num("2017-08-01-1");
+		approveSerive.insert(avo, vo.getD_num());
 
 		return "redirect:/approve/aList.do";
 	}
