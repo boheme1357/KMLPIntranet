@@ -93,7 +93,7 @@
 	
 	<tr>
 		<th>이&emsp;름</th>
-		<td><input name="m_name" value="${m_name}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td><input name="m_name" value="${dto.m_name}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 	
 	<tr>

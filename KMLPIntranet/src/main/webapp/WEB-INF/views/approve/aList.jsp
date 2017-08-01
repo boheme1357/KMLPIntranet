@@ -38,8 +38,8 @@
 		<td>${row.d_id}</td>
 		<td>${row.d_title}</td>
 		<td>${row.d_date}</td>
-		<td>${row.d_final_check}</td>
-		<td>${row.d_appr_cnt}</td>
+		<td>${row.d_final_condition}</td>
+		<td>${row.d_final_cnt}</td>
 	</tr>
 	</c:forEach>
 </table>

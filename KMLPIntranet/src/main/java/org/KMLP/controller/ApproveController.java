@@ -54,12 +54,12 @@ public class ApproveController {
 		HashMap<String, Boolean> unapprDocMap = documentSerive.selectUnapproveDoc(m_id);
 		model.addAttribute("unapprDocMap", unapprDocMap);
 
-		/* 맵 데이터 확인 로그
-		Iterator<String> iterator = unapprDocMap.keySet().iterator();
-		while (iterator.hasNext()) {
-			String key = (String) iterator.next(); // 키 얻기
-			System.out.println("--------------------------------key=" + key + " / value=" + unapprDocMap.get(key)); // 출력
-		}*/
+		/*
+		 * 맵 데이터 확인 로그 Iterator<String> iterator = unapprDocMap.keySet().iterator();
+		 * while (iterator.hasNext()) { String key = (String) iterator.next(); // 키 얻기
+		 * System.out.println("--------------------------------key=" + key + " / value="
+		 * + unapprDocMap.get(key)); // 출력 }
+		 */
 
 		return "aList";
 	}
@@ -77,7 +77,12 @@ public class ApproveController {
 	public String aRegistGET(Model model) {
 
 		logger.info("aRegistGET PAGE...............");
+		
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
+		model.addAttribute("m_id", user.getUsername());
+		
 		return "aRegist";
 	}
 
@@ -136,6 +141,54 @@ public class ApproveController {
 		logger.info("delete post ...........");
 		documentSerive.delete(d_num);
 		return "redirect:/document/aList.do";
+	}
+	
+	@RequestMapping(value = "/aApproved.do", method = RequestMethod.GET)
+	public String aApprovedGET(Model model) {
+
+		logger.info("aApprovedGET PAGE...............");
+
+		return "aApproved";
+	}
+
+	@RequestMapping(value = "/aApproved.do", method = RequestMethod.POST)
+	public String aApprovedPOST(Model model) throws Exception {
+
+		logger.info("aApprovedPOST post ...........");
+
+		return "aApproved";
+	}
+	
+	@RequestMapping(value = "/aApproving.do", method = RequestMethod.GET)
+	public String aApprovingGET(Model model) {
+
+		logger.info("aApprovingGET PAGE...............");
+
+		return "aApproving";
+	}
+
+	@RequestMapping(value = "/aApproving.do", method = RequestMethod.POST)
+	public String aApprovingPOST(Model model) throws Exception {
+
+		logger.info("aApprovingPOST post ...........");
+
+		return "aApproving";
+	}
+	
+	@RequestMapping(value = "/aReceive.do", method = RequestMethod.GET)
+	public String aReceiveGET(Model model) {
+
+		logger.info("aReceiveGET PAGE...............");
+
+		return "aReceive";
+	}
+
+	@RequestMapping(value = "/aReceive.do", method = RequestMethod.POST)
+	public String aReceivePOST(Model model) throws Exception {
+
+		logger.info("aReceivePOST post ...........");
+
+		return "aReceive";
 	}
 
 }

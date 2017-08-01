@@ -48,52 +48,52 @@ function check_regist(){
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="15%">사&emsp;번</th>
-		<td><input name="m_id" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_id" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>이&emsp;름</th>
-		<td><input name="m_name" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_name" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>비밀번호</th>
-		<td><input name="m_pwd" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_pwd" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>부 서 명</th>
-		<td><input name="m_dept" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_dept" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>직&emsp;급</th>
-		<td><input name="m_posit" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_posit" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>이메일 아이디</th>
-		<td><input name="m_email_id" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_email_id" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>이메일 도메인</th>
-		<td><input name="m_email_do" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_email_do" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>연 락 처</th>
-		<td><input name="m_cell" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_cell" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>입사일자</th>
-		<td><input name="m_com_date" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_com_date" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>퇴사일자</th>
-		<td><input name="m_com_date" class="w3-animate-input w3-left"  style="width: 50%; height: 30px;"></td>
+		<td><input name="m_com_date" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
