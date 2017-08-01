@@ -7,7 +7,8 @@
 
 	<!--01. 일일업무전체목록 -->
 	<select id="selectAll" resultType="org.KMLP.domain.DocumentVO">
-		select * from document ORDER BY d_date DESC
+		select * from document ORDER
+		BY d_date DESC
 	</select>
 
 
@@ -60,27 +61,59 @@
 	</delete>
 
 
-	<!-- 06. 발신한 결재서류 리스트 -->
-	<select id="selectSentListAll" resultType="org.KMLP.domain.DocumentVO">
-		select * from document
-		where d_id = #{d_id}
-		ORDER BY d_date DESC
+	<!-- 06-01. 발신한 결재서류 리스트(진행중) -->
+	<select id="selectSendListAll_ing" resultType="org.KMLP.domain.DocumentVO">
+		select * from
+		document
+		where d_id = #{d_id} and d_final_condition is false
+		ORDER BY
+		d_date DESC
+	</select>
+
+	<!-- 06-02. 발신한 결재서류 리스트(완료) -->
+	<select id="selectSendListAll_end" resultType="org.KMLP.domain.DocumentVO">
+		select * from
+		document
+		where d_id = #{d_id} and d_final_condition is true
+		ORDER BY
+		d_date DESC
 	</select>
 
 
-	<!-- 07. 수신한 결재서류 리스트 -->
-	<select id="selectReceiveListAll" resultType="org.KMLP.domain.DocumentVO">
+
+	<!-- 07-01. 수신한 결재서류 리스트(진행중) -->
+	<select id="selectReceiveListAll_ing" resultType="org.KMLP.domain.DocumentVO">
 		select *
 		from
 		document join approve
 		on document.d_num = approve.a_num where a_id =
-		#{m_id}
+		#{m_id} and a_condition is not true
+		ORDER BY d_date DESC
+	</select>
+
+	<!-- 07-02. 수신한 결재서류 리스트-진행중(완료) -->
+	<select id="selectReceiveListAll_end" resultType="org.KMLP.domain.DocumentVO">
+		select *
+		from
+		document join approve
+		on document.d_num = approve.a_num where a_id =
+		#{m_id} and a_condition is true
+		ORDER BY d_date DESC
+	</select>
+
+	<!-- 08. 발신한 결재서류 리스트(반려) -->
+	<select id="selectSendListAll_return" resultType="org.KMLP.domain.DocumentVO">
+		select *
+		from
+		document join approve
+		on document.d_num = approve.a_num where a_id =
+		#{m_id} and a_condition is false
 		ORDER BY d_date DESC
 	</select>
 
 
 
-	<!-- 08. 미결된 서류 넘버 Map -->
+	<!-- 09. 미결된 서류 넘버 Map -->
 	<select id="selectUnapproveDoc" parameterType="java.lang.String"
 		resultType="java.util.HashMap">
 		select a_num, a_condition from approve where a_id = #{m_id}

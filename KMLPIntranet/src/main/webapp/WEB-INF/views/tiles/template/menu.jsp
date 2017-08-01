@@ -76,7 +76,7 @@ function ApprFunc() {
 		<a href="${path}/approve/aRegist.do" id="apprlist" class="w3-bar-item w3-button" style="border-top: 1px solid grey;">결재문서작성</a>
 		<a href="${path}/approve/aApproving.do" id="apprlist" class="w3-bar-item w3-button">미 결 재 함</a>
 		<a href="${path}/approve/aApproved.do" id="apprlist" class="w3-bar-item w3-button">결재완료함</a>
-		<a href="${path}/approve/aList.do" id="apprlist" class="w3-bar-item w3-button" style="margin-bottom: 20px;">수신결재요청함</a>	
+		<a href="${path}/approve/aReturn.do" id="apprlist" class="w3-bar-item w3-button" style="margin-bottom: 20px;">결재반려함</a>	
 	</div>
 	
 	<a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1e8; 쪽&emsp;&emsp;지"></a>
