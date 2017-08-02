@@ -1,0 +1,69 @@
+@CHARSET "UTF-8";
+<style>
+div#regit table {
+	border: 1px solid dimgray;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+div#regit tr {
+	border: 1px solid dimgray;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+div#regit th {
+	border: 1px solid dimgray;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+div#regit td {
+	border: 1px solid dimgray;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+#d_num, #d_date, #d_dept, #d_id {
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	font-size: 1em;
+}
+
+#d_title {
+	width: 100%;
+	height: 40px;
+	font-size: 1em;
+	padding-left: 20px;
+}
+
+#d_content {
+	width: 100%;
+	height: 250px;
+	font-size: 16px;
+	border: 0px;
+}
+
+div#regit input {
+	border: 0px;
+}
+
+#d_final_cnt {
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	font-size: 1em;
+}
+
+#add {
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	font-size: 1em;
+}
+
+div#regit hr {
+	border: solid 0.5px lightgray;
+}
+</style>
