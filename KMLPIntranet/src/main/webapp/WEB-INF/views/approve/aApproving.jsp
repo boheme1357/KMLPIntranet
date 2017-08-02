@@ -16,6 +16,11 @@
 </head>
 
 <body>
+
+<c:if test="${message != null}">
+<script type="text/javascript">alert("${message}")</script>
+</c:if>
+
 <div id="wapper">
 <h3>결재 완료&nbsp;리스트</h3>
 <hr>
@@ -35,10 +40,9 @@
 	
 	<c:forEach var="row" items="${sentList}">
 	<tr>
-		<!--회원정보 상세조회를 위해 a태그 추가  -->
 		<td>${row.d_num}</td>
 		<td>${row.d_id}</td>
-		<td><a href="${path}/approve/aContent.do?d_num=${row.d_num}">${row.d_title}</a></td>
+		<td><a href="${path}/approve/${row.d_num}/aContent.do">${row.d_title}</a></td>
 		<td>${row.d_date}</td>
 		<td>${row.d_final_cnt}</td>
 		<td>${row.d_now_cnt}</td>
@@ -65,7 +69,7 @@
 		<!--회원정보 상세조회를 위해 a태그 추가  -->
 		<td>${row.d_num}</td>
 		<td>${row.d_id}</td>
-		<td><a href="${path}/approve/aContent.do?d_num=${row.d_num}">${row.d_title}</a></td>
+		<td><a href="${path}/approve/${row.d_num}/aContent.do">${row.d_title}</a></td>
 		<td>${row.d_date}</td>
 		<td>${row.d_final_cnt}</td>
 		<td>${row.d_now_cnt}</td>

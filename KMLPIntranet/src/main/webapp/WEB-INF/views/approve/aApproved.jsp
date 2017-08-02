@@ -35,7 +35,7 @@
 		<!--회원정보 상세조회를 위해 a태그 추가  -->
 		<td>${row.d_num}</td>
 		<td>${row.d_id}</td>
-		<td><a href="${path}/approve/aContent.do?d_num=${row.d_num}">${row.d_title}</a></td>
+		<td><a href="${path}/approve/${row.d_num}/aContent.do">${row.d_title}</a></td>
 		<td>${row.d_date}</td>
 	</tr>
 	</c:forEach>
@@ -53,7 +53,7 @@
 	<c:forEach var="row" items="${receiveList}">
 	<tr>
 		<!--회원정보 상세조회를 위해 a태그 추가  -->
-		<td><a href="${path}/document/dContent?d_num=${row.d_num}">${row.d_num}</a></td>
+		<td><a href="${path}/approve/${row.d_num}/aContent.do">${row.d_num}</a></td>
 		<td>${row.d_id}</td>
 		<td>${row.d_title}</td>
 		<td>${row.d_date}</td>
