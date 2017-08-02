@@ -13,10 +13,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css"
-	href="${path}/resources/css/content.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- 반려메시지 입력 창 추가 스크립트 -->
 <script>
 	$(document)
@@ -114,37 +112,37 @@
 
 				<tr>
 					<th width="15%">문서번호</th>
-					<td>${dto.d_num}</td>
+					<td><input value="${dto.d_num}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 				</tr>
 
 				<tr>
 					<th>작성일자</th>
-					<td>${dto.d_date}</td>
+					<td><input value="${dto.d_date}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 				</tr>
 
 				<tr>
 					<th>작성자(사번)</th>
-					<td>${dto.d_id}</td>
+					<td><input value="${dto.d_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 				</tr>
 
 				<tr>
 					<th>제&emsp;목</th>
-					<td>${dto.d_title}</td>
+					<td><input value="${dto.d_title}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 				</tr>
 
 				<tr>
-					<th>내&emsp;용</th>
-					<td>${dto.d_content}</td>
+					<th height="400px">내&emsp;용</th>
+					<td><textarea name="d_content" readonly="readonly">${dto.d_content}</textarea></td>
 				</tr>
 
 				<tr>
 					<th>최종승인여부</th>
-					<td>${dto.d_final_condition}</td>
+					<td><input value="${dto.d_final_condition}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 				</tr>
 
 				<tr>
 					<th>결재단계</th>
-					<td>${dto.d_now_cnt}/${dto.d_final_cnt}</td>
+					<td><input value="${dto.d_now_cnt}/${dto.d_final_cnt}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 				</tr>
 
 			</table>
@@ -170,19 +168,12 @@
 						<input type="checkbox" class="hide" />
 					</div>
 					<div id='return_div'></div>
-
-
 				</center>
 			</c:if>
 			<!-- 끝 : 승인 반려 버튼 조건문 -->
-
-
 			<input type='hidden' name='d_num' value='${dto.d_num}'>
-
 
 		</sf:form>
 	</div>
-
-
 </body>
 </html>
