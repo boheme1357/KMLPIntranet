@@ -34,21 +34,35 @@
 													.click(
 															function() {
 																confirm("반려 메시지를 보내시겠습니까?");
+																document.form.action = "${path}/approve/aContent.do";
+																document.form.submit();
 															});
 
 											$("#return_div")
 													.append(
-															"<textarea name='ar_text' cols='10' rows='3' placeholder='반려 사유를 입력하세요'></textarea>");
+															"<textarea name='ar_text' cols='10' rows='3' placeholder='반려 사유를 입력하세요' required></textarea>");
 											$("#return_div").append($btn);
 
 											event.preventDefault();
 
 										});
+						
+						// 수정 버튼 클릭			
+						$("#btn_update")
+								.click(
+										function() {
+											document.form.method = "get";
+											document.form.submit();
+										});
 
 						// 승인 버튼 클릭			
-						$("#btn_approve").click(function() {
-							confirm("승인하시겠습니까?");
-						});
+						$("#btn_approve")
+								.click(
+										function() {
+											confirm("승인하시겠습니까?");
+											document.form.action = "${path}/approve/aContent.do";
+											document.form.submit();
+										});
 
 						// 반려 메시지 보내기 버튼 클릭
 						$("#btn_cancel").click(function() {
@@ -87,7 +101,7 @@
 <body>
 	<div id="wapper">
 		<h2>결재문서 :${dto.d_num} 상세보기</h2>
-		<sf:form action="${path}/approve/aModify.do" name="form" method="get">
+		<sf:form action="${path}/approve/aModify.do" name="form" method="post">
 			<table border="1" width="100%" cellpadding="0" cellspacing="0">
 
 				<tr>
@@ -130,7 +144,7 @@
 			<!-- 시작 : 승인 반려 버튼 조건문 -->
 			<c:if test="${m_id == dto.d_id}">
 				<center>
-					<input type="submit" value="수정" id="btnUpdate">
+					<input type="submit" value="수정" id="btn_update">
 				</center>
 			</c:if>
 
@@ -156,6 +170,7 @@
 
 
 			<input type='hidden' name='d_num' value='${dto.d_num}'>
+			
 
 		</sf:form>
 	</div>

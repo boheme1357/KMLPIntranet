@@ -17,9 +17,11 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/approve/*")
@@ -65,8 +67,8 @@ public class ApproveController {
 	}
 
 	// 03. 일일업무일지 내용조회
-	@RequestMapping(value = "/aContent.do", method = RequestMethod.GET)
-	public String aContentGET(@RequestParam("d_num") String d_num, Model model) {
+	@RequestMapping(value = "/{d_num}/aContent.do", method = RequestMethod.GET)
+	public String aContentGET(@PathVariable String d_num, Model model) {
 
 		logger.info("aContentGET PAGE...............");
 
@@ -81,11 +83,13 @@ public class ApproveController {
 
 	// 04. 일일업무일지 데이터수정
 	@RequestMapping(value = "/aContent.do", method = RequestMethod.POST)
-	public String aContentPOST(Model model) throws Exception {
+	public String aContentPOST(Model model, RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("aContentPOST post ...........");
+		
+		redirectAttributes.addFlashAttribute("message", "승인되었습니다.");
 
-		return "redirect:/approve/aList.do";
+		return "redirect:/approve/aApproving.do";
 	}
 
 	@RequestMapping(value = "/aModify.do", method = RequestMethod.GET)
