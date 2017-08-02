@@ -78,37 +78,39 @@ public class ApproveController {
 
 	// 04. 일일업무일지 데이터수정
 	@RequestMapping(value = "/aContent.do", method = RequestMethod.POST)
-	public String aContentPOST(@ModelAttribute DocumentVO vo, Model model) throws Exception {
+	public String aContentPOST(Model model) throws Exception {
 
 		logger.info("aContentPOST post ...........");
-
-		documentSerive.update(vo);
 
 		return "redirect:/approve/aList.do";
 	}
 
 	@RequestMapping(value = "/aModify.do", method = RequestMethod.GET)
-	public String aModifyGET(Model model) {
+	public String aModifyGET(@RequestParam("d_num") String d_num, Model model) {
 
 		logger.info("aModifyGET PAGE...............");
+		
+		model.addAttribute("dto", documentSerive.selectContent(d_num));
 
 		return "aModify";
 	}
 
 	@RequestMapping(value = "/aModify.do", method = RequestMethod.POST)
-	public String aModifyPOST(Model model) throws Exception {
+	public String aModifyPOST(@ModelAttribute DocumentVO vo, Model model) throws Exception {
 
 		logger.info("aModifyGET post ...........");
+		
+		documentSerive.update(vo);
 
-		return "aModify";
+		return "redirect:/approve/aApproving.do";
 	}
 
 	// 05. 일일업무일지 데이터삭제
-	@RequestMapping("document/aDelete.do")
+	@RequestMapping(value = "/aDelete.do")
 	public String delete(@RequestParam("d_num") String d_num) {
 		logger.info("delete post ...........");
 		documentSerive.delete(d_num);
-		return "redirect:/document/aList.do";
+		return "redirect:/approve/aApproving.do";
 	}
 
 	@RequestMapping(value = "/aApproved.do", method = RequestMethod.GET)
