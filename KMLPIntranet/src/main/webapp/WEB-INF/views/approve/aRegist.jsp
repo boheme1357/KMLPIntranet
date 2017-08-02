@@ -31,8 +31,7 @@
 											var arr = new Array();
 											d_final_cnt = $('#d_final_cnt')
 													.val();
-											var time = new Date()
-													.toLocaleTimeString();
+											
 
 											for (var i = 0; i < d_final_cnt; i++) {
 												++i;

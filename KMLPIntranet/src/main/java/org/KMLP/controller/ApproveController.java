@@ -30,7 +30,6 @@ public class ApproveController {
 
 	private static final Logger logger = LoggerFactory.getLogger(ApproveController.class);
 
-	
 	// 02_01. 일일업무일지 등록화면
 	@RequestMapping(value = "/aRegist.do", method = RequestMethod.GET)
 	public String aRegistGET(Model model) {
@@ -62,7 +61,7 @@ public class ApproveController {
 
 		// a_num set 해주는 부분 추가해야함
 
-		return "redirect:/approve/aList.do";
+		return "redirect:/approve/aApproving.do";
 	}
 
 	// 03. 일일업무일지 내용조회
@@ -71,6 +70,10 @@ public class ApproveController {
 
 		logger.info("aContentGET PAGE...............");
 
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		model.addAttribute("m_id", user.getUsername());
 		model.addAttribute("dto", documentSerive.selectContent(d_num));
 
 		return "aContent";
@@ -89,7 +92,7 @@ public class ApproveController {
 	public String aModifyGET(@RequestParam("d_num") String d_num, Model model) {
 
 		logger.info("aModifyGET PAGE...............");
-		
+
 		model.addAttribute("dto", documentSerive.selectContent(d_num));
 
 		return "aModify";
@@ -99,7 +102,7 @@ public class ApproveController {
 	public String aModifyPOST(@ModelAttribute DocumentVO vo, Model model) throws Exception {
 
 		logger.info("aModifyGET post ...........");
-		
+
 		documentSerive.update(vo);
 
 		return "redirect:/approve/aApproving.do";
@@ -189,10 +192,11 @@ public class ApproveController {
 	public String aReturnPOST(Model model) throws Exception {
 
 		logger.info("aReturnPOST post ...........");
-		
+
 		// 3. 미결된 결재문서 넘버, 상태
-		//		HashMap<String, Boolean> unapprDocMap = documentSerive.selectUnapproveDoc(m_id);
-		//		model.addAttribute("unapprDocMap", unapprDocMap);
+		// HashMap<String, Boolean> unapprDocMap =
+		// documentSerive.selectUnapproveDoc(m_id);
+		// model.addAttribute("unapprDocMap", unapprDocMap);
 
 		return "aReturn";
 	}
