@@ -127,4 +127,16 @@ public class DocumentDAOImpl implements DocumentDAO {
 			return unapprDocMap;
 		}
 
+		@Override
+		public void update_now_cnt(DocumentVO vo) {
+			// TODO Auto-generated method stub
+			sqlSession.update(namespace + ".update_now_cnt", vo);
+		}
+
+		@Override
+		public void update_final_condition(String d_num) {
+			// TODO Auto-generated method stub
+			sqlSession.update(namespace + ".update_final_condition", d_num);
+		}
+
 }

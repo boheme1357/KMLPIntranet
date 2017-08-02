@@ -47,6 +47,12 @@ public interface DocumentDAO {
 	public List<DocumentVO> selectSendListAll_return(String d_id);
 
 
+	public void update_now_cnt(DocumentVO vo);
+
+
+	public void update_final_condition(String d_num);
+
+
 
 	
 	

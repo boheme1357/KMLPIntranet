@@ -40,4 +40,8 @@ public interface DocumentService {
 	// 09. 미결된 서류 넘버 Map
 	public HashMap<String, Boolean> selectUnapproveDoc(String a_id);
 
+	public void update_now_cnt(String d_num, int d_now_cnt);
+
+	public void update_final_condition(String d_num);
+
 }

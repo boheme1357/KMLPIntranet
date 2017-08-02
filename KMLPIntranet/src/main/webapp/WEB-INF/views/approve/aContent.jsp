@@ -33,9 +33,13 @@
 													.text("전송")
 													.click(
 															function() {
-																confirm("반려 메시지를 보내시겠습니까?");
-																document.form.action = "${path}/approve/aContent.do";
-																document.form.submit();
+																if (confirm("반려 메시지를 보내시겠습니까?")) {
+																	document.form.action = "${path}/approve/${dto.d_num}/${dto.d_now_cnt}/false/aResult.do";
+																	document.form
+																			.submit();
+																} else {
+																	return false;
+																}
 															});
 
 											$("#return_div")
@@ -46,28 +50,32 @@
 											event.preventDefault();
 
 										});
-						
+
 						// 수정 버튼 클릭			
-						$("#btn_update")
-								.click(
-										function() {
-											document.form.method = "get";
-											document.form.submit();
-										});
+						$("#btn_update").click(function() {
+							document.form.method = "get";
+							document.form.submit();
+						});
 
 						// 승인 버튼 클릭			
 						$("#btn_approve")
 								.click(
 										function() {
-											confirm("승인하시겠습니까?");
-											document.form.action = "${path}/approve/aContent.do";
-											document.form.submit();
+											if (confirm("승인하시겠습니까?")) {
+												document.form.action = "${path}/approve/${dto.d_num}/${dto.d_now_cnt}/true/aResult.do";
+												document.form.submit();
+											} else {
+												return false;
+											}
 										});
 
 						// 반려 메시지 보내기 버튼 클릭
 						$("#btn_cancel").click(function() {
-							confirm("취소하시겠습니까?");
-							$("#return_div").empty();
+							if (confirm("취소하시겠습니까?")) {
+								$("#return_div").empty();
+							} else {
+								return false;
+							}
 							event.preventDefault();
 
 						});
@@ -170,7 +178,7 @@
 
 
 			<input type='hidden' name='d_num' value='${dto.d_num}'>
-			
+
 
 		</sf:form>
 	</div>

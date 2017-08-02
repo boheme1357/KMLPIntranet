@@ -30,6 +30,9 @@ public class ApproveController {
 	@Inject
 	DocumentService documentSerive;
 
+	@Inject
+	ApproveService approveService;
+
 	private static final Logger logger = LoggerFactory.getLogger(ApproveController.class);
 
 	// 02_01. 일일업무일지 등록화면
@@ -86,8 +89,34 @@ public class ApproveController {
 	public String aContentPOST(Model model, RedirectAttributes redirectAttributes) throws Exception {
 
 		logger.info("aContentPOST post ...........");
+
+		// redirectAttributes.addFlashAttribute("message", "승인되었습니다.");
+
+		return "redirect:/approve/aApproving.do";
+	}
+
+	// 04. 승인 / 반려
+	@RequestMapping(value = "/{a_num}/{a_cnt}/{a_condition}/aResult.do", method = RequestMethod.POST)
+	public String aResultPOST(@PathVariable String a_num, @PathVariable int a_cnt, @PathVariable boolean a_condition,
+			Model model, RedirectAttributes redirectAttributes, ApproveVO avo) throws Exception {
+
+		logger.info("aResultPOST post ...........");
+
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String m_id = user.getUsername();
+		approveService.update_condition(a_num, a_cnt, m_id, a_condition);
 		
-		redirectAttributes.addFlashAttribute("message", "승인되었습니다.");
+		System.out.println("--------------------"+avo.getAr_text()+" , "+avo.getA_id());
+
+		
+		// alert창 띄우기
+		String message = "";
+		if (a_condition)
+			message = "승인되었습니다.";
+		else
+			message = "반려되었습니다.";
+		redirectAttributes.addFlashAttribute("message", message);
 
 		return "redirect:/approve/aApproving.do";
 	}

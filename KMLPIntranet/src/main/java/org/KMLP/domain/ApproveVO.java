@@ -9,6 +9,7 @@ public class ApproveVO {
 	private String[] a_id_arr;		//수신자들
 	private boolean a_condition;	//승인여부
 	private String a_id; //특정수신자
+	private String ar_text; // 반려메시지
 	
 	public String getA_num() {
 		return a_num;
@@ -40,6 +41,12 @@ public class ApproveVO {
 	}
 	public void setA_id_arr(String[] a_id_arr) {
 		this.a_id_arr = a_id_arr;
+	}
+	public String getAr_text() {
+		return ar_text;
+	}
+	public void setAr_text(String ar_text) {
+		this.ar_text = ar_text;
 	} 	
 	
 	

@@ -19,4 +19,11 @@
 		(
 		#{a_num}, #{a_id}, #{a_cnt})
 	</insert>
+	
+	<!--02_01. 문서번호, 결재단계, 수신자id로 검색해서 결재상태 변경하기 -->
+	<update id="update_condition">
+		update approve set a_condition = #{a_condition} where a_num = #{a_num} and (a_cnt = #{a_cnt} and a_id = #{a_id})
+	</update>
+	
+	
 </mapper>

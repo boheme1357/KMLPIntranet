@@ -29,4 +29,12 @@ public class ApproveDAOImpl implements ApproveDAO {
 		}
 	}
 
+
+
+	@Override
+	public void update_condition(ApproveVO avo) {
+		sqlSession.update(namespace + ".update_condition", avo);
+		
+	}
+
 }

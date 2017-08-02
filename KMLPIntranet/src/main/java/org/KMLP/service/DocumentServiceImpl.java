@@ -107,4 +107,20 @@ public class DocumentServiceImpl implements DocumentService {
 		return dao.selectUnapproveDoc(unapprDocMap, m_id);
 	}
 
+	// 09. 승인처리 : d_now_cnt 업데이트
+	@Override
+	public void update_now_cnt(String d_num, int d_now_cnt) {
+		DocumentVO vo = new DocumentVO();
+		vo.setD_num(d_num);
+		vo.setD_now_cnt(d_now_cnt+1);
+		dao.update_now_cnt(vo);
+		
+	}
+
+	@Override
+	public void update_final_condition(String d_num) {
+		// TODO Auto-generated method stub
+		dao.update_final_condition(d_num);
+	}
+
 }
