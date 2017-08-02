@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!--jstl 코어 태크  -->
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!--context경로  -->
-<c:set var="path" value="${pageContext.request.contextPath}"/>
-<!-- 시큐리티 태그lib -->
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-=======
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <!-- jstl 코어 태그 -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -16,26 +6,13 @@
 <!-- 컨택스트  패스-->
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- 시큐리티 태그lib -->
-<<<<<<< HEAD
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-
->>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
-=======
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
->>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<link rel="stylesheet" type="text/css" href="${path}/resources/css/list.css">
->>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
-=======
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/apprList.css">
->>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
 </head>
 
 <body>
