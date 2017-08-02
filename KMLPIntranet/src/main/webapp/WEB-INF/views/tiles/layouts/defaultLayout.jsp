@@ -27,11 +27,6 @@ html, body {
 #body {
     margin-left: 2%;
     margin-right: 2%;
-}
-
-#body {
-    margin-left: 2%;
-    margin-right: 2%;
     display: inline-block;
     position: absolute;
     left: 200px; right: 0;
@@ -47,7 +42,6 @@ html, body {
    </tr>
    
    <tr>
-   
       <td valign="top" id="menu"style="height: 100%; width: 12%">
          <tiles:insertAttribute name="menu" />
       </td>
