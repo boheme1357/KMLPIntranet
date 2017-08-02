@@ -72,10 +72,14 @@
 
 	//등록버튼 이벤트
 	function check_regist(){
-		if(confirm("등록 하시겠습니까?")){
-			document.form.submit();
+		if(!document.form.d_title.value || !document.form.d_content.value){	 
+			alert("공란을 입력하시오.")
+		} else {
+			if(confirm("등록 하시겠습니까?")){
+				document.form.submit();
+			}
 		}
-	}
+	};
 	
 	//현재날짜 가져오기
     function autoDate () {
