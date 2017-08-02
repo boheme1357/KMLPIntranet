@@ -68,7 +68,7 @@ function ApprFunc() {
 </head>
 <body>
 <div class="w3-sidebar w3-card-2 w3-center w3-bar-block w3-border-right">
-	<a href="${path}/login.do"><img class="w3-image" src="${path}/resources/img/kmlp_logo.png" width="140"></a>
+	<a href="${path}/login.do"><img class="w3-image" src="${path}/resources/img/kmlp_logo.png" width="140" title="로그인 페이지로"></a>
 	<a href="${path}/notice/nList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf274; 공지사항" style="margin-top: 20px"></a>
 	
 	<input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf0ea; 전자결재" onclick="ApprFunc()">

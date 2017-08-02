@@ -51,7 +51,7 @@ a:active {
 </head>
 <body>
 	<div class="w3-bar w3-card-2 w3-left-align w3-blue-grey">
-		<a href="${pageContext.request.contextPath}/notice/nList.do"><h4 class="w3-left" id="h4">K.M.L.P Intranet</h4></a>
+		<a href="${pageContext.request.contextPath}/notice/nList.do"><h4 class="w3-left" id="h4" title="홈으로">K.M.L.P Intranet</h4></a>
 
 		<sec:authorize access="isAuthenticated()">
 			<sf:form action="${pageContext.request.contextPath}/logout"
