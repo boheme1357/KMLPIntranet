@@ -14,79 +14,56 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-$(document).ready(function() {
-	$("#btnUpdate").click(function() {
-		
-		
-			if (confirm("수정하시겠습니까?")) {
-				document.form.action = "${path}/approve/nModify.do";
-				document.form.submit();
-			}
-	});
 
-});
-
-$(document).ready(function() {
-	$("#btnDelete").click(function() {
-		
-			if (confirm("삭제하시겠습니까?")) {
-				document.form.action = "${path}/approve/aDelete";
-				document.form.submit();
-			}
-	});
-	
-});
-</script>
 </head>
 
 <body>
 <div id="wapper">
-<h2>일일업무보고</h2>
-<sf:form action="${path}/approve/aResister.do" name="form" method="post">
+<h2>결재문서 :${dto.d_num}  상세보기</h2>
+<sf:form action="${path}/approve/aModify.do" name="form" method="get">
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
+	
 	<tr>
 		<th width="15%">문서번호</th>
-		<td><input name="d_num" value="${dto.d_num}" readonly="readonly"></td>
+		<td>${dto.d_num}</td>
 	</tr>
 	
 	<tr>
 		<th>작성일자</th>
-		<td><input name="d_date" value="${dto.d_date}"></td>
+		<td>${dto.d_date}</td>
 	</tr>
 	
 	<tr>
 		<th>작성자(사번)</th>
-		<td><input name="d_id" value="${dto.d_id}"></td>
+		<td>${dto.d_id}</td>
 	</tr>
 
 	<tr>
 		<th>제&emsp;목</th>
-		<td><input name="d_title"  value="${dto.d_title}"></td>
+		<td>${dto.d_title}</td>
 	</tr>
 
 	<tr>
 		<th>내&emsp;용</th>
-		<td><input name="d_content" value="${dto.d_content}"></td>
+		<td>${dto.d_content}</td>
 	</tr>
 	
 	<tr>
 		<th>최종승인여부</th>
-		<td><input name="d_final_check" value="${dto.d_final_check}"></td>
+		<td>${dto.d_final_condition}</td>
 	</tr>
 	
 	<tr>
-		<th>결재횟수</th>
-		<td><input name="d_appr_cnt" value="${dto.d_appr_cnt}"></td>
+		<th>결재단계</th>
+		<td>${dto.d_now_cnt} / ${dto.d_final_cnt}</td>
 	</tr>
 	
-	<tr>
-		<td colspan="2" align="center">
-		<input type="button" value="수정" id="btnUpdate">
-		<input type="button" value="삭제" id="btnDelete">
-		<div style="color: red;">${message}</div></td>
-	</tr>
 </table>
+
+<center><input type="submit" value="수정" id="btnUpdate"></center>
+<input type='hidden' name='d_num' value='${dto.d_num}'>
+
+
 </sf:form>
 </div>
 </body>

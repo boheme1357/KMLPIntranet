@@ -46,9 +46,8 @@
 
 	<!--04. 일일업무수정 -->
 	<update id="update">
-		update document set d_num=#{d_num}, d_date=#{d_date},
-		d_id=#{d_id}, d_title=#{d_title}, d_content=#{d_content},
-		d_final_condition=#{d_final_condition}, d_final_cnt=#{d_final_cnt}
+		update document set d_title=#{d_title}, d_content=#{d_content},
+		d_final_cnt=#{d_final_cnt}
 		where
 		d_num=#{d_num}
 	</update>
