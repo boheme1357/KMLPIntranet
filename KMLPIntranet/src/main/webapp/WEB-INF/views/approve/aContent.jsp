@@ -204,7 +204,7 @@
 					<div id="btn_group">
 						<button id="btn_approve" class="btn btn-primary">승&nbsp;인</button>
 						<!--처음 보여지는 버튼-->
-						<button id="btn_return_1" class="animation_test btn btn-primary">반&nbsp;려</button>
+						<button id="btn_return_1" class="animation_test btn btn-warning">반&nbsp;려</button>
 						<!--다음 보여지는 버튼-->
 						<button id="btn_cancel"
 							class="animation_test hide btn btn-primary">취&nbsp;소</button>
@@ -221,27 +221,29 @@
 
 			<!-- 끝 : 승인 반려 버튼 조건문 -->
 
-
 			<!-- 시작 : 반려 메시지 리스트 -->
+			<br>
 			<c:if
 				test="${!empty returnContentList || fn:length(returnContentList) > 0}">
-				<h1>반려 메시지 리스트</h1>
 
-				<table border="1" width="100%" cellpadding="0" cellspacing="0">
+				<table border="1" width="800px" cellpadding="0" cellspacing="0" align="center">
 					<tr>
-						<th>작성자</th>
-						<th>작성일자</th>
-						<th>결재단계</th>
-						<th>반려횟수</th>
-						<th>반려사유</th>
+						<th colspan="5" style="font-size: 1.5em; height: 70px;">반려 메시지 리스트</th>
+					</tr>
+					<tr>
+						<th style="width: 8%; height: 40px; background-color: beige;">작 성 자</th>
+						<th style="width: 20%; height: 40px; background-color: beige;">작성일자</th>
+						<th style="width: 8%; height: 40px; background-color: beige;">결재단계</th>
+						<th style="width: 8%; height: 40px; background-color: beige;">반려횟수</th>
+						<th style="width: 56%; height: 40px; background-color: beige;">반려사유</th>
 					</tr>
 					<c:forEach var='row' items='${returnContentList}'>
 						<tr>
-							<td>${ row.ar_id }</td>
-							<td>${ row.ar_date }</td>
-							<td>${ row.ar_cnt }</td>
-							<td>${ row.ar_return_cnt }</td>
-							<td>${ row.ar_text }</td>
+							<td style="height: 40px;">${ row.ar_id }</td>
+							<td style="height: 40px;">${ row.ar_date }</td>
+							<td style="height: 40px;">${ row.ar_cnt }</td>
+							<td style="height: 40px;">${ row.ar_return_cnt }</td>
+							<td style="height: 40px;">${ row.ar_text }</td>
 						</tr>
 					</c:forEach>
 				</table>
