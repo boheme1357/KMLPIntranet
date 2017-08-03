@@ -67,14 +67,24 @@
 		where m_id=#{m_id} and m_pwd=#{m_pwd}
 	</select>
 
-	<!--01. 결재라인 도장이미지 가져오기 -->
-	<select id="selectSignImgList" parameterType="java.lang.String" resultType="org.KMLP.domain.Member_SignimgVO">
+	<!--07. 도장 이미지 조회 -->
+	<select id="selectSignImgList" parameterType="java.lang.String"
+		resultType="org.KMLP.domain.Member_SignimgVO">
 		select * from
 		member_signimg
 		join approve
-		on member_signimg.ms_id = approve.a_id where a_num =
-		#{d_num} and a_condition is true
+		on
+		member_signimg.ms_id = approve.a_id where a_num =
+		#{d_num} and
+		a_condition is true
 		ORDER BY a_cnt ASC
+	</select>
+
+	<!--08.멤버 부서 조회 -->
+	<select id="selectDept" parameterType="java.lang.String"
+		resultType="java.lang.String">
+		select m_dept from member
+		where m_id=#{m_id}
 	</select>
 
 

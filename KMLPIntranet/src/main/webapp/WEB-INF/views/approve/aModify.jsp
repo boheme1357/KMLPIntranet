@@ -105,8 +105,7 @@
 						</tr>
 						<tr>
 							<th style="height: 40px; background-color: beige;">부 서 명</th>
-							<td style="width: 180px"><input type="text" name="d_dept"
-								id="d_dept"></td>
+							<td style="width: 180px">${ dto.d_dept }</td>
 							<th style="background-color: beige;">작성자(사번)</th>
 							<td style="width: 180px">${ dto.d_id }</td>
 						</tr>

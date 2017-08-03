@@ -78,9 +78,16 @@ public class MemberDAOImpl implements MemberDAO {
 		return result;
 	}
 
+	//07. 도장 이미지 조회
 	@Override
 	public List<Member_SignimgVO> selectSignImgList(String d_num) {
 		return sqlSession.selectList(namespace + ".selectSignImgList", d_num);
+	}
+
+	//08.멤버 부서 조회
+	@Override
+	public String selectDept(String m_id) {
+		return sqlSession.selectOne(namespace + ".selectDept", m_id);
 	}
 
 }
