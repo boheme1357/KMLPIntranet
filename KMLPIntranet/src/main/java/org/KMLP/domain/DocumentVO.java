@@ -5,6 +5,7 @@ public class DocumentVO {				//일일업무보고서
 	private String d_num; 				// 문서번호
 	private String d_date;				// 작성일자 
 	private String d_id; 				// 작성자
+	private String d_dept;				// 작성자 부서명
 	private String d_title;				// 제목
 	private String d_content;			// 업무내용
 	private boolean d_final_condition; 	// 최종승인여부
@@ -61,6 +62,12 @@ public class DocumentVO {				//일일업무보고서
 	}
 	public void setD_now_cnt(int d_now_cnt) {
 		this.d_now_cnt = d_now_cnt;
+	}
+	public String getD_dept() {
+		return d_dept;
+	}
+	public void setD_dept(String d_dept) {
+		this.d_dept = d_dept;
 	}
 	
 	

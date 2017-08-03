@@ -54,10 +54,18 @@ public class MemberServiceImpl implements MemberService {
 		return dao.checkPw(m_id, m_pwd);
 	}
 
+	//07. 도장 이미지 조회
 	@Override
 	public List<Member_SignimgVO> selectSignImgList(String d_num) {
 		// TODO Auto-generated method stub
 		return dao.selectSignImgList(d_num);
+	}
+
+	//08.멤버 부서 조회
+	@Override
+	public String selectDept(String m_id) {
+		return dao.selectDept(m_id);
+		
 	}
 
 }

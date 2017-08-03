@@ -1,7 +1,5 @@
 package org.KMLP.controller;
 
-import java.util.HashMap;
-
 import java.util.List;
 
 import javax.inject.Inject;
@@ -35,7 +33,7 @@ public class ApproveController {
 
 	@Inject
 	ApproveService approveService;
-	
+
 	@Inject
 	MemberService memberService;
 
@@ -49,8 +47,11 @@ public class ApproveController {
 
 		// 시큐리티에서 로그인한 유저 id 받아오는 코드
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-		model.addAttribute("m_id", user.getUsername());
+		String m_id = user.getUsername();
+		String m_dept = memberService.selectDept(m_id);
+		
+		model.addAttribute("m_id", m_id);
+		model.addAttribute("m_dept", m_dept);
 
 		return "aRegist";
 	}
@@ -90,9 +91,10 @@ public class ApproveController {
 		// 반려 메시지 리스트 추가
 		List<Approve_ReturnVO> returnContentList = approveService.selectReturnListAll(d_num);
 		List<Member_SignimgVO> signImgList = memberService.selectSignImgList(d_num);
-		
-		System.out.println("-----------도장 이미지 조회 확인-------------"+signImgList.get(0).getMs_img());
-		
+
+		// System.out.println("-----------도장 이미지 조회
+		// 확인-------------"+signImgList.get(0).getMs_img());
+
 		model.addAttribute("signImgList", signImgList);
 		model.addAttribute("returnContentList", returnContentList);
 
@@ -140,6 +142,13 @@ public class ApproveController {
 	public String aModifyGET(@RequestParam("d_num") String d_num, Model model) {
 
 		logger.info("aModifyGET PAGE...............");
+
+		List<Member_SignimgVO> signImgList = memberService.selectSignImgList(d_num);
+
+		// System.out.println("-----------도장 이미지 조회
+		// 확인-------------"+signImgList.get(0).getMs_img());
+
+		model.addAttribute("signImgList", signImgList);
 
 		model.addAttribute("dto", documentSerive.selectContent(d_num));
 

@@ -151,7 +151,7 @@
             </tr>
             <tr>
                <th style="height: 40px; background-color: beige;">부 서 명</th>
-               <td style="width: 180px"><input type="text" name="d_dept" id="d_dept"></td>
+               <td style="width: 180px"><input type="text" name="d_dept" id="d_dept" value="${m_dept}" readonly="readonly"></td>
                <th style="background-color: beige;">작성자(사번)</th>
                <td style="width: 180px"><input type="text" name="d_id" id="d_id" value="${m_id}" readonly="readonly"></td>
             </tr>

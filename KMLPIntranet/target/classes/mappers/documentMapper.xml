@@ -26,10 +26,10 @@
 
 	<!-- 02_03. 일일업무데이터삽입 -->
 	<insert id="insert">
-		insert into document(d_num, d_id, d_title, d_content,
+		insert into document(d_num, d_id, d_dept, d_title, d_content,
 		d_final_condition, d_final_cnt)
 		values
-		( #{d_num}, #{d_id}, #{d_title},
+		( #{d_num}, #{d_id}, #{d_dept}, #{d_title},
 		#{d_content}, #{d_final_condition}, #{d_final_cnt})
 	</insert>
 

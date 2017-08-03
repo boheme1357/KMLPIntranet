@@ -27,6 +27,9 @@ public interface MemberService {
 
 	//07. 도장 이미지 조회
 	public List<Member_SignimgVO> selectSignImgList(String d_num);
+
+	//08.멤버 부서 조회
+	public String selectDept(String m_id);
 		
 	
 }
