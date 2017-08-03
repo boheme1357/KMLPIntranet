@@ -13,9 +13,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/docRegit.css">
 <script src="//code.jquery.com/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 	$(document)
@@ -168,13 +170,23 @@
 				<!-- 결재단계 설정 및 추가 end -->
 			</table>
 			<br>
+			
 			<div class="w3-center">
-				<input type="button" value="등&nbsp;록" onclick="check_regist();">
-				&emsp;&emsp;
-				<input type="button" value="초기화" onclick="check_reset();">
-				&emsp;&emsp;
-				<input type="button" value="취&nbsp;소" onclick="check_cancel();">
+				<div class="btn-group">
+				    <button type="button" id="button_doc" class="btn btn-primary" onclick="check_regist();">등&nbsp;록</button>
+				    <button type="button" id="button_doc" class="btn btn-primary" onclick="check_reset();">초기화</button>
+				    <button type="button" id="button_doc" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+				</div>
+				<br><br><div style="color: red;">${message}</div>
 			</div>
+			
+<!-- 			<div class="w3-center"> -->
+<!-- 				<input type="button" value="등&nbsp;록" onclick="check_regist();"> -->
+<!-- 				&emsp;&emsp; -->
+<!-- 				<input type="button" value="초기화" onclick="check_reset();"> -->
+<!-- 				&emsp;&emsp; -->
+<!-- 				<input type="button" value="취&nbsp;소" onclick="check_cancel();"> -->
+<!-- 			</div> -->
 		</sf:form>
 	</div><br>
 </body>

@@ -12,8 +12,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 	//수정버튼 이벤트
@@ -49,36 +51,41 @@
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="15%">일련번호</th>
-		<td><input name="n_num" value="${dto.n_num}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.n_num}</td>
 	</tr>
 	
 	<tr>
 		<th>사&emsp;번</th>
-		<td><input name="n_id" value="${dto.n_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.n_id}</td>
 	</tr>
 
 	<tr>
 		<th>제&emsp;목</th>
-		<td><input name="n_title" class="w3-animate-input w3-left" value="${dto.n_title}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.n_title}</td>
 	</tr>
 
 	<tr>
 		<th height="400px">내&emsp;용</th>
-		<td><textarea name="n_content" readonly="readonly">${dto.n_content}</textarea></td>
+		<td>${dto.n_content}</td>
 	</tr>
 	
 	<tr>
 		<th>첨부파일</th>
-		<td><input name="n_file" value="${dto.n_file}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.n_file}</td>
 	</tr>
 
 </table>
 <div class="w3-center">
-	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_modify();">
-	&emsp;&emsp;&emsp;&emsp;
-	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();">
+	<div class="btn-group">
+		<button type="button" id="button" class="btn btn-primary" onclick="check_modify();">수&nbsp;정</button>
+		<button type="button" id="button" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
+
+<!-- 		<input type="button" id="button" class="btn btn-primary" value="수&nbsp;정" onclick="check_modify();"> -->
+<!-- 		&emsp;&emsp;&emsp;&emsp; -->
+<!-- 		<input type="button" id="button" class="btn btn-primary" value="취&nbsp;소" onclick="check_cancel();"> -->
 </sf:form>
 </div>
 </body>

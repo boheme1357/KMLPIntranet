@@ -66,4 +66,27 @@ div#regit input {
 div#regit hr {
 	border: solid 0.5px lightgray;
 }
+
+#button_doc{
+	font-size: 1em;
+	width: 120px;
+	height: 40px;
+	font-weight: bold;
+}
+
+div#regit a:link {
+	text-decoration: none;
+}
+
+div#regit a:visited {
+	text-decoration: none;
+}
+
+div#regit a:hover {
+	text-decoration: none;
+}
+
+div#regit a:active {
+	text-decoration: none;
+}
 </style>

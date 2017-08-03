@@ -13,6 +13,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 	//수정버튼 이벤트
 	function check_update(){
@@ -106,14 +110,24 @@
 	</tr>
 
 </table>
+
 <div class="w3-center">
-	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_update();">
-	&emsp;&emsp;
-	<input type="button" id="button" class="w3-btn w3-round-large" value="삭&nbsp;제" onclick="check_delete();">
-	&emsp;&emsp;
-	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();">
+	<div class="btn-group">
+	    <button type="button" id="button" class="btn btn-primary" onclick="check_update();">수&nbsp;정</button>
+	    <button type="button" id="button" class="btn btn-primary" onclick="check_delete();">삭&nbsp;제</button>
+	    <button type="button" id="button" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
+
+<!-- <div class="w3-center"> -->
+<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_update();"> -->
+<!-- 	&emsp;&emsp; -->
+<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="삭&nbsp;제" onclick="check_delete();"> -->
+<!-- 	&emsp;&emsp; -->
+<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();"> -->
+<%-- 	<br><br><div style="color: red;">${message}</div> --%>
+<!-- </div> -->
 </sf:form>
 </div>
 </body>

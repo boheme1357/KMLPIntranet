@@ -116,16 +116,25 @@ div#wapper hr{
 }
 
 #button{
-	background-color: grey;
-	color: white;
-	font-weight: bold;
-	font-size: 1.1em;
-	width: 150px;
+	font-size: 1em;
+	width: 120px;
 	height: 40px;
+	font-weight: bold;
 }
 
-#button:hover{
-	background-color: white;
-	color: grey;
+div#wapper a:link {
+	text-decoration: none;
+}
+
+div#wapper a:visited {
+	text-decoration: none;
+}
+
+div#wapper a:hover {
+	text-decoration: none;
+}
+
+div#wapper a:active {
+	text-decoration: none;
 }
 </style>

@@ -112,37 +112,37 @@
 
 				<tr>
 					<th width="15%">문서번호</th>
-					<td><input value="${dto.d_num}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+					<td>${dto.d_num}</td>
 				</tr>
 
 				<tr>
 					<th>작성일자</th>
-					<td><input value="${dto.d_date}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+					<td>${dto.d_date}</td>
 				</tr>
 
 				<tr>
 					<th>작성자(사번)</th>
-					<td><input value="${dto.d_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+					<td>${dto.d_id}</td>
 				</tr>
 
 				<tr>
 					<th>제&emsp;목</th>
-					<td><input value="${dto.d_title}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+					<td>${dto.d_title}</td>
 				</tr>
 
 				<tr>
 					<th height="400px">내&emsp;용</th>
-					<td><textarea name="d_content" readonly="readonly">${dto.d_content}</textarea></td>
+					<td>${dto.d_content}</td>
 				</tr>
 
 				<tr>
 					<th>최종승인여부</th>
-					<td><input value="${dto.d_final_condition}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+					<td>${dto.d_final_condition}</td>
 				</tr>
 
 				<tr>
 					<th>결재단계</th>
-					<td><input value="${dto.d_now_cnt}/${dto.d_final_cnt}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+					<td>"${dto.d_now_cnt}/${dto.d_final_cnt}"</td>
 				</tr>
 
 			</table>

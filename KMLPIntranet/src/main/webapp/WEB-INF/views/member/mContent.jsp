@@ -13,6 +13,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 	//수정버튼 이벤트
 	function check_modify(){
@@ -50,61 +54,69 @@
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="15%">사&emsp;번</th>
-		<td><input name="m_id" value="${dto.m_id}" style="width: 100%; height: 30px;" readonly="readonly"></td>
+		<td>${dto.m_id}</td>
 	</tr>
 	
 	<tr>
 		<th>이&emsp;름</th>
-		<td><input name="m_name" value="${dto.m_name}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.m_name}</td>
 	</tr>
 	
 	<tr>
 		<th>비밀번호</th>
-		<td><input type="password" name="m_pwd" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td></td>
 	</tr>
 
 	<tr>
 		<th>부 서 명</th>
-		<td><input name="m_dept" value="${dto.m_dept}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.m_dept}</td>
 	</tr>
 
 	<tr>
 		<th>직&emsp;급</th>
-		<td><input name="m_posit" value="${dto.m_posit}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.m_posit}</td>
 	</tr>
 	
 	<tr>
 		<th>이메일아이디</th>
-		<td><input name="m_email_id" value="${dto.m_email_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.m_email_id}</td>
 	</tr>
 	
 	<tr>
 		<th>이메일도메인</th>
-		<td><input name="m_email_do" value="${dto.m_email_do}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.m_email_do}</td>
 	</tr>
 	
 	<tr>
 		<th>연 락 처</th>
-		<td><input name="m_cell" value="${dto.m_cell}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td>${dto.m_cell}</td>
 	</tr>
 	
 	<tr>
 		<th>입사일자</th>
-		<td><input name="m_com_date" value="${dto.m_com_date}" readonly="readonly" style="width: 100%; height: 30px;" readonly="readonly"></td>
+		<td>${dto.m_com_date}</td>
 	</tr>
 	
 	<tr>
 		<th>퇴사일자</th>
-		<td><input name="m_com_date" class="w3-animate-input w3-left" readonly="readonly" value="${dto.m_quit_date}" style="width: 50%; height: 30px;"></td>
+		<td>${dto.m_quit_date}</td>
 	</tr>
 </table>
 
 <div class="w3-center">
-	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_modify();">
-	&emsp;&emsp;&emsp;&emsp;
-	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();">
+	<div class="btn-group">
+		<button type="button" id="button" class="btn btn-primary" onclick="check_modify();">수&nbsp;정</button>
+		<button type="button" id="button" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
+
+<!-- <div class="w3-center"> -->
+<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_modify();"> -->
+<!-- 	&emsp;&emsp;&emsp;&emsp; -->
+<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();"> -->
+<%-- 	<br><br><div style="color: red;">${message}</div> --%>
+<!-- </div> -->
 </sf:form>
 </div>
 </body>

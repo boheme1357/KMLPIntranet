@@ -13,6 +13,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 //초기화버튼 이벤트
 function check_reset(){
@@ -109,13 +113,22 @@ function check_regist(){
 </table>
 
 <div class="w3-center">
-	<input type="button" id="button" class="w3-btn w3-round-large" value="등&nbsp;록" onclick="check_regist();">
-	&emsp;&emsp;
-	<input type="button" id="button" class="w3-btn w3-round-large" value="초기화" onclick="check_reset();">
-	&emsp;&emsp;
-	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();">
+	<div class="btn-group">
+	    <button type="button" id="button" class="btn btn-primary" onclick="check_regist();">등&nbsp;록</button>
+	    <button type="button" id="button" class="btn btn-primary" onclick="check_reset();">초기화</button>
+	    <button type="button" id="button" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
+
+<!-- <div class="w3-center"> -->
+<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="등&nbsp;록" onclick="check_regist();"> -->
+<!-- 	&emsp;&emsp; -->
+<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="초기화" onclick="check_reset();"> -->
+<!-- 	&emsp;&emsp; -->
+<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();"> -->
+<%-- 	<br><br><div style="color: red;">${message}</div> --%>
+<!-- </div> -->
 </sf:form>
 </div>
 </body>

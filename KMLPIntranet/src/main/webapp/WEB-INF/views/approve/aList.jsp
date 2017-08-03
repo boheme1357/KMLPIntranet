@@ -13,14 +13,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/list.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<div id="wapper">
+
 <body>
+<div id="wapper">
 <h3>전자결재&nbsp;리스트</h3>
 <hr>
 <sf:form action="register">
 
-자신이 작성한 결재문서 리스트
+<p><b>자신이 수신한 결재문서 리스트</b></p>
 <table border="1" width="100%">
 	<tr>
 		<th width="10%">문서번호</th>
@@ -44,7 +48,7 @@
 	</c:forEach>
 </table>
 
-자신이 수신한 결재문서 리스트
+<p><b>자신이 수신한 결재문서 리스트</b></p>
 <table border="1" width="100%">
 	<tr>
 		<th width="10%">문서번호</th>
@@ -68,11 +72,10 @@
 	</c:forEach>
 </table>
 
-
-<div class="w3-center">
-	<input type="button" id="button" class="w3-btn w3-round-large" value="문서&nbsp;등록" onclick="location.href='${path}/approve/aRegist.do'">
-</div>
+<!-- <div class="w3-center"> -->
+<%-- 	<input type="button" id="button" class="btn btn-primary" value="문서&nbsp;등록" onclick="location.href='${path}/approve/aRegist.do'"> --%>
+<!-- </div> -->
 </sf:form>
-</body>
 </div>
+</body>
 </html>
