@@ -72,13 +72,13 @@
 </script>
 
 <style>
-	#pwd_check{
-		border: 0px;
-		height: 30px;
-		color: dimgrey;
-		font-weight: bold;
-		background-color: lightblue;
-	}
+#pwd_check {
+	border: 0px;
+	height: 30px;
+	color: dimgrey;
+	font-weight: bold;
+	background-color: lightblue;
+}
 </style>
 </head>
 
@@ -91,7 +91,7 @@
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="15%">사&emsp;번</th>
-		<td><input name="m_id" value="${m_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
+		<td><input name="m_id" value="${dto.m_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
@@ -144,6 +144,13 @@
 		<th>퇴사일자</th>
 		<td><input name="m_com_date" value="${dto.m_quit_date}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
+	
+	<c:if test='${!empty dto.ms_img}'>
+						<th>등록된 결재 이미지</th>
+						<td><img src="${path}/resources/img/${dto.ms_img}" id="img"
+							width="50px" height="50px"></td>
+					</c:if>
+	
 	
 	<tr>
 		<th>결재 이미지 수정</th>
