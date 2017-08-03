@@ -25,5 +25,22 @@
 		update approve set a_condition = #{a_condition} where a_num = #{a_num} and (a_cnt = #{a_cnt} and a_id = #{a_id})
 	</update>
 	
+	<!--02_01. 문서번호, 결재단계, 수신자id로 검색해서 결재상태 변경하기 -->
+	<update id="update_return_cnt">
+		update approve set a_return_cnt = a_return_cnt+1 where a_num = #{a_num} and (a_cnt = #{a_cnt} and a_id = #{a_id})
+	</update>
+	
+	<!--01. 일일업무전체목록 -->
+	<select id="select_return_cnt" resultType="int">
+		select a_return_cnt from approve where a_num = #{a_num} and (a_cnt = #{a_cnt} and a_id = #{a_id})
+	</select>
+	
+	<!-- 02_02. 반려테이블 행 추가 -->
+	<insert id="insert_return">
+		insert into approve_return(ar_num, ar_cnt, ar_return_cnt, ar_text, ar_id)
+		values
+		(	#{ar_num}, #{ar_cnt}, #{ar_return_cnt}, #{ar_text}, #{ar_id}	)
+	</insert>
+	
 	
 </mapper>

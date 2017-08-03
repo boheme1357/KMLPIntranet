@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import org.KMLP.service.ApproveService;
 import org.KMLP.service.DocumentService;
 import org.KMLP.domain.ApproveVO;
+import org.KMLP.domain.Approve_ReturnVO;
 import org.KMLP.domain.DocumentVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -98,16 +99,17 @@ public class ApproveController {
 	// 04. 승인 / 반려
 	@RequestMapping(value = "/{a_num}/{a_cnt}/{a_condition}/aResult.do", method = RequestMethod.POST)
 	public String aResultPOST(@PathVariable String a_num, @PathVariable int a_cnt, @PathVariable boolean a_condition,
-			Model model, RedirectAttributes redirectAttributes, ApproveVO avo) throws Exception {
+			Model model, RedirectAttributes redirectAttributes, Approve_ReturnVO arvo) throws Exception {
 
 		logger.info("aResultPOST post ...........");
 
 		// 시큐리티에서 로그인한 유저 id 받아오는 코드
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String m_id = user.getUsername();
-		approveService.update_condition(a_num, a_cnt, m_id, a_condition);
 		
-		System.out.println("--------------------"+avo.getAr_text()+" , "+avo.getA_id());
+		approveService.update_condition(a_num, a_cnt, m_id, a_condition, arvo);
+		
+		System.out.println("---------반려메시지 저장 확인-----------"+arvo.getAr_text());
 
 		
 		// alert창 띄우기
