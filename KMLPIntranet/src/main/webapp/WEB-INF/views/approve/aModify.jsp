@@ -60,7 +60,8 @@
 
 <body>
 	<div id="regit">
-		<h2>일일업무보고</h2>
+		<h3>결재문서 수정</h3>
+		<hr>
 		<sf:form name="form" method="post">
 
 			<!-- 시작 : 결재문서 -->
@@ -111,7 +112,7 @@
 						</tr>
 						<tr>
 							<th style="height: 40px; background-color: beige;">제&emsp;목</th>
-							<td colspan="3"><input name="d_title" value="${dto.d_title}"></td>
+							<td colspan="3"><input name="d_title" value="${dto.d_title}" style="width: 100%; height: 40px; text-align: center"></td>
 						</tr>
 						<tr>
 							<th style="height: 250px; background-color: beige;">금 일<br>
@@ -131,25 +132,22 @@
 			<!-- 끝: 결재문서 -->
 
 			<!-- 시작: 결재 단계 표시 테이블 -->
-			<table border="1" width="100%" cellpadding="0" cellspacing="0">
+			<table border="1" width="580px" cellpadding="0" cellspacing="0" align="center">
 				<tr>
-					<th>최종승인여부</th>
-					<td><input value="${dto.d_final_condition}"
-						readonly="readonly" style="width: 100%; height: 30px;"></td>
+					<th style="width: 110px; height: 40px; background-color: beige;">최종승인여부</th>
+					<td><input value="${dto.d_final_condition}" readonly="readonly" style="text-align: center"></td>
 				</tr>
 
 				<tr>
-					<th>총 결재단계</th>
-					<td><input name="d_final_cnt" value="${dto.d_final_cnt}"
-						style="width: 100%; height: 30px;"></td>
+					<th style="width: 110px; height: 40px; background-color: beige;">총 결재단계</th>
+					<td><input name="d_final_cnt" value="${dto.d_final_cnt}" readonly="readonly" style="text-align: center"></td>
 				</tr>
 
 				<tr>
-					<th>현재 결재단계</th>
-					<td><input name="d_now_cnt" value="${dto.d_now_cnt}"
-						style="width: 100%; height: 30px;"></td>
+					<th style="width: 110px; height: 40px; background-color: beige;">현재 결재단계</th>
+					<td><input name="d_now_cnt" value="${dto.d_now_cnt}" readonly="readonly" style="text-align: center"></td>
 				</tr>
-			</table>
+			</table><br>
 			<!-- 끝: 결재 단계 표시 테이블 -->
 
 			<!-- 버튼 그룹 -->
@@ -159,7 +157,7 @@
 						onclick="check_update();">수&nbsp;정</button>
 					<button type="button" id="btnDelete" class="btn btn-primary"
 						onclick="check_delete();">삭&nbsp;제</button>
-					<button type="button" id="button" class="btn btn-primary"
+					<button type="button" id="button_doc" class="btn btn-primary"
 						onclick="check_cancel();">취&nbsp;소</button>
 				</div>
 				<br> <br>

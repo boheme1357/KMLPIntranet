@@ -107,7 +107,7 @@
 	<tr>
 		<th>비밀번호 확인</th>
 		<td><input type="password" class="w3-left" name="m_pwd_check" id="m_pwd_check" style="width: 50%; height: 30px;">
-		<input type="button" class="w3-left" id="pwd_check" value="확인" onclick="check_pwd();"></td>
+		<button type="button" id="pwd_check" class="w3-left" onclick="check_pwd();">확인</button></td>
 	</tr>
 	
 	<tr>

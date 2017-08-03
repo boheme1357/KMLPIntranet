@@ -74,6 +74,20 @@ div#regit hr {
 	font-weight: bold;
 }
 
+#btnDelete {
+	font-size: 1em;
+	width: 120px;
+	height: 40px;
+	font-weight: bold;
+}
+
+#btnUpdate {
+	font-size: 1em;
+	width: 120px;
+	height: 40px;
+	font-weight: bold;
+}
+
 div#regit a:link {
 	text-decoration: none;
 }
