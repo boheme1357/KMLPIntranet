@@ -106,7 +106,7 @@
 		select *
 		from
 		document join approve
-		on document.d_num = approve.a_num where a_id =
+		on document.d_num = approve.a_num where d_id =
 		#{m_id} and a_condition is false
 		ORDER BY d_date DESC
 	</select>
