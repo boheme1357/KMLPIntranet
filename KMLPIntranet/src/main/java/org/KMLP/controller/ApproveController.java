@@ -8,9 +8,11 @@ import javax.inject.Inject;
 
 import org.KMLP.service.ApproveService;
 import org.KMLP.service.DocumentService;
+import org.KMLP.service.MemberService;
 import org.KMLP.domain.ApproveVO;
 import org.KMLP.domain.Approve_ReturnVO;
 import org.KMLP.domain.DocumentVO;
+import org.KMLP.domain.Member_SignimgVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -33,6 +35,9 @@ public class ApproveController {
 
 	@Inject
 	ApproveService approveService;
+	
+	@Inject
+	MemberService memberService;
 
 	private static final Logger logger = LoggerFactory.getLogger(ApproveController.class);
 
@@ -84,13 +89,12 @@ public class ApproveController {
 
 		// 반려 메시지 리스트 추가
 		List<Approve_ReturnVO> returnContentList = approveService.selectReturnListAll(d_num);
+		List<Member_SignimgVO> signImgList = memberService.selectSignImgList(d_num);
 		
-		System.out.println("-----------반려리스트 길이 확인-------------"+returnContentList.size());
+		System.out.println("-----------도장 이미지 조회 확인-------------"+signImgList.get(0).getMs_img());
 		
-		//if (returnContentList == null)
-		//	model.addAttribute("returnContentList", null);
-		//else
-			model.addAttribute("returnContentList", returnContentList);
+		model.addAttribute("signImgList", signImgList);
+		model.addAttribute("returnContentList", returnContentList);
 
 		return "aContent";
 	}

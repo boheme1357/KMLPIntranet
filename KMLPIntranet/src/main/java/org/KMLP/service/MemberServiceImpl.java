@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.KMLP.domain.MemberVO;
+import org.KMLP.domain.Member_SignimgVO;
 import org.KMLP.persistence.MemberDAO;
 import org.springframework.stereotype.Service;
 
@@ -51,6 +52,12 @@ public class MemberServiceImpl implements MemberService {
 	public boolean checkPw(String m_id, String m_pwd) {
 
 		return dao.checkPw(m_id, m_pwd);
+	}
+
+	@Override
+	public List<Member_SignimgVO> selectSignImgList(String d_num) {
+		// TODO Auto-generated method stub
+		return dao.selectSignImgList(d_num);
 	}
 
 }
