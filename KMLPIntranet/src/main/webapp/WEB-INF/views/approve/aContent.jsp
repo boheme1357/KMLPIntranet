@@ -203,8 +203,13 @@
 					</table>				
 			</c:if>
 			<!-- 끝 : 반려 메시지 리스트 -->
-			
-			
+
+			<!-- 도장이미지 가져오기 테스트 -->
+			<c:forEach var='imgListVO' items='${signImgList}'>
+				<img src="${path}/resources/img/${imgListVO.ms_img}" id="img"
+					width="50px" height="50px">
+			</c:forEach>
+
 			<input type='hidden' name='d_num' value='${dto.d_num}'><br>
 		</sf:form>
 	</div>

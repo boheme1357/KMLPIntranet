@@ -14,18 +14,21 @@
 
 	<!-- 02_01. 사원데이터삽입 -->
 	<insert id="insert">
-		insert into member(m_id, m_name, m_pwd, m_dept, m_posit, m_email_id, m_email_do, m_cell, m_com_date)
+		insert into member(m_id, m_name, m_pwd, m_dept,
+		m_posit, m_email_id, m_email_do, m_cell, m_com_date)
 		values
-		(#{m_id}, #{m_name}, #{m_pwd}, #{m_dept}, #{m_posit}, #{m_email_id}, #{m_email_do}, #{m_cell}, #{m_com_date})
+		(#{m_id},
+		#{m_name}, #{m_pwd}, #{m_dept}, #{m_posit}, #{m_email_id},
+		#{m_email_do}, #{m_cell}, #{m_com_date})
 	</insert>
-	
+
 	<!-- 02_02. 사원 권한 삽입 -->
 	<insert id="insertAuthority">
 		insert into authorities(au_id, authority)
 		values
 		(#{m_id}, #{authority})
 	</insert>
-	
+
 	<!-- 02_03. 사원 도장 이미지 삽입 -->
 	<insert id="insertSignImg">
 		insert into member_signimg(ms_id, ms_img)
@@ -36,14 +39,17 @@
 
 	<!--03. 사원 개인정보 조회 -->
 	<select id="selectContent" resultType="org.KMLP.domain.MemberVO">
-		select * from member where m_id=#{m_id}
+		select * from member where
+		m_id=#{m_id}
 	</select>
 
 
 
 	<!--04. 사원정보수정 -->
 	<update id="update">
-		update member set m_name=#{m_name}, m_dept=#{m_dept}, m_posit=#{m_posit}, m_email_id=#{m_email_id}, m_email_do=#{m_email_do}, m_cell=#{m_cell}
+		update member set m_name=#{m_name}, m_dept=#{m_dept},
+		m_posit=#{m_posit}, m_email_id=#{m_email_id},
+		m_email_do=#{m_email_do}, m_cell=#{m_cell}
 		where m_id=#{m_id}
 	</update>
 
@@ -57,7 +63,18 @@
 
 	<!--06. 비밀번호체크 -->
 	<select id="checkPw" resultType="int">
-		select count(*) from member where m_id=#{m_id} and m_pwd=#{m_pwd}
+		select count(*) from member
+		where m_id=#{m_id} and m_pwd=#{m_pwd}
+	</select>
+
+	<!--01. 결재라인 도장이미지 가져오기 -->
+	<select id="selectSignImgList" parameterType="java.lang.String" resultType="org.KMLP.domain.Member_SignimgVO">
+		select * from
+		member_signimg
+		join approve
+		on member_signimg.ms_id = approve.a_id where a_num =
+		#{d_num} and a_condition is true
+		ORDER BY a_cnt ASC
 	</select>
 
 

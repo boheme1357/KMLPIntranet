@@ -3,6 +3,7 @@ package org.KMLP.persistence;
 import java.util.List;
 
 import org.KMLP.domain.MemberVO;
+import org.KMLP.domain.Member_SignimgVO;
 
 public interface MemberDAO {
 	
@@ -25,5 +26,8 @@ public interface MemberDAO {
 	
 	//06. 비밀번호체크
 	public boolean checkPw(String m_id, String m_pwd);
+
+
+	public List<Member_SignimgVO> selectSignImgList(String d_num);
 	
 }

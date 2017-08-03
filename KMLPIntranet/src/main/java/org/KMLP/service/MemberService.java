@@ -3,6 +3,7 @@ package org.KMLP.service;
 import java.util.List;
 
 import org.KMLP.domain.MemberVO;
+import org.KMLP.domain.Member_SignimgVO;
 
 public interface MemberService {
 	//01. 사원전체목록
@@ -23,6 +24,9 @@ public interface MemberService {
 	
 	//06. 비밀번호체크
 	public boolean checkPw(String m_id, String m_pwd);
+
+	//07. 도장 이미지 조회
+	public List<Member_SignimgVO> selectSignImgList(String d_num);
 		
 	
 }

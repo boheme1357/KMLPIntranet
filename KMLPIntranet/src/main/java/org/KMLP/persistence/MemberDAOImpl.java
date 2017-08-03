@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.KMLP.domain.MemberVO;
+import org.KMLP.domain.Member_SignimgVO;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -75,6 +76,11 @@ public class MemberDAOImpl implements MemberDAO {
 			result = true;
 
 		return result;
+	}
+
+	@Override
+	public List<Member_SignimgVO> selectSignImgList(String d_num) {
+		return sqlSession.selectList(namespace + ".selectSignImgList", d_num);
 	}
 
 }
