@@ -82,6 +82,16 @@ public class ApproveController {
 		model.addAttribute("m_id", user.getUsername());
 		model.addAttribute("dto", documentSerive.selectContent(d_num));
 
+		// 반려 메시지 리스트 추가
+		List<Approve_ReturnVO> returnContentList = approveService.selectReturnListAll(d_num);
+		
+		System.out.println("-----------반려리스트 길이 확인-------------"+returnContentList.size());
+		
+		//if (returnContentList == null)
+		//	model.addAttribute("returnContentList", null);
+		//else
+			model.addAttribute("returnContentList", returnContentList);
+
 		return "aContent";
 	}
 
@@ -106,12 +116,11 @@ public class ApproveController {
 		// 시큐리티에서 로그인한 유저 id 받아오는 코드
 		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String m_id = user.getUsername();
-		
-		approveService.update_condition(a_num, a_cnt, m_id, a_condition, arvo);
-		
-		System.out.println("---------반려메시지 저장 확인-----------"+arvo.getAr_text());
 
-		
+		approveService.update_condition(a_num, a_cnt, m_id, a_condition, arvo);
+
+		System.out.println("---------반려메시지 저장 확인-----------" + arvo.getAr_text());
+
 		// alert창 띄우기
 		String message = "";
 		if (a_condition)
@@ -217,8 +226,8 @@ public class ApproveController {
 		String m_id = user.getUsername();
 
 		// 1. 자신이 작성한 결재문서 리스트
-		List<DocumentVO> sentList = documentSerive.selectSendListAll_return(m_id);
-		model.addAttribute("sentList", sentList);
+		List<DocumentVO> returnList = documentSerive.selectSendListAll_return(m_id);
+		model.addAttribute("returnList", returnList);
 
 		return "aReturn";
 	}

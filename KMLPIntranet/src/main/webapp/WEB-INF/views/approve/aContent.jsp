@@ -4,6 +4,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!-- jstl 포맷 태그 -->
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<!-- jstl functions 태그 -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!-- 컨택스트  패스-->
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- 시큐리티 태그lib -->
@@ -175,6 +179,34 @@
 				</center>
 			</c:if>
 			<!-- 끝 : 승인 반려 버튼 조건문 -->
+			
+			
+			<!-- 시작 : 반려 메시지 리스트 -->
+			<c:if test="${!empty returnContentList || fn:length(returnContentList) > 0}">
+			<h1>반려 메시지 리스트</h1>
+				
+					<table border="1" width="100%" cellpadding="0" cellspacing="0" >
+						<tr>
+							<th>작성자</th>
+							<th>작성일자</th>
+							<th>결재단계</th>
+							<th>반려횟수</th>
+							<th>반려사유</th>
+						</tr>
+				<c:forEach var='row' items='${returnContentList}'>
+						<tr>
+							<td>${ row.ar_id }</td>
+							<td>${ row.ar_date }</td>
+							<td>${ row.ar_cnt }</td>
+							<td>${ row.ar_return_cnt }</td>
+							<td>${ row.ar_text }</td>
+						</tr>
+				</c:forEach>
+					</table>				
+			</c:if>
+			<!-- 끝 : 반려 메시지 리스트 -->
+			
+			
 			<input type='hidden' name='d_num' value='${dto.d_num}'>
 
 		</sf:form>

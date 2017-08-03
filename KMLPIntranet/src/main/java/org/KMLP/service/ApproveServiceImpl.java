@@ -1,5 +1,7 @@
 package org.KMLP.service;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.KMLP.domain.ApproveVO;
@@ -42,5 +44,11 @@ public class ApproveServiceImpl implements ApproveService {
 			dao.insert_approve_return(arvo);
 		}
 
+	}
+
+	@Override
+	public List<Approve_ReturnVO> selectReturnListAll(String ar_num) {
+		// TODO Auto-generated method stub
+		return dao.selectReturnListAll(ar_num);
 	}
 }

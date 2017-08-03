@@ -42,5 +42,14 @@
 		(	#{ar_num}, #{ar_cnt}, #{ar_return_cnt}, #{ar_text}, #{ar_id}	)
 	</insert>
 	
+	<!-- 06-01. 반려 메시지 리스트 가져오기 -->
+	<select id="selectReturnListAll" resultType="org.KMLP.domain.Approve_ReturnVO">
+		select * from
+		approve_return
+		where ar_num = #{ar_num}
+		ORDER BY
+		ar_date DESC
+	</select>
+	
 	
 </mapper>
