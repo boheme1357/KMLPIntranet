@@ -162,7 +162,7 @@
             <tr>
                <th style="height: 250px; background-color: beige;">금 일<br><br>업무내용
                </th>
-               <td colspan="3"><textarea name="d_content" id="d_content" style="resize: none;"></textarea></td>
+               <td colspan="3"><textarea name="d_content" id="d_content" style="resize: none; padding: 1em !important"></textarea></td>
             </tr>
             <tr colsapn="4" style="height: 20px;">
             </tr>

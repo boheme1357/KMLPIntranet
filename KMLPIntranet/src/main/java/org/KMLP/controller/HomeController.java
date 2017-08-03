@@ -6,6 +6,8 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
+import org.KMLP.domain.MemberVO;
+import org.KMLP.service.MemberService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,6 +26,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
+	@Inject
+	MemberService memberSerive;
 	
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -83,7 +88,9 @@ public class HomeController {
 
 		// 시큐리티에서 로그인한 유저 id 받아오는 코드
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		model.addAttribute("m_id", user.getUsername());
+		String m_id = user.getUsername();
+		MemberVO vo = memberSerive.selectContent(m_id);
+		model.addAttribute("dto", vo );
 		
 		return "myModify";
 	}

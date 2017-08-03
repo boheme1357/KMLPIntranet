@@ -87,7 +87,7 @@
 		from
 		document join approve
 		on document.d_num = approve.a_num where a_id =
-		#{m_id} and a_condition is not true
+		#{m_id} and ( a_condition is not true and d_now_cnt = a_cnt)
 		ORDER BY d_date DESC
 	</select>
 

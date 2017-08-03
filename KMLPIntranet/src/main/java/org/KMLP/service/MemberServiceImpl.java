@@ -50,7 +50,6 @@ public class MemberServiceImpl implements MemberService {
 	// 06. 비밀번호체크
 	@Override
 	public boolean checkPw(String m_id, String m_pwd) {
-
 		return dao.checkPw(m_id, m_pwd);
 	}
 
