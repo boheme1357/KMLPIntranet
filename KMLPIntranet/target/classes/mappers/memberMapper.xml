@@ -35,6 +35,12 @@
 		values
 		(#{m_id}, #{ms_img})
 	</insert>
+	
+	<!--04. 도장 이미지 수정 -->
+	<update id="updateSignImg">
+		update member_signimg set ms_img=#{ms_img}
+		where ms_id=#{m_id}
+	</update>
 
 
 	<!--03-01. 사원 개인정보 조회 -->
@@ -53,7 +59,7 @@
 
 	<!--04. 사원정보수정 -->
 	<update id="update">
-		update member set m_name=#{m_name}, m_dept=#{m_dept},
+		update member set m_dept=#{m_dept},
 		m_posit=#{m_posit}, m_email_id=#{m_email_id},
 		m_email_do=#{m_email_do}, m_cell=#{m_cell}
 		where m_id=#{m_id}

@@ -36,9 +36,8 @@
 			} else {
 
 				if (confirm("수정하시겠습니까?")) {
-					document.form.action = "${path}/member/mUpdate";
 					document.form.submit();
-				}
+				} else{return false;}
 			}
 		});
 	});
@@ -89,10 +88,15 @@
 </head>
 
 <body>
+
+<c:if test="${message != null}">
+<script type="text/javascript">alert("${message}")</script>
+</c:if>
+
 	<div id="wapper">
 		<h3>사원개인정보</h3>
 		<hr>
-		<sf:form action="${path}/member/insert" name="form" method="post">
+		<sf:form action="${path}/myModify.do?${_csrf.parameterName}=${_csrf.token}" name="form" method="post" enctype="multipart/form-data">
 
 			<table border="1" width="100%" cellpadding="0" cellspacing="0">
 				<tr>
@@ -186,7 +190,7 @@
 						onclick="check_cancel();">취&nbsp;소</button>
 				</div>
 				<br> <br>
-				<div style="color: red;">${message}</div>
+				
 			</div>
 		</sf:form>
 	</div>

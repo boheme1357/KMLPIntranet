@@ -54,6 +54,14 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public void update(MemberVO vo) {
 		sqlSession.update(namespace + ".update", vo);
+		try {
+			System.out.println("-----insertSignImg------------------");
+			sqlSession.update(namespace + ".updateSignImg", vo);
+
+		} catch (NullPointerException e) {
+			System.out.println("도장 이미지 미등록 ...........");
+			return;
+		}
 	}
 
 	// 05. 사원정보삭제
