@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 
 @Service
+@Transactional
 public class DocumentServiceImpl implements DocumentService {
 
 	@Inject
@@ -32,6 +33,7 @@ public class DocumentServiceImpl implements DocumentService {
 
 	// 02_02. 일일업무일지데이터삽입
 	@Override
+	@Transactional
 	public void insert(DocumentVO vo, ApproveVO avo) {
 
 		// document 행추가

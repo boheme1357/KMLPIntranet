@@ -15,7 +15,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-@Transactional
 public class DocumentDAOImpl implements DocumentDAO {
 
 	private static final String namespace = "documentMapper";
@@ -31,7 +30,6 @@ public class DocumentDAOImpl implements DocumentDAO {
 
 	// 02_02. 일일업무일지 데이터삽입
 	@Override
-	@Transactional
 	public void insert(DocumentVO vo) {
 
 		// 업로드 카운트 1 증가
