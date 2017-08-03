@@ -14,6 +14,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <script>
 	$(document).ready(function() {
@@ -22,6 +25,7 @@
 			if (!document.form.m_pwd.value) {
 
 				alert("비밀번호를 입력하시오.")
+				m_pwd.focus();
 
 			} else {
 
@@ -140,12 +144,19 @@
 		<th>퇴사일자</th>
 		<td><input name="m_com_date" value="${dto.m_quit_date}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
+	
+	<tr>
+		<th>결재 이미지 수정</th>
+		<td><input type="file" name="file"></td>
+	</tr>
 </table>
+
 <div class="w3-center">
-	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" id="btnUpdate">
-	&emsp;&emsp;&emsp;
-	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" id="btnDelete" onclick="check_cancel();">
-	<div style="color: red;">${message}</div>
+	<div class="btn-group">
+		<button type="button" id="btnUpdate" class="btn btn-primary">수&nbsp;정</button>
+		<button type="button" id="btnDelete" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+	</div>
+	<br><br><div style="color: red;">${message}</div>
 </div>
 </sf:form>
 </div>
