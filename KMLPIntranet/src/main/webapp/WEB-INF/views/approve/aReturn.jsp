@@ -21,7 +21,7 @@
 <hr>
 <sf:form action="register">
 
-<p><b>자신이 수신한 결재문서 리스트</b></p>
+자신이 작성한 결재문서 중 반려된 문서 리스트
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="10%">문서번호</th>
@@ -32,12 +32,12 @@
 		<th>결재횟수</th>
 	</tr>
 	
-	<c:forEach var="row" items="${sentList}">
+	<c:forEach var="row" items="${returnList}">
 	<tr>
 		<!--회원정보 상세조회를 위해 a태그 추가  -->
-		<td><a href="${path}/approve/${row.d_num}/aContent.do">${row.d_num}</a></td>
+		<td>${row.d_num}</td>
 		<td>${row.d_id}</td>
-		<td>${row.d_title}</td>
+		<td><a href="${path}/approve/${row.d_num}/aContent.do">${row.d_title}</a></td>
 		<td>${row.d_date}</td>
 		<td>${row.d_final_condition}</td>
 		<td>${row.d_final_cnt}</td>
@@ -45,9 +45,9 @@
 	</c:forEach>
 </table>
 
-<!-- <div class="w3-center"> -->
-<%-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="문서&nbsp;등록" onclick="location.href='${path}/approve/aRegist.do'"> --%>
-<!-- </div> -->
+<div class="w3-center">
+	<input type="button" id="button" class="w3-btn w3-round-large" value="문서&nbsp;등록" onclick="location.href='${path}/approve/aRegist.do'">
+</div>
 </sf:form>
 </div>
 </body>

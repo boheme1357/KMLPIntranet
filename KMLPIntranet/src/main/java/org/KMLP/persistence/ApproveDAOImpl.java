@@ -1,5 +1,7 @@
 package org.KMLP.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 
@@ -55,6 +57,14 @@ public class ApproveDAOImpl implements ApproveDAO {
 		String ar_return_cnt = Integer.toString(tmpReturnCnt);
 		
 		return ar_return_cnt;
+	}
+
+
+
+	@Override
+	public List<Approve_ReturnVO> selectReturnListAll(String ar_num) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace + ".selectReturnListAll", ar_num);
 	}
 
 }
