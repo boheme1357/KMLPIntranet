@@ -65,7 +65,7 @@
 	</tr>
 
 	<tr>
-		<th height="400px">내&emsp;용</th>
+		<th height="300px">내&emsp;용</th>
 		<td>${dto.n_content}</td>
 	</tr>
 	

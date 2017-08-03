@@ -73,8 +73,8 @@ function check_regist(){
 	</tr>
 	
 	<tr>
-		<th height="400px">내&emsp;용</th>
-		<td><textarea name="n_content"></textarea></td>
+		<th height="300px">내&emsp;용</th>
+		<td><textarea id="textarea" name="n_content"></textarea></td>
 	</tr>
 	
 	<tr>
