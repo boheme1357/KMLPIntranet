@@ -45,7 +45,9 @@ public class MemberDAOImpl implements MemberDAO {
 	// 03. 사원개인정보조회
 	@Override
 	public MemberVO selectContent(String m_id) {
-		return sqlSession.selectOne(namespace + ".selectContent", m_id);
+		MemberVO vo = sqlSession.selectOne(namespace + ".selectContent", m_id);
+		vo.setMs_img(sqlSession.selectOne(namespace + ".selectSignImg", m_id));
+		return vo;
 	}
 
 	// 04. 사원정보수정

@@ -73,15 +73,15 @@ public class MemberController {
 		vo.setM_pwd(tmpPW);
 		
 		// 업로드 파일명 확인
-		String savedName = vo.getFile().getOriginalFilename();
+		String ms_img = vo.getFile().getOriginalFilename();
 		
-		if(savedName.equals(""))
+		if(ms_img.equals(""))
 			logger.info("도장 이미지 미등록 ...........");
 		else {
-		File target = new File(uploadPath, savedName);
+		File target = new File(uploadPath, ms_img);
 		FileCopyUtils.copy(vo.getFile().getBytes(), target); // 임시디렉토리에 저장된 업로드된 파일을 지정된 디렉토리로 복사,
 																// FileCopyUtils.copy(바이트배열, 파일객체)
-		vo.setSavedName(savedName);
+		vo.setMs_img(ms_img);
 		}
 		
 		memberSerive.insert(vo);
