@@ -10,6 +10,7 @@ public class NoticeVO {			//공지사항
 	private String n_content ;	//내용
 	private String n_file ;			//첨부파일
 	private String n_udate ;		//수정일자
+	private int n_viewcnt;		//조회횟수
 	
 	
 	public int getN_num() {
@@ -54,6 +55,13 @@ public class NoticeVO {			//공지사항
 	public void setN_udate(String n_udate) {
 		this.n_udate = n_udate;
 	}
+	public int getN_viewcnt() {
+		return n_viewcnt;
+	}
+	public void setN_viewcnt(int n_viewcnt) {
+		this.n_viewcnt = n_viewcnt;
+	}
+
 	
 	
 
