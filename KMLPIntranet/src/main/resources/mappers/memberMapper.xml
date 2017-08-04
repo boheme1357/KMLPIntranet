@@ -59,8 +59,8 @@
 
 	<!--04. 사원정보수정 -->
 	<update id="update">
-		update member set m_dept=#{m_dept},
-		m_posit=#{m_posit}, m_email_id=#{m_email_id},
+		update member set m_pwd=#{m_pwd}, 
+		m_email_id=#{m_email_id},
 		m_email_do=#{m_email_do}, m_cell=#{m_cell}
 		where m_id=#{m_id}
 	</update>
