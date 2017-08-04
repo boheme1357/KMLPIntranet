@@ -7,6 +7,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- 시큐리티 태그lib -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -76,6 +77,7 @@
 	</tr>
 
 </table>
+<sec:authorize access="hasRole('ADMIN')">
 <div class="w3-center">
 	<div class="btn-group">
 		<button type="button" id="button" class="btn btn-primary" onclick="check_modify();">수&nbsp;정</button>
@@ -83,10 +85,7 @@
 	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
-
-<!-- 		<input type="button" id="button" class="btn btn-primary" value="수&nbsp;정" onclick="check_modify();"> -->
-<!-- 		&emsp;&emsp;&emsp;&emsp; -->
-<!-- 		<input type="button" id="button" class="btn btn-primary" value="취&nbsp;소" onclick="check_cancel();"> -->
+</sec:authorize>
 </sf:form>
 </div>
 </body>

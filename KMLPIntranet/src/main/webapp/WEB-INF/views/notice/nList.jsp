@@ -8,6 +8,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- 시큐리티 태그lib -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -69,7 +70,9 @@ a:active {
 				</c:forEach>
 			</table>
 			<div class="w3-center">
+			<sec:authorize access="hasRole('ADMIN')">
 				<input type="button" id="button" class="btn btn-primary" value="공지사항 등록" onclick="location.href='${path}/notice/nRegist.do'">
+			</sec:authorize>
 			</div>
 		</sf:form>
 	</div>

@@ -125,7 +125,7 @@
 			<!-- 시작 : 결재문서 -->
 			<div align="center">
 				<!-- 결재란 start -->
-				<div id='sign_div'
+				<div id='sign_div' border: 1px solid black
 					style="width: 580px; height: 124px; margin: 10px;">
 					<table align="left" id="sign_table">
 						<!-- 도장이미지 가져오기 테스트 -->
