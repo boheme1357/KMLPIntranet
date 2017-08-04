@@ -5,38 +5,39 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title><tiles:getAsString name="title" /></title>
 <style>
 html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
+	margin: 0;
+	width: 100%;
+	height: 100%;
 }
 
 #header {
-    position: fixed;
-    width: 100%;
-    height: 50px;
-    z-index: 3;
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	z-index: 3;
 }
 
 #menu {
-    display: inline-block;
-    width: 200px;
-    height: 100%;
-    margin-top: 50px;
-    z-index: 2;
+	display: inline-block;
+/* 	width: 200px; */
+	height: 100%;
+	margin-top: 50px;
+	z-index: 2;
 }
 
 #body {
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-top: 3%;
-    display: inline-block;
-    position: absolute;
-    left: 200px;
-    right: 0;
-    z-index: 1;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-top: 3%;
+	display: inline-block;
+	position: absolute;
+	left: 200px;
+	right: 0;
+	z-index: 1;
 }
 </style>
 </head>
