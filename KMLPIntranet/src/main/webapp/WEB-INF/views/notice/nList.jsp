@@ -62,12 +62,12 @@ a:active {
 
          <table border="1" width="100%">
             <tr>
-             <th width="5%">일련번호</th>
+             <th width="10%">일련번호</th>
                <th width="10%">사&emsp;번</th>
-               <th width="50%">제&emsp;목</th>
+               <th width="40%">제&emsp;목</th>
                <th width="10%">첨부파일</th>
-               <th width="10%">작 성 일 자</th>
-               <th width="6%">조회횟수</th>
+               <th width="20%">작 성 일 자</th>
+               <th width="10%">조회횟수</th>
             </tr>
 
             <c:forEach var="row" items="${map.list}">

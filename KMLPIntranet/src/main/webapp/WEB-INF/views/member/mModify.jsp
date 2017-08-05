@@ -71,7 +71,7 @@
 	
 	<tr>
 		<th>비밀번호</th>
-		<td><input type="password" name="m_pwd" style="width: 100%; height: 30px;" readonly="readonly"></td>
+		<td><input type="password" class="w3-animate-input w3-left" name="m_pwd" style="width: 50%; height: 30px;"></td>
 	</tr>
 
 	<tr>
@@ -120,15 +120,6 @@
 	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
-
-<!-- <div class="w3-center"> -->
-<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_update();"> -->
-<!-- 	&emsp;&emsp; -->
-<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="삭&nbsp;제" onclick="check_delete();"> -->
-<!-- 	&emsp;&emsp; -->
-<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();"> -->
-<%-- 	<br><br><div style="color: red;">${message}</div> --%>
-<!-- </div> -->
 </sf:form>
 </div>
 </body>

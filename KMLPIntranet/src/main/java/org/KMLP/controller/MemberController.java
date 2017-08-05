@@ -11,6 +11,8 @@ import org.KMLP.service.MemberService;
 import org.KMLP.util.ShaEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -111,6 +113,12 @@ public class MemberController {
 	public String mModifyGET(Model model) {
 
 		logger.info("mModifyGET PAGE...............");
+		
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String m_id = user.getUsername();
+		MemberVO vo = memberSerive.selectContent(m_id);
+		model.addAttribute("dto", vo);
 
 		return "mModify";
 	}
