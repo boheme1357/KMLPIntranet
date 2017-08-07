@@ -99,5 +99,34 @@ public class MemberDAOImpl implements MemberDAO {
 	public String selectDept(String m_id) {
 		return sqlSession.selectOne(namespace + ".selectDept", m_id);
 	}
+	
+	
+	
+	//09. 비밀번호찾기/사번, 이메일확인
+	@Override
+	public MemberVO selectFindPw(String m_id, String m_email_id, String m_email_do) {
+		
+		System.out.println("m_id1" +  m_id);
+		System.out.println("m_id1" +  m_email_id);
+		System.out.println("m_id1" +  m_email_do);
+		
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("m_id", m_id);
+		map.put("m_email_id", m_email_id);
+		map.put("m_email_do", m_email_do);
+		
+		return  sqlSession.selectOne(namespace+".selectFindPw", map);
+	}
 
+	//10. 임시비밀번호로변경
+	@Override
+	public void updateTempPw(String m_id, String m_pwd) {
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("m_id", m_id);
+		map.put("m_pwd", m_pwd);
+		
+		sqlSession.update(namespace+".updateTempPw", map);
+
+
+}
 }

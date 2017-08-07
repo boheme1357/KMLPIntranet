@@ -22,7 +22,7 @@
 //수정버튼 이벤트
 function check_update(){
 	if(confirm("수정 하시겠습니까?")) {
-		document.form.action ="${path}/notice/nModify.do";
+		document.form.action ="${path}/notice/nUpdate.do";
 		document.form.submit();
 	}
 }

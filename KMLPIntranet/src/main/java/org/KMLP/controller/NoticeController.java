@@ -68,9 +68,12 @@ public class NoticeController {
 	// 아래코드에 있음, 삭제예정
 	@RequestMapping(value = "/nContent.do", method = RequestMethod.GET)
 	public ModelAndView nContentGET(@RequestParam("n_num") int n_num, Model model) {
+		
+		
+		
 		// 조회수 증가 처리
 		noticeSerive.updateViewCnt(n_num);
-
+		
 		// 모델(데이터)+뷰(화면)를 함께 전달하는 객체
 		ModelAndView mav = new ModelAndView();
 
@@ -141,15 +144,18 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value = "/nModify.do", method = RequestMethod.GET)
-	public String nModifyGET(Model model) {
+	public String nModifyGET(@RequestParam("n_num") int n_num, Model model) {
+		
+		
+		model.addAttribute("dto", noticeSerive.selectContent(n_num));
 
 		logger.info("nModifyGET PAGE...............");
-
+		
 		return "nModify";
 	}
 
 	// 04. 공지사항데이터수정
-	@RequestMapping(value = "/nModify.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/nUpdate.do", method = RequestMethod.POST)
 	public String nModifyPOST(@ModelAttribute NoticeVO vo, Model model) throws Exception {
 		logger.info("nModifyPOST post ...........");
 

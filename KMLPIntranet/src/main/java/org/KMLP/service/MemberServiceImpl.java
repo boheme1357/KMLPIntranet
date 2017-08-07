@@ -66,5 +66,20 @@ public class MemberServiceImpl implements MemberService {
 		return dao.selectDept(m_id);
 		
 	}
+	
+	// 09. 비밀번호찾기/사번, 이메일확인
+	@Override
+	public MemberVO selectFindPw(String m_id, String m_email_id, String m_email_do) {
+	
+		return  dao.selectFindPw(m_id, m_email_id, m_email_do);
+	}
+	
+	// 10. 임시비밀번호로변경
+	@Override
+	public void updateTempPw(String m_id, String m_pwd) {
+		
+		dao.updateTempPw(m_id, m_pwd);
+	}
+	
 
 }

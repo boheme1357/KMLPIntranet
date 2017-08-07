@@ -38,11 +38,6 @@
 
 
 
-
-
-
-
-
 	<!-- 02_02. 공지사항데이터삽입 -->
 	<insert id="insert">
 		insert into notice(n_id, n_title, n_content, n_file)

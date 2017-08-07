@@ -23,9 +23,10 @@
 	//수정버튼 이벤트
 	function check_modify(){
 		if(confirm("수정페이지로 이동하시겠습니까?")) {
-			location.replace("${path}/notice/nModify.do");
+			location.replace("${path}/notice/nModify.do?n_num=${dto.n_num}");
 		}
-	}
+	}				
+
 
 // 	function check_update(){
 // 		if(confirm("수정 하시겠습니까?")) {
@@ -70,27 +71,27 @@ a:active {
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="15%">일련번호</th>
-		<td>${dto.n_num}</td>
+		<td><input name="n_num" value="${dto.n_num}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 	
 	<tr>
 		<th>사&emsp;번</th>
-		<td>${dto.n_id}</td>
+		<td><input name="n_id" value="${dto.n_id}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 
 	<tr>
 		<th>제&emsp;목</th>
-		<td>${dto.n_title}</td>
+		<td><input name="n_title" class="w3-animate-input w3-left" value="${dto.n_title}" style="width: 50%; height: 30px;"></td>
 	</tr>
 
 	<tr>
 		<th height="300px">내&emsp;용</th>
-		<td>${dto.n_content}</td>
+		<td><textarea id="textarea" name="n_content">${dto.n_content}</textarea></td>
 	</tr>
 	
 	<tr>
 		<th>첨부파일</th>
-		<td>${dto.n_file}</td>
+		<td><input name="n_file" class="w3-animate-input w3-left" value="${dto.n_file}" style="width: 50%; height: 30px;"></td>
 	</tr>
 
 </table>
