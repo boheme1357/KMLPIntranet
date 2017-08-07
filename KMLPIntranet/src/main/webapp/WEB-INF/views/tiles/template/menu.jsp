@@ -17,14 +17,14 @@
 <style>
 
     #h4 {
-		font-style: italic;
-		font-family: 'Luckiest Guy', cursive;
-		font-size: 1.4em;
-		color: white;
-		margin-left: 20px;
-	}
+      font-style: italic;
+      font-family: 'Luckiest Guy', cursive;
+      font-size: 1.4em;
+      color: white;
+      margin-left: 20px;
+   }
 
-	#input {
+   #input {
         width: 150px; 
         font-size: 1em;
         border: 1px solid dimgray;
@@ -33,7 +33,7 @@
     }
     
     #apprlist{
-    	border-bottom: 1px solid grey;
+       border-bottom: 1px solid grey;
     }
     
     a:link {
@@ -51,37 +51,25 @@
     a:active {
         text-decoration: none;
     }
+   
     /* 네온KMLP */
   .footer {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 20%;
+  height: 7%;
   display: table;
-  
- 
 }
 
 @font-face {
   font-family: neon;
-  
+ 
 }
 
 .container1 {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  background-color:black;
-   border-radius: 7em 7em 7em 7em;
-
-}
-
-.neon {
-  font-family: neon;
-  color: #FB4264;
-  font-size: 45px;
-  line-height: 45px;
-  text-shadow: 0 0 3vw #F40A35;
 }
 
 .flux {
@@ -90,24 +78,6 @@
   font-size: 35px;
   line-height: 45px;
   text-shadow: 0 0 3vw #2356FF; 
-}
-
-.neon {
-  animation: neon 1s ease infinite;
-  -moz-animation: neon 1s ease infinite;
-  -webkit-animation: neon 1s ease infinite;
-}
-
-@keyframes neon {
-  0%,
-  100% {
-    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
-    color: #FED128;
-  }
-  50% {
-    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
-    color: #806914;
-  }
 }
 
 .flux {
@@ -120,11 +90,11 @@
 @keyframes flux {
   0%,
   100% {
-    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .0vw .0vw .0vw #147280;
     color: #28D7FE;
   }
   50% {
-    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, 0vw .0vw .0vw #0A3940;
     color: #146C80;
   }
 }
@@ -164,34 +134,30 @@ function checkTime(i) {
 </head>
 <body onload="startTime()">
 <div class="w3-sidebar w3-card-2 w3-center w3-bar-block w3-border-right">
-	<a href="${path}/login.do"><img class="w3-image" src="${path}/resources/img/kmlp_logo1.png" width="200" title="로그인 페이지로"></a>
-	<a href="${path}/notice/nList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf274; 공지사항" style="margin-top: 20px"></a>
-	
-	<input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf0ea; 전자결재" onclick="ApprFunc()">
-	<div id="ApprList" class="w3-hide w3-light-grey">
-		<a href="${path}/approve/aRegist.do" id="apprlist" class="w3-bar-item w3-button" style="border-top: 1px solid grey;">결재문서작성</a>
-		<a href="${path}/approve/aApproving.do" id="apprlist" class="w3-bar-item w3-button">미 결 재 함</a>
-		<a href="${path}/approve/aApproved.do" id="apprlist" class="w3-bar-item w3-button">결재완료함</a>
-		<a href="${path}/approve/aReturn.do" id="apprlist" class="w3-bar-item w3-button" style="margin-bottom: 20px;">결재반려함</a>	
-	</div>
-	
-	<a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1e8; 쪽&emsp;&emsp;지"></a>
-	<a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1d7; 커뮤니티"></a>
-	<a href="${path}/member/mList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf2bc; 사원관리"></a>
+   <a href="${path}/login.do"><img class="w3-image" src="${path}/resources/img/kmlp_logo1.png" width="200" title="로그인 페이지로"></a>
+   <a href="${path}/notice/nList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf274; 공지사항" style="margin-top: 20px"></a>
+   
+   <input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf0ea; 전자결재" onclick="ApprFunc()">
+   <div id="ApprList" class="w3-hide w3-light-grey">
+      <a href="${path}/approve/aRegist.do" id="apprlist" class="w3-bar-item w3-button" style="border-top: 1px solid grey;">결재문서작성</a>
+      <a href="${path}/approve/aApproving.do" id="apprlist" class="w3-bar-item w3-button">미 결 재 함</a>
+      <a href="${path}/approve/aApproved.do" id="apprlist" class="w3-bar-item w3-button">결재완료함</a>
+      <a href="${path}/approve/aReturn.do" id="apprlist" class="w3-bar-item w3-button" style="margin-bottom: 20px;">결재반려함</a>   
+   </div>
+   
+   <a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1e8; 쪽&emsp;&emsp;지"></a>
+   <a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1d7; 커뮤니티"></a>
+   <a href="${path}/member/mList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf2bc; 사원관리"></a>
 
-<br>
-<br>
+<!-- 네온시계구현 -->
 <span class="footer">
-<div class="container1" border="1">
-  <div class="neon">KMLP </div>
-  <br>
+<div class="container1">
   <div id="txt" class="flux"> </div>
 </div>
 </span>
+
 </div>
 
 </body>
-
-
 
 </html>
