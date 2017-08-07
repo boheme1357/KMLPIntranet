@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import org.KMLP.service.NoticeService;
 import org.KMLP.domain.BoardPager;
+import org.KMLP.domain.MemberVO;
 import org.KMLP.domain.NoticeVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -74,7 +75,7 @@ public class NoticeController {
 		ModelAndView mav = new ModelAndView();
 
 		// 뷰의 이름
-		mav.setViewName("/notice/nContent");
+		mav.setViewName("nContent");
 
 		// 뷰에 전달할 데이터
 		mav.addObject("dto", noticeSerive.selectContent(n_num));
@@ -103,8 +104,9 @@ public class NoticeController {
 		
 		// 시큐리티에서 로그인한 유저 id 받아오는 코드
 		 User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
 		 model.addAttribute("m_id", user.getUsername());
+		
+
 
 		return "nRegist";
 	}
