@@ -40,6 +40,24 @@ function check_regist(){
 	}
 }
 </script>
+
+<style>
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+</style>
 </head>
 
 <body>
