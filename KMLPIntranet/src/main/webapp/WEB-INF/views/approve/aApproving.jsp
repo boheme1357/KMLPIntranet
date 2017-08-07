@@ -48,7 +48,7 @@
 </c:if>
 
 <div id="wapper">
-<h3>결재 완료&nbsp;리스트</h3>
+<h3>미결재&nbsp;리스트</h3>
 <hr>
 <sf:form action="register">
 

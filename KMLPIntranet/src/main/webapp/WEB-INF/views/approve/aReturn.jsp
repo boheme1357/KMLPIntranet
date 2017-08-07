@@ -18,11 +18,11 @@
 
 <body>
 <div id="wapper">
-<h3>전자결재&nbsp;리스트</h3>
+<h3>결재&nbsp;반려&nbsp;리스트</h3>
 <hr>
 <sf:form action="register">
 
-자신이 작성한 결재문서 중 반려된 문서 리스트
+<p><b>자신이 작성한 결재문서 중 반려된 문서 리스트</b></p>
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
 	<tr>
 		<th width="10%">문서번호</th>
@@ -46,9 +46,9 @@
 	</c:forEach>
 </table>
 
-<div class="w3-center">
-	<input type="button" id="button" class="w3-btn w3-round-large" value="문서&nbsp;등록" onclick="location.href='${path}/approve/aRegist.do'">
-</div>
+<!-- <div class="w3-center"> -->
+<%-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="문서&nbsp;등록" onclick="location.href='${path}/approve/aRegist.do'"> --%>
+<!-- </div> -->
 </sf:form>
 </div>
 </body>
