@@ -145,7 +145,7 @@ function checkTime(i) {
       <a href="${path}/approve/aReturn.do" id="apprlist" class="w3-bar-item w3-button" style="margin-bottom: 20px;">결재반려함</a>   
    </div>
    
-   <a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1e8; 쪽&emsp;&emsp;지"></a>
+   <a href="${path}/chat/chatting.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1e8; 채&emsp;&emsp;팅"></a>
    <a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1d7; 커뮤니티"></a>
    <a href="${path}/member/mList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf2bc; 사원관리"></a>
 

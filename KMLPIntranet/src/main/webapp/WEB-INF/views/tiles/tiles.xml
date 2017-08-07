@@ -89,6 +89,11 @@
        <put-attribute name="body" value="/WEB-INF/views/member/mModify.jsp" />  
    </definition>
    
+      <definition name="chatting" extends="default-definition">  
+       <put-attribute name="title" value="Member Modify" />  
+       <put-attribute name="body" value="/WEB-INF/views/chat/chatting.jsp" />  
+   </definition>
+   
    <!-- 마이페이지 수정 -->
    <definition name="myModify" extends="default-definition">  
        <put-attribute name="title" value="Mypage Modify" />  
