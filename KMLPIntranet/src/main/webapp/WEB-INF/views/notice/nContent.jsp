@@ -81,17 +81,17 @@ a:active {
 
 	<tr>
 		<th>제&emsp;목</th>
-		<td><input name="n_title" class="w3-animate-input w3-left" value="${dto.n_title}" style="width: 50%; height: 30px;"></td>
+		<td><input name="n_title" value="${dto.n_title}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 
 	<tr>
 		<th height="300px">내&emsp;용</th>
-		<td><textarea id="textarea" name="n_content">${dto.n_content}</textarea></td>
+		<td><textarea id="textarea" name="n_content" readonly="readonly">${dto.n_content}</textarea></td>
 	</tr>
 	
 	<tr>
 		<th>첨부파일</th>
-		<td><input name="n_file" class="w3-animate-input w3-left" value="${dto.n_file}" style="width: 50%; height: 30px;"></td>
+		<td><input name="n_file" value="${dto.n_file}" readonly="readonly" style="width: 100%; height: 30px;"></td>
 	</tr>
 
 </table>
