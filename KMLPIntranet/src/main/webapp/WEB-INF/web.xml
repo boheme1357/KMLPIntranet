@@ -55,6 +55,7 @@
 		<param-value>
 		/WEB-INF/spring/root-context.xml
 		/WEB-INF/spring/security-context.xml
+	
 		</param-value>
 	</context-param>
 
@@ -69,8 +70,13 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+			<param-value>
+			/WEB-INF/spring/appServlet/servlet-context.xml
+			
+			</param-value>
+			
 		</init-param>
+		
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
@@ -102,6 +108,32 @@
 
 
 	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	
+		<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- <init-param> <param-name>contextConfigLocation</param-name> <param-value> 
+			/WEB-INF/ws-config.xml </param-value> </init-param> -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value> 
+			org.KMLP.config.MvcConfig 
+			org.KMLP.config.WsConfig 
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>
+		org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
 
 
 </web-app>
