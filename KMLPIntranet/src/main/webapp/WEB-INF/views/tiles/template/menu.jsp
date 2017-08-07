@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 <style>
+
     #h4 {
 		font-style: italic;
 		font-family: 'Luckiest Guy', cursive;
@@ -50,6 +51,83 @@
     a:active {
         text-decoration: none;
     }
+    /* 네온KMLP */
+  .footer {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 20%;
+  display: table;
+  
+ 
+}
+
+@font-face {
+  font-family: neon;
+  
+}
+
+.container1 {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  background-color:black;
+   border-radius: 7em 7em 7em 7em;
+
+}
+
+.neon {
+  font-family: neon;
+  color: #FB4264;
+  font-size: 45px;
+  line-height: 45px;
+  text-shadow: 0 0 3vw #F40A35;
+}
+
+.flux {
+  font-family: neon;
+  color: #426DFB;
+  font-size: 35px;
+  line-height: 45px;
+  text-shadow: 0 0 3vw #2356FF; 
+}
+
+.neon {
+  animation: neon 1s ease infinite;
+  -moz-animation: neon 1s ease infinite;
+  -webkit-animation: neon 1s ease infinite;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FED128;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
+}
+
+.flux {
+  animation: flux 2s linear infinite;
+  -moz-animation: flux 2s linear infinite;
+  -webkit-animation: flux 2s linear infinite;
+  -o-animation: flux 2s linear infinite;
+}
+
+@keyframes flux {
+  0%,
+  100% {
+    text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+    color: #28D7FE;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+    color: #146C80;
+  }
+}
 </style>
 
 <script>
@@ -64,11 +142,29 @@ function ApprFunc() {
         x.previousElementSibling.className.replace(" w3-white", "");
     }
 }
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    // add a zero in front of numbers<10
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById("txt").innerHTML = h + ":" + m + ":" + s;
+    var t = setTimeout(function(){ startTime() }, 500);
+}
+
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
 </script>
 </head>
-<body>
+<body onload="startTime()">
 <div class="w3-sidebar w3-card-2 w3-center w3-bar-block w3-border-right">
-	<a href="${path}/login.do"><img class="w3-image" src="${path}/resources/img/kmlp_logo.png" width="140" title="로그인 페이지로"></a>
+	<a href="${path}/login.do"><img class="w3-image" src="${path}/resources/img/kmlp_logo1.png" width="200" title="로그인 페이지로"></a>
 	<a href="${path}/notice/nList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf274; 공지사항" style="margin-top: 20px"></a>
 	
 	<input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf0ea; 전자결재" onclick="ApprFunc()">
@@ -82,6 +178,20 @@ function ApprFunc() {
 	<a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1e8; 쪽&emsp;&emsp;지"></a>
 	<a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1d7; 커뮤니티"></a>
 	<a href="${path}/member/mList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf2bc; 사원관리"></a>
+
+<br>
+<br>
+<span class="footer">
+<div class="container1" border="1">
+  <div class="neon">KMLP </div>
+  <br>
+  <div id="txt" class="flux"> </div>
 </div>
+</span>
+</div>
+
 </body>
+
+
+
 </html>

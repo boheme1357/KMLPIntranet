@@ -5,10 +5,41 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="noticeMapper">
 
-	<!--01. 공지사항전체목록 -->
-	<select id="selectAll" resultType="org.KMLP.domain.NoticeVO">   
+    <!--01. 공지사항전체목록/ 페이징처리로 변경 -->         
+	<!-- <select id="selectAll" resultType="org.KMLP.domain.NoticeVO">   
 		select * from notice;
+	</select> -->
+
+
+
+
+
+<!--페이징처리관련시작-->
+
+	<!--01. 레코드전체개수 -->
+	<select id="selectTotalCnt" resultType="int">
+		select count(*) from notice;
 	</select>
+
+
+	<!--02. 한페이지에 표시할 목록 -->
+	<select id="selectBetween" resultType="org.KMLP.domain.NoticeVO">
+		select * from notice where n_num between #{start} and #{end}
+	</select>
+
+	<!--03. 글조회 횟수  -->
+	<update id="updateViewCnt">
+	update notice set  n_viewcnt=n_viewcnt+1 where n_num=#{n_num}
+	</update>
+<!--페이징처리관련끝-->
+
+
+
+
+
+
+
+
 
 
 

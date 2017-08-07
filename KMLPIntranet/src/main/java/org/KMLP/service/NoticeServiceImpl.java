@@ -13,12 +13,49 @@ public class NoticeServiceImpl implements NoticeService {
 	@Inject
 	NoticeDAO dao;
 
-	// 01. 공지사항목록
+	/*// 01. 공지사항목록-------> 페이징처리로 변경
 	@Override
 	public List<NoticeVO> selectAll() {
 
 		return dao.selectAll();
+	}*/
+	
+
+	/*페이징처리관련시작*/
+	
+	//01 전체개수
+	@Override
+	public int selectTotalCnt() {
+		return dao.selectTotalCnt();
 	}
+
+
+	//02 한페이지에 표시할 목록
+	@Override
+	public List<NoticeVO> selectBetween(int start, int end) {
+		return dao.selectBetween(start, end);
+	}
+
+	//03. 글조회횟수
+	
+	
+	@Override
+	
+	public void updateViewCnt(int n_num) {
+		
+		
+        	dao.updateViewCnt(n_num);
+        	
+    
+		
+		
+	}
+	
+	/*페이징처리관련끝*/
+	
+	
+	
+	
 
 	// 02_02. 공지사항데이터삽입
 	@Override
@@ -29,8 +66,8 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// 03. 공지사항내용조회
 	@Override
-	public NoticeVO selectContent(String m_id) {
-		return dao.selectContent(m_id);
+	public NoticeVO selectContent(int  n_num) {
+		return dao.selectContent(n_num);
 	}
 
 	// 04. 공지사항수정
@@ -41,8 +78,8 @@ public class NoticeServiceImpl implements NoticeService {
 
 	// 05. 공지사항삭제
 	@Override
-	public void delete(String m_id) {
-		dao.delete(m_id);
+	public void delete(int  n_num) {
+		dao.delete(n_num);
 	}
 
 

@@ -12,6 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="${path}/resources/css/content.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -70,7 +71,7 @@
 	
 	<tr>
 		<th>비밀번호</th>
-		<td><input type="password" name="m_pwd" style="width: 100%; height: 30px;" readonly="readonly"></td>
+		<td><input type="password" class="w3-animate-input w3-left" name="m_pwd" style="width: 50%; height: 30px;"></td>
 	</tr>
 
 	<tr>
@@ -119,15 +120,6 @@
 	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
-
-<!-- <div class="w3-center"> -->
-<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="수&nbsp;정" onclick="check_update();"> -->
-<!-- 	&emsp;&emsp; -->
-<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="삭&nbsp;제" onclick="check_delete();"> -->
-<!-- 	&emsp;&emsp; -->
-<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();"> -->
-<%-- 	<br><br><div style="color: red;">${message}</div> --%>
-<!-- </div> -->
 </sf:form>
 </div>
 </body>
