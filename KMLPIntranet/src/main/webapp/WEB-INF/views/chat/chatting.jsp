@@ -4,23 +4,28 @@
 <head>
 <meta charset="utf-8">
 <title>채팅</title>
-<script type="text/javascript" src="http://localhost:8080/KMLPIntranet/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="http://localhost:8080/KMLPIntranet/js/sockjs-0.3.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
 <script type="text/javascript">
 	var wsocket;
 	
 	function connect() {
 		wsocket = new SockJS(
-				"http://localhost:8080/KMLPIntranet/chat.do");
+				"http://175.205.193.249:8080/KMLPIntranet/chat.do");
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;
 	}
 	function disconnect() {
-		wsocket.close();
+		if (confirm("채팅을 종료 하시겠습니까?")) {
+			wsocket.close();	
+		} else{
+			false;
+		}
+		
 	}
 	function onOpen(evt) {
-		appendMessage("연결되었습니다.");
+		appendMessage("${m_id} 님이 입장하였습니다.");
 	}
 	function onMessage(evt) {
 		var data = evt.data;
@@ -30,10 +35,11 @@
 	}
 	function onClose(evt) {
 		appendMessage("연결을 끊었습니다.");
+		window.close();
 	}
 	
 	function send() {
-		var nickname = $("#nickname").val();
+		var nickname ="${m_id}";
 		var msg = $("#message").val();
 		wsocket.send("msg:"+nickname+":" + msg);
 		$("#message").val("");
@@ -47,6 +53,8 @@
 	}
 
 	$(document).ready(function() {
+		connect();
+		
 		$('#message').keypress(function(event){
 			var keycode = (event.keyCode ? event.keyCode : event.which);
 			if(keycode == '13'){
@@ -55,19 +63,18 @@
 			event.stopPropagation();
 		});
 		$('#sendBtn').click(function() { send(); });
-		$('#enterBtn').click(function() { connect(); });
+		
 		$('#exitBtn').click(function() { disconnect(); });
 	});
 </script>
 <style>
 #chatArea {
-	width: 200px; height: 100px; overflow-y: auto; border: 1px solid black;
+	width: 300px; height: 200px; overflow-y: auto; border: 1px solid black;
 }
 </style>
 </head>
 <body>
-	이름:<input type="text" id="nickname">
-	<input type="button" id="enterBtn" value="입장">
+
 	<input type="button" id="exitBtn" value="나가기">
     
     <h1>대화 영역</h1>

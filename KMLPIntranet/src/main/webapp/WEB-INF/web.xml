@@ -55,7 +55,7 @@
 		<param-value>
 		/WEB-INF/spring/root-context.xml
 		/WEB-INF/spring/security-context.xml
-	
+		<!-- /WEB-INF/spring/ws-config.xml -->
 		</param-value>
 	</context-param>
 
@@ -110,12 +110,12 @@
 
 	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ채팅용 설정 파일 등록ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	
-		<servlet>
+		 <servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<!-- <init-param> <param-name>contextConfigLocation</param-name> <param-value> 
-			/WEB-INF/ws-config.xml </param-value> </init-param> -->
-		<init-param>
+			/WEB-INF/ws-config.xml </param-value> </init-param>-->
+		<init-param> 
 			<param-name>contextConfigLocation</param-name>
 			<param-value> 
 			org.KMLP.config.MvcConfig 
@@ -135,7 +135,7 @@
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
 
 
 </web-app>
