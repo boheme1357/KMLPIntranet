@@ -18,8 +18,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css"
-	href="${path}/resources/css/content.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"
@@ -211,7 +209,7 @@ a:active {
 			<c:if test="${m_id == dto.d_id}">
 				<center>
 					<input type="submit"  value="수&nbsp;정"
-						id="btn_update">
+						id="btn_update" class="button">
 				</center>
 			</c:if>
 
