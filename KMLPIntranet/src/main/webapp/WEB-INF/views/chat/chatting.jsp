@@ -14,11 +14,7 @@
 	
 	function connect() {
 		wsocket = new SockJS(
-<<<<<<< HEAD
-				"http://localhost:8080/KMLPIntranet/chat.do");
-=======
 				"http://localhost:8181/KMLPIntranet/chat.do");
->>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;
@@ -109,21 +105,12 @@ header {
 </style>
 </head>
 <body>
-<<<<<<< HEAD
-	<input type="button" id="exitBtn" value="나가기">
-=======
 	<header class="w3-container w3-card-2">
 		<h3>대화 영역</h3>
 	</header>
->>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
     
     <div id="chatArea"><div id="chatMessageArea"></div></div>
     <br/>
-<<<<<<< HEAD
-    <input type="text" id="message">
-    <input type="button" id="sendBtn" value="전송">
-  
-=======
     
 	<input type="text" id="message" class="w3-left">
 	<button type="button" id="sendBtn" class="w3-left">전 송</button>
@@ -132,6 +119,5 @@ header {
 	<div align="center">
 		<button type="button" id="exitBtn" class="w3-round">나가기</button>
 	</div>
->>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
 </body>
 </html>
