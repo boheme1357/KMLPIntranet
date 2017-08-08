@@ -1,17 +1,63 @@
 <%@ page contentType="text/html; charset=UTF-8"
 	trimDirectiveWhitespaces="true"%>
+<!-- jstl 코어 태그 -->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>채팅 로비</title>
 
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+	var chatRoom_title = "";
+
+	function chatRoom_create() {
+		chatRoom_title = $('#chatRoom_Title').val();
+		alert(chatRoom_title);
+	}
+
+	function openChatRoom() {
+		window.open('chatting.do?chatRoom_Title=' + chatRoom_title,
+				'window_name',
+				'width=500,height=500,location=no,status=no,scrollbars=yes');
+	}
+</script>
 </head>
 <body>
 
 	<h1>채팅방 입장하기</h1>
-	<button
-		onclick="window.open('chatting.do','window_name','width=500,height=500,location=no,status=no,scrollbars=yes');">입장</button>
+
+	<input type='text' name='chatRoom_Title' id='chatRoom_Title'>
+	<input type='button' name='chatRoom_createBtn' value='채팅방 생성하기'
+		onClick='chatRoom_create()'>
+
+	<div id='chatRoomListDiv'>
+		<table border="1" width="800px" cellpadding="0" cellspacing="0"
+			align="center">
+			<tr>
+			<th>방제목</th>
+			<th>참가인원</th>
+			</tr>
+			<c:if test="${!empty chatRoomList}">
+			<c:forEach var='row' items='${chatRoomList}'>
+				<tr>
+					<td>${row}</td>
+					<td><c:out value="${chatUserCntMap['${row}']}" /></td>
+				</tr>
+			</c:forEach>
+			</c:if>
+			<c:if test="${empty chatRoomList}">
+				<tr>
+					<td>진행중인 채팅방이 없습니다.</td>
+					<td></td>
+				</tr>
+			</c:if>
+		</table>
+	</div>
+
+	<button onclick='openChatRoom()'>입장</button>
 	<br />
 
 </body>
