@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>채팅</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="http://localhost:8080/KMLPIntranet/js/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://localhost:8080/KMLPIntranet/js/sockjs-0.3.min.js"></script>
 <script type="text/javascript">
@@ -66,6 +66,7 @@
 </style>
 </head>
 <body>
+<br><br>
 	이름:<input type="text" id="nickname">
 	<input type="button" id="enterBtn" value="입장">
 	<input type="button" id="exitBtn" value="나가기">
