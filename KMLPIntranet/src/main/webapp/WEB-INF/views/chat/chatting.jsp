@@ -2,8 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
 <title>채팅</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/sockjs/1/sockjs.min.js"></script>
 <script type="text/javascript">
@@ -11,7 +14,7 @@
 	
 	function connect() {
 		wsocket = new SockJS(
-				"http://175.205.193.249:8080/KMLPIntranet/chat.do");
+				"http://localhost:8181/KMLPIntranet/chat.do");
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;
@@ -69,18 +72,51 @@
 </script>
 <style>
 #chatArea {
-	width: 300px; height: 200px; overflow-y: auto; border: 1px solid black;
+	width: 500px; height: 300px; overflow-y: auto; border: 1px solid black; padding: 0.5em;
+	border: 1px solid lightblue;
+}
+
+#message {
+	width: 445px;
+	height: 35px;
+	border: 1px solid lightblue;
+}
+
+#sendBtn {
+	border: 0px;
+	width: 52px;
+	height: 35px;
+	font-weight: bold;
+	background-color: lightblue;
+}
+
+#exitBtn {
+	border: 0px;
+	width: 70px;
+	height: 35px;
+	font-weight: bold;
+	background-color: lightblue;
+}
+
+header {
+	background-color: lightblue;
 }
 </style>
 </head>
 <body>
-
-	<input type="button" id="exitBtn" value="나가기">
+	<header class="w3-container w3-card-2">
+		<h3>대화 영역</h3>
+	</header>
     
-    <h1>대화 영역</h1>
     <div id="chatArea"><div id="chatMessageArea"></div></div>
     <br/>
-    <input type="text" id="message">
-    <input type="button" id="sendBtn" value="전송">
+    
+	<input type="text" id="message" class="w3-left">
+	<button type="button" id="sendBtn" class="w3-left">전 송</button>
+	
+	<br><br><br>
+	<div align="center">
+		<button type="button" id="exitBtn" class="w3-round">나가기</button>
+	</div>
 </body>
 </html>

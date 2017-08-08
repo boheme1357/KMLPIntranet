@@ -91,7 +91,8 @@ a:active {
 	
 	<tr>
 		<th>첨부파일</th>
-		<td><input name="n_file" class="w3-animate-input w3-left" value="${dto.n_file}" style="width: 50%; height: 30px;"></td>
+		<td><input type="file" name="n_file"></td>
+<%-- 		value="${dto.n_file}" --%>
 	</tr>
 
 </table>
