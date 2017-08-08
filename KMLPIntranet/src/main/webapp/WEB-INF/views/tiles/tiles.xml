@@ -1,103 +1,114 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
- 
-<tiles-definitions>  
-  
-   <!-- default-definition -->
-   <definition name="default-definition" template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">   
-       <put-attribute name="title" value="" />  
-       <put-attribute name="header" value="/WEB-INF/views/tiles/template/header.jsp" />  
-       <put-attribute name="menu" value="/WEB-INF/views/tiles/template/menu.jsp" />  
-       <put-attribute name="body" value="" />  
-   </definition>  
-   
-   <!-- notice page -->
-   <definition name="nList" extends="default-definition">  
-       <put-attribute name="title" value="Notice List" />  
-       <put-attribute name="body" value="/WEB-INF/views/notice/nList.jsp" />  
-   </definition>  
-   
-   <definition name="nContent" extends="default-definition">  
-       <put-attribute name="title" value="Notice Content" />  
-       <put-attribute name="body" value="/WEB-INF/views/notice/nContent.jsp" />  
-   </definition>   
-   
-   <definition name="nRegist" extends="default-definition">  
-       <put-attribute name="title" value="Notice Regist" />  
-       <put-attribute name="body" value="/WEB-INF/views/notice/nRegist.jsp" />  
-   </definition> 
-   
-   <definition name="nModify" extends="default-definition">  
-       <put-attribute name="title" value="Notice Modify" />  
-       <put-attribute name="body" value="/WEB-INF/views/notice/nModify.jsp" />  
-   </definition> 
-  
-   <!-- approve page -->
-   <definition name="aList" extends="default-definition">  
-       <put-attribute name="title" value="Approve List" />  
-       <put-attribute name="body" value="/WEB-INF/views/approve/aList.jsp" />  
-   </definition> 
-   
-   <definition name="aApproved" extends="default-definition">  
-       <put-attribute name="title" value="Approved List" />  
-       <put-attribute name="body" value="/WEB-INF/views/approve/aApproved.jsp" />  
-   </definition> 
-   
-   <definition name="aApproving" extends="default-definition">  
-       <put-attribute name="title" value="Approving List" />  
-       <put-attribute name="body" value="/WEB-INF/views/approve/aApproving.jsp" />  
-   </definition> 
-   
-   <definition name="aReturn" extends="default-definition">  
-       <put-attribute name="title" value="Receive List" />  
-       <put-attribute name="body" value="/WEB-INF/views/approve/aReturn.jsp" />  
-   </definition>  
-   
-   <definition name="aContent" extends="default-definition">  
-       <put-attribute name="title" value="Approve Content" />  
-       <put-attribute name="body" value="/WEB-INF/views/approve/aContent.jsp" />  
-   </definition>   
-   
-   <definition name="aRegist" extends="default-definition">  
-       <put-attribute name="title" value="Approve Regist" />  
-       <put-attribute name="body" value="/WEB-INF/views/approve/aRegist.jsp" />  
-   </definition> 
-   
-   <definition name="aModify" extends="default-definition">  
-       <put-attribute name="title" value="Approve Modify" />  
-       <put-attribute name="body" value="/WEB-INF/views/approve/aModify.jsp" />  
-   </definition>
-   
-   <!-- member page -->
-   <definition name="mList" extends="default-definition">  
-       <put-attribute name="title" value="Member List" />  
-       <put-attribute name="body" value="/WEB-INF/views/member/mList.jsp" />  
-   </definition>  
-   
-   <definition name="mContent" extends="default-definition">  
-       <put-attribute name="title" value="Member Content" />  
-       <put-attribute name="body" value="/WEB-INF/views/member/mContent.jsp" />  
-   </definition>   
-   
-   <definition name="mRegist" extends="default-definition">  
-       <put-attribute name="title" value="Member Regist" />  
-       <put-attribute name="body" value="/WEB-INF/views/member/mRegist.jsp" />  
-   </definition> 
-   
-   <definition name="mModify" extends="default-definition">  
-       <put-attribute name="title" value="Member Modify" />  
-       <put-attribute name="body" value="/WEB-INF/views/member/mModify.jsp" />  
-   </definition>
-   
-      <definition name="chatting" extends="default-definition">  
-       <put-attribute name="title" value="Chatting" />  
-       <put-attribute name="body" value="/WEB-INF/views/chat/chatting.jsp" />  
-   </definition>
-   
-   <!-- 마이페이지 수정 -->
-   <definition name="myModify" extends="default-definition">  
-       <put-attribute name="title" value="Mypage Modify" />  
-       <put-attribute name="body" value="/WEB-INF/views/myModify.jsp" />  
-   </definition>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- default-definition -->
+	<definition name="default-definition"
+		template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/tiles/template/header.jsp" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/tiles/template/menu.jsp" />
+		<put-attribute name="body" value="" />
+	</definition>
+
+	<!-- notice page -->
+	<definition name="nList" extends="default-definition">
+		<put-attribute name="title" value="Notice List" />
+		<put-attribute name="body" value="/WEB-INF/views/notice/nList.jsp" />
+	</definition>
+
+	<definition name="nContent" extends="default-definition">
+		<put-attribute name="title" value="Notice Content" />
+		<put-attribute name="body" value="/WEB-INF/views/notice/nContent.jsp" />
+	</definition>
+
+	<definition name="nRegist" extends="default-definition">
+		<put-attribute name="title" value="Notice Regist" />
+		<put-attribute name="body" value="/WEB-INF/views/notice/nRegist.jsp" />
+	</definition>
+
+	<definition name="nModify" extends="default-definition">
+		<put-attribute name="title" value="Notice Modify" />
+		<put-attribute name="body" value="/WEB-INF/views/notice/nModify.jsp" />
+	</definition>
+
+	<!-- approve page -->
+	<definition name="aList" extends="default-definition">
+		<put-attribute name="title" value="Approve List" />
+		<put-attribute name="body" value="/WEB-INF/views/approve/aList.jsp" />
+	</definition>
+
+	<definition name="aApproved" extends="default-definition">
+		<put-attribute name="title" value="Approved List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/approve/aApproved.jsp" />
+	</definition>
+
+	<definition name="aApproving" extends="default-definition">
+		<put-attribute name="title" value="Approving List" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/approve/aApproving.jsp" />
+	</definition>
+
+	<definition name="aReturn" extends="default-definition">
+		<put-attribute name="title" value="Receive List" />
+		<put-attribute name="body" value="/WEB-INF/views/approve/aReturn.jsp" />
+	</definition>
+
+	<definition name="aContent" extends="default-definition">
+		<put-attribute name="title" value="Approve Content" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/approve/aContent.jsp" />
+	</definition>
+
+	<definition name="aRegist" extends="default-definition">
+		<put-attribute name="title" value="Approve Regist" />
+		<put-attribute name="body" value="/WEB-INF/views/approve/aRegist.jsp" />
+	</definition>
+
+	<definition name="aModify" extends="default-definition">
+		<put-attribute name="title" value="Approve Modify" />
+		<put-attribute name="body" value="/WEB-INF/views/approve/aModify.jsp" />
+	</definition>
+
+	<!-- member page -->
+	<definition name="mList" extends="default-definition">
+		<put-attribute name="title" value="Member List" />
+		<put-attribute name="body" value="/WEB-INF/views/member/mList.jsp" />
+	</definition>
+
+	<definition name="mContent" extends="default-definition">
+		<put-attribute name="title" value="Member Content" />
+		<put-attribute name="body" value="/WEB-INF/views/member/mContent.jsp" />
+	</definition>
+
+	<definition name="mRegist" extends="default-definition">
+		<put-attribute name="title" value="Member Regist" />
+		<put-attribute name="body" value="/WEB-INF/views/member/mRegist.jsp" />
+	</definition>
+
+	<definition name="mModify" extends="default-definition">
+		<put-attribute name="title" value="Member Modify" />
+		<put-attribute name="body" value="/WEB-INF/views/member/mModify.jsp" />
+	</definition>
+
+	<definition name="lobby" extends="default-definition">
+		<put-attribute name="title" value="Chat Lobby" />
+		<put-attribute name="body" value="/WEB-INF/views/chat/lobby.jsp" />
+	</definition>
+
+	<definition name="chatting" extends="default-definition">
+		<put-attribute name="title" value="Chat chatting" />
+		<put-attribute name="body" value="/WEB-INF/views/chat/chatting.jsp" />
+	</definition>
+
+	<!-- 마이페이지 수정 -->
+	<definition name="myModify" extends="default-definition">
+		<put-attribute name="title" value="Mypage Modify" />
+		<put-attribute name="body" value="/WEB-INF/views/myModify.jsp" />
+	</definition>
 
 </tiles-definitions>

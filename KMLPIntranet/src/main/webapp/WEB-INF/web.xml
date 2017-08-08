@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
 
 	<!-- 한글인코딩 설정 -->
@@ -55,7 +55,7 @@
 		<param-value>
 		/WEB-INF/spring/root-context.xml
 		/WEB-INF/spring/security-context.xml
-	
+		<!-- /WEB-INF/spring/ws-config.xml -->
 		</param-value>
 	</context-param>
 
@@ -78,6 +78,7 @@
 		</init-param>
 		
 		<load-on-startup>1</load-on-startup>
+		<async-supported>true</async-supported>
 	</servlet>
 
 	<servlet-mapping>
@@ -107,14 +108,14 @@
 	</filter-mapping>
 
 
-	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
+	<!-- ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ채팅용 설정 파일 등록ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ -->
 	
-		<servlet>
+		 <servlet>
 		<servlet-name>dispatcher</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<!-- <init-param> <param-name>contextConfigLocation</param-name> <param-value> 
-			/WEB-INF/ws-config.xml </param-value> </init-param> -->
-		<init-param>
+			/WEB-INF/ws-config.xml </param-value> </init-param>-->
+		<init-param> 
 			<param-name>contextConfigLocation</param-name>
 			<param-value> 
 			org.KMLP.config.MvcConfig 
@@ -128,12 +129,13 @@
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<async-supported>true</async-supported>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+	</servlet-mapping> 
 
 
 </web-app>
