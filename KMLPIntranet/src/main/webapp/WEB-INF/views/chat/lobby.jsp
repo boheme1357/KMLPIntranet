@@ -13,9 +13,16 @@
 <script type="text/javascript">
 	var chatRoom_title = "";
 
-	function chatRoom_create() {
+	function chatRoom_create(chatRoom_title_this) {
+		chatRoom_title = chatRoom_title_this;
+		confirm(chatRoom_title);
+		openChatRoom();
+	}
+	
+	function chatRoom_title_set() {
 		chatRoom_title = $('#chatRoom_Title').val();
 		alert(chatRoom_title);
+		openChatRoom();
 	}
 
 	function openChatRoom() {
@@ -27,11 +34,11 @@
 </head>
 <body>
 
-	<h1>채팅방 입장하기</h1>
+	<h1>KMLP 채팅 로비</h1>
 
 	<input type='text' name='chatRoom_Title' id='chatRoom_Title'>
-	<input type='button' name='chatRoom_createBtn' value='채팅방 생성하기'
-		onClick='chatRoom_create()'>
+	<input type='button' name='chatRoom_title_setBtn' value='채팅방 만들기'
+		onClick='chatRoom_title_set()'>
 
 	<div id='chatRoomListDiv'>
 		<table border="1" width="800px" cellpadding="0" cellspacing="0"
@@ -43,8 +50,8 @@
 			<c:if test="${!empty chatRoomList}">
 			<c:forEach var='row' items='${chatRoomList}'>
 				<tr>
-					<td>${row}</td>
-					<td><c:out value="${chatUserCntMap['${row}']}" /></td>
+					<td><a href='#' onClick='chatRoom_create(${row})' >${row}</a></td>
+					<td><c:out value="${chatUserCntMap[row]}" /></td>
 				</tr>
 			</c:forEach>
 			</c:if>
@@ -57,7 +64,6 @@
 		</table>
 	</div>
 
-	<button onclick='openChatRoom()'>입장</button>
 	<br />
 
 </body>
