@@ -14,7 +14,7 @@
 	var wsocket;
 
 	function connect() {
-		wsocket = new SockJS("http://175.205.193.249:8080/KMLPIntranet/chat.do");
+		wsocket = new SockJS("http://192.168.0.6:8080/KMLPIntranet/chat.do");
 
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
@@ -90,7 +90,7 @@
 
 
 
-	<h1>KMLP 채팅방</h1>
+	<h1>KMLP Intranet : ${chatRoom_Title} </h1>
 	<div id="chatArea">
 		<div id="chatMessageArea"></div>
 	</div>

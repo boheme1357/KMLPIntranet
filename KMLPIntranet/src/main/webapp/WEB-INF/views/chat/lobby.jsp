@@ -20,8 +20,7 @@
 	}
 	
 	function chatRoom_title_set() {
-		chatRoom_title = $('#chatRoom_Title').val();
-		alert(chatRoom_title);
+		chatRoom_title = prompt("채팅방 제목을 입력하세요.", "");
 		openChatRoom();
 	}
 
@@ -36,7 +35,6 @@
 
 	<h1>KMLP 채팅 로비</h1>
 
-	<input type='text' name='chatRoom_Title' id='chatRoom_Title'>
 	<input type='button' name='chatRoom_title_setBtn' value='채팅방 만들기'
 		onClick='chatRoom_title_set()'>
 

@@ -41,6 +41,7 @@ public class ChatController {
 				
 		System.out.println("------채팅방 이름------"+chatRoom_Title);
 		
+		model.addAttribute("chatRoom_Title", chatRoom_Title);
 		model.addAttribute("m_id", m_id);
 
 		return "/chat/chatting";
