@@ -140,8 +140,11 @@ button.button3:hover {
 	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
 </sf:form>
 </div>
 </body>
