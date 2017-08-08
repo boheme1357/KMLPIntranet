@@ -11,7 +11,7 @@
 	
 	function connect() {
 		wsocket = new SockJS(
-				"http://175.205.193.249:8080/KMLPIntranet/chat.do");
+				"http://localhost:8080/KMLPIntranet/chat.do");
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;
@@ -71,10 +71,10 @@
 #chatArea {
 	width: 300px; height: 200px; overflow-y: auto; border: 1px solid black;
 }
+
 </style>
 </head>
 <body>
-
 	<input type="button" id="exitBtn" value="나가기">
     
     <h1>대화 영역</h1>
@@ -82,5 +82,6 @@
     <br/>
     <input type="text" id="message">
     <input type="button" id="sendBtn" value="전송">
+  
 </body>
 </html>

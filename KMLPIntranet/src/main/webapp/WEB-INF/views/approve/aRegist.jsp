@@ -203,20 +203,14 @@ a:active {
          
          <div class="w3-center">
             <div class="btn-group">
-                <button type="button" id="button_doc" class="btn btn-primary" onclick="check_regist();">등&nbsp;록</button>
-                <button type="button" id="button_doc" class="btn btn-primary" onclick="check_reset();">초기화</button>
-                <button type="button" id="button_doc" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+                <button type="button" id="button_doc"  onclick="check_regist();">등&nbsp;록</button>
+                <button type="button" id="button_doc"  onclick="check_reset();">초기화</button>
+                <button type="button" id="button_doc"  onclick="check_cancel();">취&nbsp;소</button>
             </div>
             <br><br><div style="color: red;">${message}</div>
          </div>
          
-<!--          <div class="w3-center"> -->
-<!--             <input type="button" value="등&nbsp;록" onclick="check_regist();"> -->
-<!--             &emsp;&emsp; -->
-<!--             <input type="button" value="초기화" onclick="check_reset();"> -->
-<!--             &emsp;&emsp; -->
-<!--             <input type="button" value="취&nbsp;소" onclick="check_cancel();"> -->
-<!--          </div> -->
+
       </sf:form>
    </div><br>
 </body>

@@ -40,7 +40,7 @@
 								.click(
 										function() {
 											var $btn = $(
-													"<button id='btn_return_2' class='btn btn-primary'><br>")
+													"<button id='btn_return_2'><br>")
 													.text("전 송")
 													.click(
 															function() {
@@ -210,7 +210,7 @@ a:active {
 			<!-- 시작 : 승인 반려 버튼 조건문 -->
 			<c:if test="${m_id == dto.d_id}">
 				<center>
-					<input type="submit" class="btn btn-primary" value="수&nbsp;정"
+					<input type="submit"  value="수&nbsp;정"
 						id="btn_update">
 				</center>
 			</c:if>
@@ -221,12 +221,12 @@ a:active {
 
 					<!--버튼 그룹-->
 					<div id="btn_group">
-						<button id="btn_approve" class="btn btn-primary">승&nbsp;인</button>
+						<button id="btn_approve" >승&nbsp;인</button>
 						<!--처음 보여지는 버튼-->
-						<button id="btn_return_1" class="animation_test btn btn-warning">반&nbsp;려</button>
+						<button id="btn_return_1" class="animation_test">반&nbsp;려</button>
 						<!--다음 보여지는 버튼-->
 						<button id="btn_cancel"
-							class="animation_test hide btn btn-primary">취&nbsp;소</button>
+							class="animation_test hide">취&nbsp;소</button>
 						<br>
 						<!--Hide Checkbox-->
 						<input type="checkbox" class="hide" />

@@ -97,9 +97,7 @@
 	</table>
     </div>
   </div>
-<!-- <div class="w3-center"> -->
-<%-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="문서&nbsp;등록" onclick="location.href='${path}/approve/aRegist.do'"> --%>
-<!-- </div> -->
+
 </sf:form>
 </div>
 </body>

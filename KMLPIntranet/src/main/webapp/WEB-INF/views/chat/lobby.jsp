@@ -10,6 +10,7 @@
 <body>
 
 	<h1>채팅방 입장하기</h1>
+	<hr>
 	<button
 		onclick="window.open('chatting.do','window_name','width=500,height=500,location=no,status=no,scrollbars=yes');">입장</button>
 	<br />

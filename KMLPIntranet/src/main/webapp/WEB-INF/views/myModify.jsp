@@ -181,8 +181,8 @@ a:active {
 
 <div class="w3-center">
 	<div class="btn-group">
-		<button type="button" id="btnUpdate" class="btn btn-primary">수&nbsp;정</button>
-		<button type="button" id="btnDelete" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+		<button type="button" id="btnUpdate" >수&nbsp;정</button>
+		<button type="button" id="btnDelete"  onclick="check_cancel();">취&nbsp;소</button>
 	</div>
 	<br><br>
 </div>

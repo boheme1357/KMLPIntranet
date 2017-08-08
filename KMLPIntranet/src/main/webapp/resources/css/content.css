@@ -104,59 +104,100 @@ div#wapper hr {
 }
 
 #button {
+	color: rgba(51, 102, 255, 0.8);
 	font-size: 1em;
 	width: 120px;
 	height: 40px;
 	font-weight: bold;
 }
 
+
+#button:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
 #btn_update {
+	color: rgba(51, 102, 255, 0.8);
 	font-size: 1em;
 	width: 120px;
 	height: 40px;
 	font-weight: bold;
+}
+#btn_update:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
 #btn_cancel {
+	color: rgba(51, 102, 255, 0.8);
 	font-size: 1em;
 	width: 120px;
 	height: 40px;
 	font-weight: bold;
+}
+#btn_cancel:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
 #btn_return_1 {
+	color: rgba(51, 102, 255, 0.8);
 	font-size: 1em;
 	width: 120px;
 	height: 40px;
 	font-weight: bold;
+}
+#btn_return_1:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
 #btn_return_2 {
+	color: rgba(51, 102, 255, 0.8);
 	font-size: 1em;
 	width: 120px;
 	height: 40px;
 	font-weight: bold;
+}
+#btn_return_2:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
 #btn_approve {
+	color: rgba(51, 102, 255, 0.8);
 	font-size: 1em;
 	width: 120px;
 	height: 40px;
 	font-weight: bold;
+}
+#btn_approve:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
 #btnDelete {
+	color: rgba(51, 102, 255, 0.8);
 	font-size: 1em;
 	width: 120px;
 	height: 40px;
 	font-weight: bold;
 }
+#btnDelete:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
 
 #btnUpdate {
+	color: rgba(51, 102, 255, 0.8);
 	font-size: 1em;
 	width: 120px;
 	height: 40px;
 	font-weight: bold;
+}
+#btnUpdate:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
 }
 
 div#wapper input {

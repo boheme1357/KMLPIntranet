@@ -172,11 +172,11 @@ a:active {
 			<!-- 버튼 그룹 -->
 			<div class="w3-center">
 				<div class="btn-group">
-					<button type="button" id="btnUpdate" class="btn btn-primary"
+					<button type="button" id="btnUpdate" 
 						onclick="check_update();">수&nbsp;정</button>
-					<button type="button" id="btnDelete" class="btn btn-primary"
+					<button type="button" id="btnDelete" 
 						onclick="check_delete();">삭&nbsp;제</button>
-					<button type="button" id="button_doc" class="btn btn-primary"
+					<button type="button" id="button_doc" 
 						onclick="check_cancel();">취&nbsp;소</button>
 				</div>
 				<br> <br>

@@ -98,8 +98,8 @@ a:active {
 <sec:authorize access="hasRole('ADMIN')">
 <div class="w3-center">
 	<div class="btn-group">
-		<button type="button" id="button" class="btn btn-primary" onclick="check_modify();">수&nbsp;정</button>
-		<button type="button" id="button" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+		<button type="button" id="button"  onclick="check_modify();">수&nbsp;정</button>
+		<button type="button" id="button"  onclick="check_cancel();">취&nbsp;소</button>
 	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>

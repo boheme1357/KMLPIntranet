@@ -34,6 +34,15 @@ a:hover {
 a:active {
 	text-decoration: none;
 }
+input.button {
+    color: rgba(51, 102, 255, 0.8);
+  
+}
+
+input.button:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
 </style>
 </head>
 
@@ -69,7 +78,7 @@ a:active {
 	</c:forEach>
 </table>
 <div class="w3-center">
-	<input type="button" id="button" class="btn btn-primary" value="회원등록" onclick="location.href='${path}/member/mRegist.do'">
+	<input type="button" id="button" class="button"  value="회원등록" onclick="location.href='${path}/member/mRegist.do'">
 </div>
 </sf:form>
 </div>

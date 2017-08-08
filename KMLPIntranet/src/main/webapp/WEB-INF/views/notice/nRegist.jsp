@@ -57,6 +57,36 @@ a:hover {
 a:active {
 	text-decoration: none;
 }
+
+
+/* button.button1 {
+    color: rgba(51, 102, 255, 0.8);
+  
+}
+
+button.button1:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+button.button2 {
+    color: rgba(51, 102, 255, 0.8);
+  
+}
+
+button.button2:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+}
+button.button3 {
+    color: rgba(51, 102, 255, 0.8);
+  
+}
+
+button.button3:hover {
+    color: rgba(255, 255, 255, 0.85);
+    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
+} */
+}
 </style>
 </head>
 
@@ -104,20 +134,14 @@ a:active {
 </table>
 <div class="w3-center">
 	<div class="btn-group">
-	    <button type="button" id="button" class="btn btn-primary" onclick="check_regist();">등&nbsp;록</button>
-	    <button type="button" id="button" class="btn btn-primary" onclick="check_reset();">초기화</button>
-	    <button type="button" id="button" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+	    <button type="button" id="button"  onclick="check_regist();">등&nbsp;록</button>
+	    <button type="button" id="button"  onclick="check_reset();">초기화</button>
+	    <button type="button" id="button"  onclick="check_cancel();">취&nbsp;소</button>
 	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
 
-<!-- <div class="w3-center"> -->
-<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="등&nbsp;록" onclick="check_regist();"> -->
-<!-- 	&emsp;&emsp; -->
-<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="초기화" onclick="check_reset();"> -->
-<!-- 	&emsp;&emsp; -->
-<!-- 	<input type="button" id="button" class="w3-btn w3-round-large" value="취&nbsp;소" onclick="check_cancel();"> -->
-<!-- </div> -->
+
 </sf:form>
 </div>
 </body>

@@ -133,9 +133,9 @@ a:active {
 
 <div class="w3-center">
 	<div class="btn-group">
-	    <button type="button" id="button" class="btn btn-primary" onclick="check_regist();">등&nbsp;록</button>
-	    <button type="button" id="button" class="btn btn-primary" onclick="check_reset();">초기화</button>
-	    <button type="button" id="button" class="btn btn-primary" onclick="check_cancel();">취&nbsp;소</button>
+	    <button type="button" id="button"  onclick="check_regist();">등&nbsp;록</button>
+	    <button type="button" id="button"  onclick="check_reset();">초기화</button>
+	    <button type="button" id="button"  onclick="check_cancel();">취&nbsp;소</button>
 	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
