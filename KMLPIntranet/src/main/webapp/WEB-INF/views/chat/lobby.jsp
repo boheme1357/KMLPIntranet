@@ -13,10 +13,12 @@
 <script type="text/javascript">
 	var chatRoom_title = "";
 
-	function chatRoom_create(chatRoom_title_this) {
+	function chatRoom_entrance(chatRoom_title_this) {
 		chatRoom_title = chatRoom_title_this;
-		confirm(chatRoom_title);
-		openChatRoom();
+		if(confirm("채팅방"+chatRoom_title+" 에 입장하시겠습니까?")){
+			openChatRoom();
+		} else{return false;}
+		
 	}
 	
 	function chatRoom_title_set() {
@@ -42,16 +44,16 @@
 		<table border="1" width="800px" cellpadding="0" cellspacing="0"
 			align="center">
 			<tr>
-			<th>방제목</th>
-			<th>참가인원</th>
+				<th>방제목</th>
+				<th>참가인원</th>
 			</tr>
 			<c:if test="${!empty chatRoomList}">
-			<c:forEach var='row' items='${chatRoomList}'>
-				<tr>
-					<td><a href='#' onClick='chatRoom_create(${row})' >${row}</a></td>
-					<td><c:out value="${chatUserCntMap[row]}" /></td>
-				</tr>
-			</c:forEach>
+				<c:forEach var='row' items='${chatRoomList}'>
+					<tr>
+						<td><a href='#' onClick='chatRoom_entrance(${row})'>${row}</a></td>
+						<td><c:out value="${chatUserCntMap[row]}" /></td>
+					</tr>
+				</c:forEach>
 			</c:if>
 			<c:if test="${empty chatRoomList}">
 				<tr>
