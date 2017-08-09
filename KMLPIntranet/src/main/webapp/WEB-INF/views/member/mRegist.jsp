@@ -110,7 +110,7 @@ a:active {
 	
 	<tr>
 		<th>입사일자</th>
-		<td><input name="m_com_date" class="w3-animate-input w3-left" style="width: 50%; height: 30px;"></td>
+		<td><input type='date' name="m_com_date" class=" w3-left" style="width: 50%; height: 30px;"></td>
 	</tr>
 	
 	<tr>

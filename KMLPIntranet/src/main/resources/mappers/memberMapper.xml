@@ -7,7 +7,7 @@
 
 	<!--01. 사원전체목록 -->
 	<select id="selectAll" resultType="org.KMLP.domain.MemberVO">
-		select * from member;
+		select * from member ORDER BY m_com_date DESC
 	</select>
 
 
