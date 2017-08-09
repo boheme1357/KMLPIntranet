@@ -45,7 +45,7 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">READ BOARD</h3>
+					<h3 class="box-title">커뮤니티 게시판</h3>
 				</div>
 				<!-- /.box-header -->
 
@@ -61,17 +61,17 @@
 
 				<div class="box-body">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Title</label> <input type="text"
+						<label for="exampleInputEmail1">제목</label> <input type="text"
 							name='title' class="form-control" value="${boardVO.title}"
 							readonly="readonly">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Content</label>
+						<label for="exampleInputPassword1">내용</label>
 						<textarea class="form-control" name="content" rows="3"
 							readonly="readonly">${boardVO.content}</textarea>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Writer</label> <input type="text"
+						<label for="exampleInputEmail1">작성자</label> <input type="text"
 							name="writer" class="form-control" value="${boardVO.writer}"
 							readonly="readonly">
 					</div>
@@ -79,10 +79,9 @@
 				<!-- /.box-body -->
 
 				<div class="box-footer">
-					<button type="submit" class="btn btn-warning" id="modifyBtn">Modify</button>
-					<button type="submit" class="btn btn-danger" id="removeBtn">REMOVE</button>
-					<button type="submit" class="btn btn-primary" id="goListBtn">GO
-						LIST</button>
+					<button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
+					<button type="submit" class="btn btn-danger" id="removeBtn">삭제</button>
+					<button type="submit" class="btn btn-primary" id="goListBtn">리스트</button>
 				</div>
 
 
@@ -95,27 +94,23 @@
 	</div>
 	<!-- /.row -->
 
-
+<hr>
 
 	<div class="row">
 		<div class="col-md-12">
 
 			<div class="box box-success">
-				<div class="box-header">
-					<h3 class="box-title">ADD NEW REPLY</h3>
-				</div>
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label> <input
 						lass="form-control" type="hidden" 
-						id="newReplyWriter" value="${m_id}"> <label for="exampleInputEmail1">Reply
-						Text</label> <input class="form-control" type="text"
-						placeholder="REPLY TEXT" id="newReplyText">
+						id="newReplyWriter" value="${m_id}"> <label for="exampleInputEmail1">댓글</label>
+						 <input class="form-control" type="text"
+						placeholder="댓글 작성" id="newReplyText">
 
 				</div>
 				<!-- /.box-body -->
 				<div class="box-footer">
-					<button type="button" class="btn btn-primary" id="replyAddBtn">ADD
-						REPLY</button>
+					<button type="button" class="btn btn-primary" id="replyAddBtn">댓글 추가</button>
 				</div>
 			</div>
 
@@ -124,7 +119,7 @@
 			<ul class="timeline">
 				<!-- timeline time label -->
 				<li class="time-label" id="repliesDiv"><span class="bg-green">
-						Replies List <small id='replycntSmall'> [
+						댓글 리스트 <small id='replycntSmall'> [
 							댓글 리스트 보기 ] </small>
 				</span></li>
 			</ul>
@@ -158,9 +153,9 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-info" id="replyModBtn">Modify</button>
-					<button type="button" class="btn btn-danger" id="replyDelBtn">DELETE</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-info" id="replyModBtn">수정</button>
+					<button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 				</div>
 			</div>
 		</div>
@@ -178,14 +173,15 @@
   <span class="time">
     <i class="fa fa-clock-o"></i>{{prettifyDate regdate}}
   </span>
-  <h3 class="timeline-header"><strong>{{rno}}</strong> -{{replyer}}</h3>
+  <h5 class="timeline-header">{{replyer}}</h5>
   <div class="timeline-body">{{replytext}} </div>
     <div class="timeline-footer">
      <a class="btn btn-primary btn-xs" 
-	    data-toggle="modal" data-target="#modifyModal">Modify</a>
+	    data-toggle="modal" data-target="#modifyModal">수정</a>
     </div>
-  </div>			
+  </div>		
 </li>
+<hr>
 {{/each}}
 </script>
 

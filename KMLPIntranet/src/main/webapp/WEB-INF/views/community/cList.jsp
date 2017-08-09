@@ -23,7 +23,7 @@
 			<!-- general form elements -->
 			<div class='box'>
 				<div class="box-header with-border">
-					<h3 class="box-title">Board List</h3>
+					<h3 class="box-title">커뮤니티 리스트</h3>
 				</div>
 
 
@@ -35,43 +35,41 @@
 							---</option>
 						<option value="t"
 							<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-							Title</option>
+							제목</option>
 						<option value="c"
 							<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
-							Content</option>
+							내용</option>
 						<option value="w"
 							<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-							Writer</option>
+							작성자</option>
 						<option value="tc"
 							<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
-							Title OR Content</option>
+							제목 OR 내용</option>
 						<option value="cw"
 							<c:out value="${cri.searchType eq 'cw'?'selected':''}"/>>
-							Content OR Writer</option>
+							내용 OR 작성자</option>
 						<option value="tcw"
 							<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
-							Title OR Content OR Writer</option>
+							제목 OR 내용 OR 작성자</option>
 					</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
-					<button id='searchBtn'>Search</button>
-					<button id='newBtn'>New Board</button>
+					<button id='searchBtn'>검색</button>
+					<button id='newBtn'>등록</button>
 
 				</div>
 			</div>
 
 
 			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">LIST PAGING</h3>
-				</div>
+				
 				<div class="box-body">
 					<table class="table table-bordered">
 						<tr>
-							<th style="width: 10px">BNO</th>
-							<th>TITLE</th>
-							<th>WRITER</th>
-							<th>REGDATE</th>
-							<th style="width: 40px">VIEWCNT</th>
+							<th style="width: 10px">NO</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>작성일</th>
+							<th style="width: 75px">조회횟수</th>
 						</tr>
 
 						<c:forEach items="${list}" var="boardVO">
