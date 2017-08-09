@@ -104,6 +104,16 @@
 		<put-attribute name="title" value="Chat chatting" />
 		<put-attribute name="body" value="/WEB-INF/views/chat/chatting.jsp" />
 	</definition>
+	
+	<definition name="cList" extends="default-definition">
+		<put-attribute name="title" value="Community Board" />
+		<put-attribute name="body" value="/WEB-INF/views/community/cList.jsp" />
+	</definition>
+	
+	<definition name="cContent" extends="default-definition">
+		<put-attribute name="title" value="Community Content" />
+		<put-attribute name="body" value="/WEB-INF/views/community/cContent.jsp" />
+	</definition>
 
 	<!-- 마이페이지 수정 -->
 	<definition name="myModify" extends="default-definition">

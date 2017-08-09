@@ -6,6 +6,8 @@ import org.KMLP.domain.BoardVO;
 import org.KMLP.service.BoardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,16 +18,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-@RequestMapping("/sboard/*")
-public class SearchBoardController {
+@RequestMapping("/community/*")
+public class CommunityController {
 
-  private static final Logger logger = LoggerFactory.getLogger(SearchBoardController.class);
+  private static final Logger logger = LoggerFactory.getLogger(CommunityController.class);
 
   @Inject
   private BoardService service;
   
-  @RequestMapping(value = "/list", method = RequestMethod.GET)
-  public void listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+  @RequestMapping(value = "/cList.do", method = RequestMethod.GET)
+  public String listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
     logger.info(cri.toString());
 
@@ -39,16 +41,24 @@ public class SearchBoardController {
     pageMaker.setTotalCount(service.listSearchCount(cri));
 
     model.addAttribute("pageMaker", pageMaker);
+    
+    return "cList";
   }
 
-  @RequestMapping(value = "/readPage", method = RequestMethod.GET)
-  public void read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model)
+  @RequestMapping(value = "/cContent.do", method = RequestMethod.GET)
+  public String read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model)
       throws Exception {
+	// 시큐리티에서 로그인한 유저 id 받아오는 코드
+			User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+			model.addAttribute("m_id", user.getUsername());
 
     model.addAttribute(service.read(bno));
+    
+    return "cContent";
   }
 
-  @RequestMapping(value = "/removePage", method = RequestMethod.POST)
+  @RequestMapping(value = "/removePage.do", method = RequestMethod.POST)
   public String remove(@RequestParam("bno") int bno, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 
     service.remove(bno);
@@ -60,21 +70,21 @@ public class SearchBoardController {
 
     rttr.addFlashAttribute("msg", "SUCCESS");
 
-    return "redirect:/sboard/list";
+    return "redirect:/community/cList.do";
   }
 
   
 
   
   
-  @RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
+  @RequestMapping(value = "/modifyPage.do", method = RequestMethod.GET)
   public String modifyPagingGET(int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
     model.addAttribute(service.read(bno));
-    return "sboard/NewFile";
+    return "community/NewFile.do";
   }
 
-  @RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
+  @RequestMapping(value = "/modifyPage.do", method = RequestMethod.POST)
   public String modifyPagingPOST(BoardVO board, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 
     logger.info(cri.toString());
@@ -89,16 +99,16 @@ public class SearchBoardController {
 
     logger.info(rttr.toString());
 
-    return "redirect:/sboard/list";
+    return "redirect:/community/cList.do";
   }
 
-  @RequestMapping(value = "/register", method = RequestMethod.GET)
+  @RequestMapping(value = "/register.do", method = RequestMethod.GET)
   public void registGET() throws Exception {
 
     logger.info("regist get ...........");
   }
 
-  @RequestMapping(value = "/register", method = RequestMethod.POST)
+  @RequestMapping(value = "/register.do", method = RequestMethod.POST)
   public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
 
     logger.info("regist post ...........");
@@ -108,7 +118,7 @@ public class SearchBoardController {
 
     rttr.addFlashAttribute("msg", "SUCCESS");
 
-    return "redirect:/sboard/list";
+    return "redirect:/community/cList.do";
   }
 
   // @RequestMapping(value = "/list", method = RequestMethod.GET)

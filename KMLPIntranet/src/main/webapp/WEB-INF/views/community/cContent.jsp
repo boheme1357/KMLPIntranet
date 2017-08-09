@@ -29,7 +29,7 @@
 				</div>
 				<!-- /.box-header -->
 
-				<sf:form role="form" action="modifyPage" method="post">
+				<sf:form role="form" action="modifyPage.do" method="post">
 
 					<input type='hidden' name='bno' value="${boardVO.bno}"> <input
 						type='hidden' name='page' value="${cri.page}"> <input
@@ -86,8 +86,8 @@
 				</div>
 				<div class="box-body">
 					<label for="exampleInputEmail1">Writer</label> <input
-						lass="form-control" type="text" placeholder="USER ID"
-						id="newReplyWriter"> <label for="exampleInputEmail1">Reply
+						lass="form-control" type="hidden" 
+						id="newReplyWriter" value="${m_id}"> <label for="exampleInputEmail1">Reply
 						Text</label> <input class="form-control" type="text"
 						placeholder="REPLY TEXT" id="newReplyText">
 
@@ -259,7 +259,7 @@
 		  
 	 	  $.ajax({
 				type:"POST",
-				url:"${path}/sboard/replies/",
+				url:"${path}/community/replies.do?${_csrf.parameterName}=${_csrf.token}",
 				contentType: "application/json; charset=UTF-8" ,
 				dataType:"text",
 				data: JSON.stringify({bno:bno, replyer:replyer, replytext:replytext}),
@@ -267,8 +267,8 @@
 					console.log("result: " + result);
 					if(result == 'SUCCESS'){
 						alert("등록 되었습니다.");
-						replyPage = 1;
-						getPage("${path}/replies/"+bno+"/"+replyPage );
+						replyPage = 1; 
+						getPage("${path}/community/"+bno+"/"+replyPage+"/replies.do" );
 						replyerObj.val("");
 						replytextObj.val("");
 					}
@@ -347,27 +347,27 @@ $(document).ready(function(){
 	console.log(formObj);
 	
 	$("#modifyBtn").on("click", function(){
-		formObj.attr("action", "${path}/sboard/modifyPage");
+		formObj.attr("action", "${path}/community/modifyPage.do");
 		formObj.attr("method", "get");		
 		formObj.submit();
 	});
 	
 	$("#removeBtn").on("click", function(){
-		formObj.attr("action", "${path}/sboard/removePage");
+		formObj.attr("action", "${path}/community/removePage.do");
 		formObj.submit();
 	});
 	
 	$("#goListBtn").on("click", function(){
 		
 		formObj.attr("method", "get");
-		formObj.attr("action", "${path}/sboard/list");
+		formObj.attr("action", "${path}/community/list.do");
 		formObj.submit();
 	});
 	
 /* 	$("#replyAddBtn").on("click", function(){
 		
 		formObj.attr("method", "post");
-		formObj.attr("action", "${path}/sboard/r");
+		formObj.attr("action", "${path}/community/r");
 		formObj.submit();
 	}); */
 	
