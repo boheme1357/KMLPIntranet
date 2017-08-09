@@ -14,7 +14,7 @@
 	
 	function connect() {
 		wsocket = new SockJS(
-				"http://localhost:8080/KMLPIntranet/chat.do");
+				"http://175.205.193.249:8080/KMLPIntranet/chat.do");
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;

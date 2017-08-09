@@ -145,7 +145,7 @@ function checkTime(i) {
    </div>
    
    <a href="${path}/chat/lobby.do"><input type="button" id="input" class="w3-btn w3-round-large w3-dark-gray" value="&#xf1e8; 채&emsp;&emsp;팅"></a>
-   <a href=""><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1d7; 커뮤니티"></a>
+   <a href="${path}/community/cList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf1d7; 커뮤니티"></a>
    <a href="${path}/member/mList.do"><input type="button" id="input" class="w3-btn w3-round-large w3-blue-grey" value="&#xf2bc; 사원관리"></a>
 
 <!-- 네온시계구현 -->
