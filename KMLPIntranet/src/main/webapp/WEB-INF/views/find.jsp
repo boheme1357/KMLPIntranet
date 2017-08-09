@@ -13,7 +13,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 <style>
+
+body {
+	background: url(${pageContext.request.contextPath}/resources/img/back.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+
 th {
 	font-size: 0.9em;
 }
@@ -105,8 +117,21 @@ function checkValue() {
 
 </head>
 <body onLoad="setFocus()">
-	<div id="wapper">
-		<h3>비밀번호찾기</h3>
+
+<div class="w3-center">
+
+<div class="w3-border- w3-border-light-grey" style="margin-top: 100px">
+			<img class="w3-image" src="${pageContext.request.contextPath}/resources/img/kmlp_logo1.png" width="250"><br>
+			<h1>K.M.L.P Intranet</h1>
+			
+			
+		</div>
+</div>
+
+<br><br><br><br><br><br><br><br><br>
+
+	<div id="wapper" class="w3-display-middle">
+		<!-- <h2><b>비밀번호찾기</b></h2> -->
 		<hr>
 		<sf:form    action="${path}/mailSending.do"  name="find"  method="post">
 
