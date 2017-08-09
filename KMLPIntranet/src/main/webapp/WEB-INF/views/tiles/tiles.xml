@@ -95,20 +95,28 @@
 		<put-attribute name="body" value="/WEB-INF/views/member/mModify.jsp" />
 	</definition>
 
-	<definition name="lobby" extends="default-definition">
-		<put-attribute name="title" value="Chat Lobby" />
-		<put-attribute name="body" value="/WEB-INF/views/chat/lobby.jsp" />
-	</definition>
-
-	<definition name="chatting" extends="default-definition">
-		<put-attribute name="title" value="Chat chatting" />
-		<put-attribute name="body" value="/WEB-INF/views/chat/chatting.jsp" />
-	</definition>
-
 	<!-- 마이페이지 수정 -->
 	<definition name="myModify" extends="default-definition">
 		<put-attribute name="title" value="Mypage Modify" />
 		<put-attribute name="body" value="/WEB-INF/views/myModify.jsp" />
+	</definition>
+	
+	<!-- 채팅 페이지 -->
+	<definition name="chat-definition" template="/WEB-INF/views/tiles/layouts/chatLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/views/tiles/template/chat_header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/views/tiles/template/chat_menu.jsp" />
+		<put-attribute name="body" value="" />
+	</definition>
+	
+	<definition name="lobby" extends="chat-definition">
+		<put-attribute name="title" value="Chat Lobby" />
+		<put-attribute name="body" value="/WEB-INF/views/chat/lobby.jsp" />
+	</definition>
+
+	<definition name="chatting" extends="chat-definition">
+		<put-attribute name="title" value="Chat chatting" />
+		<put-attribute name="body" value="/WEB-INF/views/chat/chatting.jsp" />
 	</definition>
 
 </tiles-definitions>
