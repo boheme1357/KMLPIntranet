@@ -8,28 +8,36 @@
 <!-- 시큐리티 태그lib -->
 <%-- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%> --%>
 <%-- <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %> --%>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<style>
+hr {
+	border: solid 0.5px lightgray;
+}
 
+th {
+	text-align: center;
+}
+</style>
 
 <!-- Main content -->
 <section class="content">
 	<div class="row">
 		<!-- left column --> 
-
-
 		<div class="col-md-12">
 			<!-- general form elements -->
-			<div class='box'>
+			<div class='box'><br>
 				<div class="box-header with-border">
 					<h3 class="box-title">커뮤니티 리스트</h3>
+					<hr>
 				</div>
 
 
 				<div class='box-body'>
 
-					<select name="searchType">
+					<select name="searchType" style="height: 30px;">
 						<option value="n"
 							<c:out value="${cri.searchType == null?'selected':''}"/>>
 							---</option>
@@ -52,22 +60,22 @@
 							<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
 							제목 OR 내용 OR 작성자</option>
 					</select> <input type="text" name='keyword' id="keywordInput"
-						value='${cri.keyword }'>
-					<button id='searchBtn'class="btn btn-success">검색</button>
-					<button id='newBtn' class="btn btn-primary">등록</button>
+						value='${cri.keyword }' style="height: 30px;">
+					<button id='searchBtn'class="btn btn-success">검&nbsp;색</button>
+					<button id='newBtn' class="btn btn-primary">등&nbsp;록</button>
 				</div>
 			</div>
 		<br>
 			<div class="box">
 				
 				<div class="box-body">
-					<table class="table table-bordered">
+					<table class="table table-bordered w3-center">
 						<tr>
 							<th style="width: 10px">NO</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>작성일</th>
-							<th style="width: 75px">조회횟수</th>
+							<th>제&nbsp;목</th>
+							<th>작 성 자</th>
+							<th>작 성 일</th>
+							<th style="width: 80px">조회횟수</th>
 						</tr>
 
 						<c:forEach items="${list}" var="boardVO">

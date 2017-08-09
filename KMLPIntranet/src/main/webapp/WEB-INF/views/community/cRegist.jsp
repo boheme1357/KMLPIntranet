@@ -11,7 +11,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<style>
+hr {
+	border: solid 0.5px lightgray;
+}
 
+button {
+	width: 120px;
+	height: 40px;
+}
+</style>
 
 <!-- Main content -->
 <section class="content">
@@ -21,30 +30,31 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">커뮤니티 게시판</h3>
+					<h3 class="box-title">커뮤니티 등록</h3>
+					<hr>
 				</div>
 				<!-- /.box-header -->
 
 				<form:form role="form" action="cRegist.do" method="post">
 					<div class="box-body">
 						<div class="form-group">
-							<label for="exampleInputEmail1">제목</label> <input type="text"
+							<label for="exampleInputEmail1">제&nbsp;목</label> <input type="text"
 								name='title' class="form-control" placeholder="Enter Title">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">내용</label>
+							<label for="exampleInputPassword1">내&nbsp;용</label>
 							<textarea class="form-control" name="content" rows="3"
 								placeholder="Enter ..."></textarea>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">작성자</label> <input type="text"
+							<label for="exampleInputEmail1">작 성 자</label> <input type="text"
 								name="writer" class="form-control" value="${m_id}" readonly="readonly">
 						</div>
 					</div>
 					<!-- /.box-body -->
 
-					<div class="box-footer">
-						<button type="submit" class="btn btn-primary">등록</button>
+					<div class="box-footer w3-center">
+						<button type="submit" class="btn btn-primary" style="width: 100px">등&nbsp;록</button>
 					</div>
 				</form:form>
 

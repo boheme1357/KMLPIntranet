@@ -11,6 +11,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<style>
+hr {
+	border: solid 0.5px lightgray;
+}
+
+button {
+	width: 120px;
+	height: 40px;
+}
+</style>
 <!-- Main content -->
 <section class="content">
 	<div class="row">
@@ -19,7 +29,8 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">커뮤니티 게시판</h3>
+					<h3 class="box-title">커뮤니티 수정</h3>
+					<hr>
 				</div>
 				<!-- /.box-header -->
 
@@ -39,24 +50,24 @@
 						</div>
 
 						<div class="form-group">
-							<label for="exampleInputEmail1">제목</label> <input type="text"
+							<label for="exampleInputEmail1">제&nbsp;목</label> <input type="text"
 								name='title' class="form-control" value="${boardVO.title}">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">내용</label>
+							<label for="exampleInputPassword1">내&nbsp;용</label>
 							<textarea class="form-control" name="content" rows="3">${boardVO.content}</textarea>
 						</div>
 						<div class="form-group">
-							<label for="exampleInputEmail1">작성자</label> <input
+							<label for="exampleInputEmail1">작 성 자</label> <input
 								type="text" name="writer" class="form-control"
 								value="${boardVO.writer}">
 						</div>
 					</div>
 					<!-- /.box-body -->
 				</sf:form>
-				<div class="box-footer">
-					<button type="submit" class="btn btn-primary">저장</button>
-					<button type="submit" class="btn btn-warning">취소</button>
+				<div class="box-footer w3-center">
+					<button type="submit" class="btn btn-primary">저&nbsp;장</button>
+					<button type="submit" class="btn btn-warning">취&nbsp;소</button>
 				</div>
 
 <script>
