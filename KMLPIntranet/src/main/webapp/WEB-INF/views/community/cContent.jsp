@@ -27,16 +27,33 @@
     z-index: 11;
     padding: 10px;
 }
+
+hr {
+	border: solid 0.5px lightgray;
+}
+
+#mid_hr {
+	border: solid 0.5px dimgrey;
+}
+button {
+	width: 120px;
+	height: 40px;
+}
+
+ul, li {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 </style>
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+	
 <!-- Main content -->
 <section class="content">
 	<div class="row">
@@ -45,7 +62,8 @@
 			<!-- general form elements -->
 			<div class="box box-primary">
 				<div class="box-header">
-					<h3 class="box-title">커뮤니티 게시판</h3>
+					<h3 class="box-title">커뮤니티 내용</h3>
+					<hr>
 				</div>
 				<!-- /.box-header -->
 
@@ -61,27 +79,27 @@
 
 				<div class="box-body">
 					<div class="form-group">
-						<label for="exampleInputEmail1">제목</label> <input type="text"
+						<label for="exampleInputEmail1">제&nbsp;목</label> <input type="text"
 							name='title' class="form-control" value="${boardVO.title}"
 							readonly="readonly">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">내용</label>
+						<label for="exampleInputPassword1">내&nbsp;용</label>
 						<textarea class="form-control" name="content" rows="3"
 							readonly="readonly">${boardVO.content}</textarea>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">작성자</label> <input type="text"
+						<label for="exampleInputEmail1">작 성 자</label> <input type="text"
 							name="writer" class="form-control" value="${boardVO.writer}"
 							readonly="readonly">
 					</div>
 				</div>
 				<!-- /.box-body -->
 
-				<div class="box-footer">
-					<button type="submit" class="btn btn-warning" id="modifyBtn">수정</button>
-					<button type="submit" class="btn btn-danger" id="removeBtn">삭제</button>
-					<button type="submit" class="btn btn-primary" id="goListBtn">리스트</button>
+				<div class="box-footer w3-center">
+					<button type="submit" class="btn btn-warning" id="modifyBtn">수&nbsp;정</button>
+					<button type="submit" class="btn btn-danger" id="removeBtn">삭&nbsp;제</button>
+					<button type="submit" class="btn btn-primary" id="goListBtn">리 스 트</button>
 				</div>
 
 
@@ -93,8 +111,8 @@
 
 	</div>
 	<!-- /.row -->
-
-<hr>
+<br>
+<hr id="mid_hr">
 
 	<div class="row">
 		<div class="col-md-12">
@@ -116,11 +134,12 @@
 
 
 			<!-- The time line -->
+			
 			<ul class="timeline">
 				<!-- timeline time label -->
 				<li class="time-label" id="repliesDiv"><span class="bg-green">
-						댓글 리스트 <small id='replycntSmall'> [
-							댓글 리스트 보기 ] </small>
+					<button type="button" class="btn btn-warning timeline" id="repliesDiv">댓글 리스트</button>
+					<small id='replycntSmall'> [댓글 리스트 보기] </small>
 				</span></li>
 			</ul>
 
@@ -139,8 +158,8 @@
 
 	<!-- Modal -->
 	
-	<div id="modifyModal" class="modal modal-primary fade " role="dialog">
-		<div class="modal-dialog">
+	<div id="modifyModal" class="modal modal-primary fade" role="dialog">
+		<div class="modal-dialog" style="margin-top: 4%">
 			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
@@ -153,9 +172,9 @@
 					</p>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-info" id="replyModBtn">수정</button>
-					<button type="button" class="btn btn-danger" id="replyDelBtn">삭제</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+					<button type="button" class="btn btn-warning" id="replyModBtn">수&nbsp;정</button>
+					<button type="button" class="btn btn-danger" id="replyDelBtn">삭&nbsp;제</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">닫&nbsp;기</button>
 				</div>
 			</div>
 		</div>
@@ -167,16 +186,13 @@
 
 <script id="template" type="text/x-handlebars-template">
 {{#each .}}
-<li class="replyLi" data-rno={{rno}}>
-<i class="fa fa-comments bg-blue"></i>
- <div class="timeline-item" >
-  <span class="time">
-    <i class="fa fa-clock-o"></i>{{prettifyDate regdate}}
-  </span>
-  <h5 class="timeline-header">{{replyer}}</h5>
-  <div class="timeline-body">{{replytext}} </div>
+<li class="replyLi" data-rno={{rno}} style="margin-left: 20px;">
+<div class="timeline-item" >
+    <b><h5 class="timeline-header" style="color: #0066FF">{{replyer}}</b>&emsp;<i class="fa fa-clock-o"></i>&nbsp;{{prettifyDate regdate}}</h5>
+</div>
+  <div class="timeline-body" style="margin-left: 30px;">{{replytext}} </div><br>
     <div class="timeline-footer">
-     <a class="btn btn-primary btn-xs" 
+     <a class="btn btn-danger btn-xs" 
 	    data-toggle="modal" data-target="#modifyModal">수정</a>
     </div>
   </div>		
@@ -191,7 +207,10 @@
 		var year = dateObj.getFullYear();
 		var month = dateObj.getMonth() + 1;
 		var date = dateObj.getDate();
-		return year + "/" + month + "/" + date;
+		var hour = dateObj.getHours();
+		var minute = dateObj.getMinutes();
+		var second = dateObj.getSeconds();
+		return year + "/" + month + "/" + date + " " + hour + ":" + minute + ":" + second;
 	});
 
 	var printData = function(replyArr, target, templateObject) {
