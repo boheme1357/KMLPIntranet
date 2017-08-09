@@ -21,6 +21,7 @@
 	}
 	function disconnect() {
 		if (confirm("채팅을 종료 하시겠습니까?")) {
+			send(" :  : ", "${m_id} 님이 퇴장하였습니다.  :  :  : ");
 			wsocket.close();	
 		} else{
 			false;
@@ -28,7 +29,8 @@
 		
 	}
 	function onOpen(evt) {
-		appendMessage("${m_id} 님이 입장하였습니다.");
+		/* appendMessage("${m_id} 님이 입장하였습니다."); */
+		send(" :  : ", "${m_id} 님이 입장하였습니다.  :  :  : ");
 	}
 	function onMessage(evt) {
 		var data = evt.data;
@@ -37,14 +39,13 @@
 		}
 	}
 	function onClose(evt) {
-		appendMessage("연결을 끊었습니다.");
+		/* appendMessage("연결을 끊었습니다."); */
 		window.close();
 	}
-	
-	function send() {
-		var nickname ="${m_id}";
-		var msg = $("#message").val();
-		wsocket.send("msg:"+nickname+":" + msg);
+
+	function send(nickname, msg) {
+
+		wsocket.send("msg:" + nickname + " : " + msg);
 		$("#message").val("");
 	}
 
@@ -61,13 +62,17 @@
 		$('#message').keypress(function(event){
 			var keycode = (event.keyCode ? event.keyCode : event.which);
 			if(keycode == '13'){
-				send();	
+				send("${m_id}", $("#message").val());
 			}
 			event.stopPropagation();
 		});
-		$('#sendBtn').click(function() { send(); });
-		
-		$('#exitBtn').click(function() { disconnect(); });
+		$('#sendBtn').click(function() {
+			send("${m_id}", $("#message").val());
+		});
+
+		$('#exitBtn').click(function() {
+			disconnect();
+		});
 	});
 </script>
 <style>
@@ -106,8 +111,8 @@ header {
 </head>
 <body>
 	<header class="w3-container w3-card-2">
-		<h3>대화 영역</h3>
-	</header>
+	<h1>KMLP Intranet : ${chatRoom_Title} </h1>
+		</header>
     
     <div id="chatArea"><div id="chatMessageArea"></div></div>
     <br/>
