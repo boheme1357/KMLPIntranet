@@ -160,7 +160,7 @@
 
 				$('#newBtn').on("click", function(evt) {
 
-					self.location = "register";
+					self.location = "cRegist.do";
 
 				});
 

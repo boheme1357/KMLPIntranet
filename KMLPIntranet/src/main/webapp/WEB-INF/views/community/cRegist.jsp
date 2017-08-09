@@ -5,8 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- 컨택스트  패스-->
 <c:set var="path" value="${pageContext.request.contextPath}" />
-<!-- 시큐리티 태그lib -->
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+ <!-- 시큐리티 태그lib -->
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,7 +25,7 @@
 				</div>
 				<!-- /.box-header -->
 
-				<sf:form role="form" method="post">
+				<form:form role="form" action="cRegist.do" method="post">
 					<div class="box-body">
 						<div class="form-group">
 							<label for="exampleInputEmail1">Title</label> <input type="text"
@@ -38,7 +38,7 @@
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Writer</label> <input type="text"
-								name="writer" class="form-control" placeholder="Enter Writer">
+								name="writer" class="form-control" value="${m_id}" readonly="readonly">
 						</div>
 					</div>
 					<!-- /.box-body -->
@@ -46,7 +46,7 @@
 					<div class="box-footer">
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
-				</sf:form>
+				</form:form>
 
 
 			</div>

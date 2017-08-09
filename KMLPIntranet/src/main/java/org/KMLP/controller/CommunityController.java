@@ -16,124 +16,126 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
 @Controller
 @RequestMapping("/community/*")
 public class CommunityController {
 
-  private static final Logger logger = LoggerFactory.getLogger(CommunityController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CommunityController.class);
 
-  @Inject
-  private BoardService service;
-  
-  @RequestMapping(value = "/cList.do", method = RequestMethod.GET)
-  public String listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+	@Inject
+	private BoardService service;
 
-    logger.info(cri.toString());
+	@RequestMapping(value = "/cList.do", method = RequestMethod.GET)
+	public String listPage(@ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
-    // model.addAttribute("list", service.listCriteria(cri));
-    model.addAttribute("list", service.listSearchCriteria(cri));
+		logger.info(cri.toString());
 
-    PageMaker pageMaker = new PageMaker();
-    pageMaker.setCri(cri);
+		// model.addAttribute("list", service.listCriteria(cri));
+		model.addAttribute("list", service.listSearchCriteria(cri));
 
-    // pageMaker.setTotalCount(service.listCountCriteria(cri));
-    pageMaker.setTotalCount(service.listSearchCount(cri));
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
 
-    model.addAttribute("pageMaker", pageMaker);
-    
-    return "cList";
-  }
+		// pageMaker.setTotalCount(service.listCountCriteria(cri));
+		pageMaker.setTotalCount(service.listSearchCount(cri));
 
-  @RequestMapping(value = "/cContent.do", method = RequestMethod.GET)
-  public String read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model)
-      throws Exception {
-	// 시큐리티에서 로그인한 유저 id 받아오는 코드
-			User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		model.addAttribute("pageMaker", pageMaker);
 
-			model.addAttribute("m_id", user.getUsername());
+		return "cList";
+	}
 
-    model.addAttribute(service.read(bno));
-    
-    return "cContent";
-  }
+	@RequestMapping(value = "/cContent.do", method = RequestMethod.GET)
+	public String read(@RequestParam("bno") int bno, @ModelAttribute("cri") SearchCriteria cri, Model model)
+			throws Exception {
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-  @RequestMapping(value = "/removePage.do", method = RequestMethod.POST)
-  public String remove(@RequestParam("bno") int bno, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+		model.addAttribute("m_id", user.getUsername());
 
-    service.remove(bno);
+		model.addAttribute(service.read(bno));
 
-    rttr.addAttribute("page", cri.getPage());
-    rttr.addAttribute("perPageNum", cri.getPerPageNum());
-    rttr.addAttribute("searchType", cri.getSearchType());
-    rttr.addAttribute("keyword", cri.getKeyword());
+		return "cContent";
+	}
 
-    rttr.addFlashAttribute("msg", "SUCCESS");
+	@RequestMapping(value = "/cRemove.do", method = RequestMethod.POST)
+	public String remove(@RequestParam("bno") int bno, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 
-    return "redirect:/community/cList.do";
-  }
+		service.remove(bno);
 
-  
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 
-  
-  
-  @RequestMapping(value = "/modifyPage.do", method = RequestMethod.GET)
-  public String modifyPagingGET(int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
+		rttr.addFlashAttribute("msg", "SUCCESS");
 
-    model.addAttribute(service.read(bno));
-    return "community/NewFile.do";
-  }
+		return "redirect:/community/cList.do";
+	}
 
-  @RequestMapping(value = "/modifyPage.do", method = RequestMethod.POST)
-  public String modifyPagingPOST(BoardVO board, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
+	@RequestMapping(value = "/cModify.do", method = RequestMethod.GET)
+	public String modifyPagingGET(int bno, @ModelAttribute("cri") SearchCriteria cri, Model model) throws Exception {
 
-    logger.info(cri.toString());
-    service.modify(board);
+		model.addAttribute(service.read(bno));
+		return "cModify";
+	}
 
-    rttr.addAttribute("page", cri.getPage());
-    rttr.addAttribute("perPageNum", cri.getPerPageNum());
-    rttr.addAttribute("searchType", cri.getSearchType());
-    rttr.addAttribute("keyword", cri.getKeyword());
+	@RequestMapping(value = "/cModify.do", method = RequestMethod.POST)
+	public String modifyPagingPOST(BoardVO board, SearchCriteria cri, RedirectAttributes rttr) throws Exception {
 
-    rttr.addFlashAttribute("msg", "SUCCESS");
+		logger.info(cri.toString());
+		service.modify(board);
 
-    logger.info(rttr.toString());
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("perPageNum", cri.getPerPageNum());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 
-    return "redirect:/community/cList.do";
-  }
+		rttr.addFlashAttribute("msg", "SUCCESS");
 
-  @RequestMapping(value = "/register.do", method = RequestMethod.GET)
-  public void registGET() throws Exception {
+		logger.info(rttr.toString());
 
-    logger.info("regist get ...........");
-  }
+		return "redirect:/community/cList.do";
+	}
 
-  @RequestMapping(value = "/register.do", method = RequestMethod.POST)
-  public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
+	@RequestMapping(value = "/cRegist.do", method = RequestMethod.GET)
+	public String registGET(Model model) throws Exception {
 
-    logger.info("regist post ...........");
-    logger.info(board.toString());
+		logger.info("regist get ...........");
 
-    service.regist(board);
+		// 시큐리티에서 로그인한 유저 id 받아오는 코드
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-    rttr.addFlashAttribute("msg", "SUCCESS");
+		model.addAttribute("m_id", user.getUsername());
 
-    return "redirect:/community/cList.do";
-  }
+		return "cRegist";
+	}
 
-  // @RequestMapping(value = "/list", method = RequestMethod.GET)
-  // public void listPage(@ModelAttribute("cri") SearchCriteria cri,
-  // Model model) throws Exception {
-  //
-  // logger.info(cri.toString());
-  //
-  // model.addAttribute("list", service.listCriteria(cri));
-  //
-  // PageMaker pageMaker = new PageMaker();
-  // pageMaker.setCri(cri);
-  //
-  // pageMaker.setTotalCount(service.listCountCriteria(cri));
-  //
-  // model.addAttribute("pageMaker", pageMaker);
-  // }
+	@RequestMapping(value = "/cRegist.do", method = RequestMethod.POST)
+	public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
+
+		logger.info("regist post ...........");
+		logger.info(board.toString());
+
+		service.regist(board);
+
+		rttr.addFlashAttribute("msg", "SUCCESS");
+
+		return "redirect:/community/cList.do";
+	}
+
+	// @RequestMapping(value = "/list", method = RequestMethod.GET)
+	// public void listPage(@ModelAttribute("cri") SearchCriteria cri,
+	// Model model) throws Exception {
+	//
+	// logger.info(cri.toString());
+	//
+	// model.addAttribute("list", service.listCriteria(cri));
+	//
+	// PageMaker pageMaker = new PageMaker();
+	// pageMaker.setCri(cri);
+	//
+	// pageMaker.setTotalCount(service.listCountCriteria(cri));
+	//
+	// model.addAttribute("pageMaker", pageMaker);
+	// }
 }

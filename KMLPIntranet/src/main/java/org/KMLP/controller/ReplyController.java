@@ -73,7 +73,7 @@ public class ReplyController {
 		return entity;
 	}
 
-	@RequestMapping(value = "/{rno}", method = { RequestMethod.PUT, RequestMethod.PATCH })
+	@RequestMapping(value = "update/{rno}/replies.do", method = { RequestMethod.PUT, RequestMethod.PATCH })
 	public ResponseEntity<String> update(@PathVariable("rno") Integer rno, @RequestBody ReplyVO vo) {
 		logger.info("update PAGE...............");
 		ResponseEntity<String> entity = null;
@@ -89,7 +89,7 @@ public class ReplyController {
 		return entity;
 	}
 
-	@RequestMapping(value = "/{rno}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "remove/{rno}/replies.do", method = RequestMethod.DELETE)
 	public ResponseEntity<String> remove(@PathVariable("rno") Integer rno) {
 		logger.info("remove PAGE...............");
 		ResponseEntity<String> entity = null;
@@ -103,7 +103,7 @@ public class ReplyController {
 		return entity;
 	}
 
-	@RequestMapping(value = "/community/{bno}/{page}/replies.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/community/cContent/{bno}/{page}/replies.do", method = RequestMethod.GET)
 	public ResponseEntity<Map<String, Object>> listPage(
 
 			@PathVariable("bno") Integer bno, @PathVariable("page") Integer page) {

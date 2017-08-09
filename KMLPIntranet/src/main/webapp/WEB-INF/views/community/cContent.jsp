@@ -9,6 +9,26 @@
 <!-- 시큐리티 태그lib -->
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
+<style>
+.modal-backdrop  {
+    display: none;
+    /* position: fixed; */
+     top: 50; left: 50; 
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,.3);
+    z-index: 10;
+}
+#my-dialog {
+    display: none;
+    position: fixed;
+    left: calc( 50% - 160px ); top: calc( 50% - 70px );
+    width: 320px; height: 140px; 
+    background: #fff;
+    z-index: 11;
+    padding: 10px;
+}
+</style>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script
@@ -105,7 +125,7 @@
 				<!-- timeline time label -->
 				<li class="time-label" id="repliesDiv"><span class="bg-green">
 						Replies List <small id='replycntSmall'> [
-							${boardVO.replycnt} ] </small>
+							댓글 리스트 보기 ] </small>
 				</span></li>
 			</ul>
 
@@ -123,7 +143,8 @@
 
 
 	<!-- Modal -->
-	<div id="modifyModal" class="modal modal-primary fade" role="dialog">
+	
+	<div id="modifyModal" class="modal modal-primary fade " role="dialog">
 		<div class="modal-dialog">
 			<!-- Modal content-->
 			<div class="modal-content">
@@ -229,10 +250,11 @@
 
 	$("#repliesDiv").on("click", function() {
 
-		if ($(".timeline li").size() > 1) {
+		if ($(".timeline li").length < 1) {
 			return;
 		}
-		getPage("/replies/" + bno + "/1");
+		//getPage("/replies/" + bno + "/1");
+		getPage("${path}/community/cContent/"+bno+"/1/replies.do" );
 
 	});
 	
@@ -243,18 +265,22 @@
 		
 		replyPage = $(this).attr("href");
 		
-		getPage("/replies/"+bno+"/"+replyPage);
+		getPage("${path}/community/cContent/"+bno+"/"+replyPage+"/replies.do" );
 		
 	});
 	
 
  	$("#replyAddBtn").on("click",function(){
-		 alert("111");
-		 var replyerObj = $("#newReplyWriter");
-		 var replytextObj = $("#newReplyText");
-		 var replyer = replyerObj.val();
-		 var replytext = replytextObj.val();
-		 alert(replytext);
+		 if(confirm("댓글을 등록하시겠습니까?")){
+			 var replyerObj = $("#newReplyWriter");
+			 var replytextObj = $("#newReplyText");
+			 var replyer = replyerObj.val();
+			 var replytext = replytextObj.val();
+		 } else{
+			 return false;
+		 }
+		 
+		 
 		
 		  
 	 	  $.ajax({
@@ -268,7 +294,7 @@
 					if(result == 'SUCCESS'){
 						alert("등록 되었습니다.");
 						replyPage = 1; 
-						getPage("${path}/community/"+bno+"/"+replyPage+"/replies.do" );
+						getPage("${path}/community/cContent/"+bno+"/"+replyPage+"/replies.do" );
 						replyerObj.val("");
 						replytextObj.val("");
 					}
@@ -300,7 +326,7 @@
 		  
 		  $.ajax({
 				type:'put',
-				url:'${path}/replies/'+rno,
+				url:'${path}/update/'+rno+'/replies.do?${_csrf.parameterName}=${_csrf.token}',
 				headers: { 
 				      "Content-Type": "application/json",
 				      "X-HTTP-Method-Override": "PUT" },
@@ -310,7 +336,7 @@
 					console.log("result: " + result);
 					if(result == 'SUCCESS'){
 						alert("수정 되었습니다.");
-						getPage("/replies/"+bno+"/"+replyPage );
+						getPage("${path}/community/cContent/"+bno+"/"+replyPage+"/replies.do" );
 					}
 			}});
 	});
@@ -322,7 +348,7 @@
 		  
 		  $.ajax({
 				type:'delete',
-				url:'${path}/replies/'+rno,
+				url:'${path}/remove/'+rno+'/replies.do?${_csrf.parameterName}=${_csrf.token}',
 				headers: { 
 				      "Content-Type": "application/json",
 				      "X-HTTP-Method-Override": "DELETE" },
@@ -331,7 +357,7 @@
 					console.log("result: " + result);
 					if(result == 'SUCCESS'){
 						alert("삭제 되었습니다.");
-						getPage("/replies/"+bno+"/"+replyPage );
+						getPage("${path}/community/cContent/"+bno+"/"+replyPage+"/replies.do" );
 					}
 			}});
 	});
@@ -347,20 +373,20 @@ $(document).ready(function(){
 	console.log(formObj);
 	
 	$("#modifyBtn").on("click", function(){
-		formObj.attr("action", "${path}/community/modifyPage.do");
+		formObj.attr("action", "${path}/community/cModify.do");
 		formObj.attr("method", "get");		
 		formObj.submit();
 	});
 	
 	$("#removeBtn").on("click", function(){
-		formObj.attr("action", "${path}/community/removePage.do");
+		formObj.attr("action", "${path}/community/cRemove.do?${_csrf.parameterName}=${_csrf.token}");
 		formObj.submit();
 	});
 	
 	$("#goListBtn").on("click", function(){
 		
 		formObj.attr("method", "get");
-		formObj.attr("action", "${path}/community/list.do");
+		formObj.attr("action", "${path}/community/cList.do");
 		formObj.submit();
 	});
 	

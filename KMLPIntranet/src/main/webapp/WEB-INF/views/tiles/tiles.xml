@@ -114,6 +114,16 @@
 		<put-attribute name="title" value="Community Content" />
 		<put-attribute name="body" value="/WEB-INF/views/community/cContent.jsp" />
 	</definition>
+	
+	<definition name="cRegist" extends="default-definition">
+		<put-attribute name="title" value="Community Content" />
+		<put-attribute name="body" value="/WEB-INF/views/community/cRegist.jsp" />
+	</definition>
+	
+	<definition name="cModify" extends="default-definition">
+		<put-attribute name="title" value="Community Content Modify" />
+		<put-attribute name="body" value="/WEB-INF/views/community/cModify.jsp" />
+	</definition>
 
 	<!-- 마이페이지 수정 -->
 	<definition name="myModify" extends="default-definition">

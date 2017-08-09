@@ -6,7 +6,7 @@
 <!-- 컨택스트  패스-->
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- 시큐리티 태그lib -->
-<%-- <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%> --%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -23,7 +23,7 @@
 				</div>
 				<!-- /.box-header -->
 
-<form role="form" action="modifyPage" method="post">
+<sf:form role="form" action="cModify.do" method="post">
 
 	<input type='hidden' name='page' value="${cri.page}"> <input
 		type='hidden' name='perPageNum' value="${cri.perPageNum}">
@@ -53,7 +53,7 @@
 						</div>
 					</div>
 					<!-- /.box-body -->
-				</form>
+				</sf:form>
 				<div class="box-footer">
 					<button type="submit" class="btn btn-primary">SAVE</button>
 					<button type="submit" class="btn btn-warning">CANCEL</button>
@@ -69,7 +69,7 @@ $(document).ready(
 
 		$(".btn-warning")
 				.on("click",function() {
-					self.location = "${path}/sboard/list?page=${cri.page}&perPageNum=${cri.perPageNum}"
+					self.location = "${path}/community/cList.do?page=${cri.page}&perPageNum=${cri.perPageNum}"
 							+ "&searchType=${cri.searchType}&keyword=${cri.keyword}";
 				});
 
