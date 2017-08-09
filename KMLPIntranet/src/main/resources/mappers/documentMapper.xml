@@ -26,11 +26,14 @@
 
 	<!-- 02_03. 일일업무데이터삽입 -->
 	<insert id="insert">
-		insert into document(d_num, d_id, d_dept, d_title, d_content,
+		insert into document(d_num, d_id, d_dept, d_title,
+		d_content,
 		d_final_condition, d_final_cnt)
 		values
-		( #{d_num}, #{d_id}, #{d_dept}, #{d_title},
-		#{d_content}, #{d_final_condition}, #{d_final_cnt})
+		( #{d_num}, #{d_id},
+		#{d_dept}, #{d_title},
+		#{d_content}, #{d_final_condition},
+		#{d_final_cnt})
 	</insert>
 
 
@@ -88,7 +91,8 @@
 		document join approve
 		on document.d_num = approve.a_num where a_id =
 		#{m_id} and ( a_condition is not true and d_now_cnt = a_cnt)
-		ORDER BY d_date DESC
+		ORDER BY
+		d_date DESC
 	</select>
 
 	<!-- 07-02. 수신한 결재서류 리스트-진행중(완료) -->

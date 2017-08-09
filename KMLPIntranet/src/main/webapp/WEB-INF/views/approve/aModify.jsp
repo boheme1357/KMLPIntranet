@@ -7,7 +7,8 @@
 <!-- 컨택스트  패스-->
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <!-- 시큐리티 태그lib -->
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sf"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
