@@ -14,7 +14,7 @@
 	
 	function connect() {
 		wsocket = new SockJS(
-				"http://localhost:8181/KMLPIntranet/chat.do");
+				"http://localhost:8080/KMLPIntranet/chat.do");
 		wsocket.onopen = onOpen;
 		wsocket.onmessage = onMessage;
 		wsocket.onclose = onClose;
@@ -89,25 +89,58 @@
 }
 
 #sendBtn {
-	border: 0px;
 	width: 52px;
 	height: 35px;
-	font-weight: bold;
-	background-color: lightblue;
+	
+	
 }
 
 #exitBtn {
-	border: 0px;
 	width: 70px;
 	height: 35px;
-	font-weight: bold;
-	background-color: lightblue;
+	
+	
 }
 
 header {
 	background-color: #404040;
 }
+/* 채팅방버튼 */
+.btn {
+  text-align:center;
+  display: inline-block;
+  background: transparent;
+  text-transform: uppercase;
+  font-style: normal;
+  font-size: 0.5em;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  color: rgba(223,190,106,0.7);
+  border-radius: 0;
 
+  -webkit-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
+  background: -webkit-linear-gradient(180deg, rgba(223,190,106,0.8), rgba(146,111,52,0.8), rgba(34,34,34,0), rgba(34,34,34,0));
+  background: -webkit-linear-gradient(right, rgba(223,190,106,0.8), rgba(146,111,52,0.8), rgba(34,34,34,0), rgba(34,34,34,0));
+  background: linear-gradient(270deg, rgba(223,190,106,0.8), rgba(146,111,52,0.8), rgba(34,34,34,0), rgba(34,34,34,0));
+  background-position: 1% 50%;
+  background-size: 300% 300%;
+  text-decoration: none;
+ 
+  border: none;
+  border: 1px solid rgba(223,190,106,0.7);
+}
+.btn:hover {
+  color: #fff;
+  border: 1px solid rgba(223,190,106,0);
+  color: $white;
+  background-position: 99% 50%;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arials, sans;
+}
+
+/* 채팅방버튼 끝 */
 </style>
 </head>
 <body style="background-color: #595959">
@@ -119,11 +152,11 @@ header {
     <br/>
     
 	<input type="text" id="message" class="w3-left">
-	<button type="button" id="sendBtn" class="w3-left">전 송</button>
+	<button type="button" id="sendBtn" class=" btn w3-left">전 송</button>
 	
 	<br><br><br>
 	<div align="center">
-		<button type="button" id="exitBtn" class="w3-round">나가기</button>
+		<button type="button" id="exitBtn" class="btn">나가기</button>
 	</div>
 </body>
 </html>
