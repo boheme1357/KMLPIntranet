@@ -77,14 +77,15 @@
 </script>
 <style>
 #chatArea {
-	width: 500px; height: 300px; overflow-y: auto; border: 1px solid black; padding: 0.5em;
-	border: 1px solid lightblue;
+	width: 500px; height: 300px; overflow-y: auto; padding: 0.5em;
+	border: 0px;
+	color: white;
 }
 
 #message {
 	width: 445px;
 	height: 35px;
-	border: 1px solid lightblue;
+	border: 1px solid rgba(223,190,106,0.7);
 }
 
 #sendBtn {
@@ -104,15 +105,15 @@
 }
 
 header {
-	background-color: lightblue;
+	background-color: #404040;
 }
 
 </style>
 </head>
-<body>
+<body style="background-color: #595959">
 	<header class="w3-container w3-card-2">
-	<h1>KMLP Intranet : ${chatRoom_Title} </h1>
-		</header>
+		<h3 style="color: rgba(223,190,106,1)">KMLP Intranet : ${chatRoom_Title} </h3>
+	</header>
     
     <div id="chatArea"><div id="chatMessageArea"></div></div>
     <br/>
