@@ -53,13 +53,11 @@
 							제목 OR 내용 OR 작성자</option>
 					</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
-					<button id='searchBtn'>검색</button>
-					<button id='newBtn'>등록</button>
-
+					<button id='searchBtn'class="btn btn-success">검색</button>
+					<button id='newBtn' class="btn btn-primary">등록</button>
 				</div>
 			</div>
-
-
+		<br>
 			<div class="box">
 				
 				<div class="box-body">
