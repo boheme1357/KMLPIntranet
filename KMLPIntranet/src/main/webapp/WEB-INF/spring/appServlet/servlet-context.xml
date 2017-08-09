@@ -43,7 +43,8 @@
 	<beans:bean id="uploadPath" class="java.lang.String">
 		<!-- 파일업로드 디렉토리 -->
 		<beans:constructor-arg
-			value="D:\\kmlp\\KMLPIntranet\\KMLPIntranet\\src\\main\\webapp\\resources\\img\\" />
+			value="C:\\Users\\user\\git\\KMLPIntranet\\KMLPIntranet\\src\\main\\webapp\\resources\\img\\" />
+			
 	</beans:bean>
 
 	<!-- 타일 추가 -->

@@ -22,8 +22,11 @@
 	}
 	
 	function chatRoom_title_set() {
-		chatRoom_title = prompt("채팅방 제목을 입력하세요.", "");
-		openChatRoom();
+		
+		
+		if(chatRoom_title = prompt("채팅방 제목을 입력하세요.", "")){
+			openChatRoom();
+		} else{return false;}
 	}
 
 	function openChatRoom() {
