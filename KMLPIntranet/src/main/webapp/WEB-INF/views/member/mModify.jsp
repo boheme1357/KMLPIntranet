@@ -25,7 +25,7 @@
 			alert("비밀번호를 입력하시오.")
 		} else {
 			if (confirm("수정하시겠습니까?")) {
-				document.form.action = "${path}/member/mUpdate.do";
+				document.form.action = "${path}/member/mModify.do";
 				document.form.submit();
 			}
 		}

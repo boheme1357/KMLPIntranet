@@ -24,7 +24,7 @@
 
 	<!--02. 한페이지에 표시할 목록 -->
 	<select id="selectBetween" resultType="org.KMLP.domain.NoticeVO">
-		select * from notice where n_num between #{start} and #{end}
+		select * from notice where n_num between #{start} and #{end} 
 	</select>
 
 	<!--03. 글조회 횟수  -->

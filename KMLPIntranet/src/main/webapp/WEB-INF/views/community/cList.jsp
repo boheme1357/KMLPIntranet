@@ -85,7 +85,7 @@ th {
 								<td><a
 									href='${path}/community/cContent.do${pageMaker.makeSearch(pageMaker.cri.page) }&bno=${boardVO.bno}'>
 										${boardVO.title} 
-										<strong>[ ${boardVO.replycnt} ]</strong>
+										<%-- <strong>[ ${boardVO.replycnt} ]</strong> --%>
 								</a></td>
 								<td>${boardVO.writer}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
@@ -154,7 +154,7 @@ th {
 						"click",
 						function(event) {
 
-							self.location = "list"
+							self.location = "cList.do"
 									+ '${pageMaker.makeQuery(1)}'
 									+ "&searchType="
 									+ $("select option:selected").val()

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -109,14 +110,11 @@ public class MemberController {
 		return "mContent";
 	}
 
-	@RequestMapping(value = "/mModify.do", method = RequestMethod.GET)
-	public String mModifyGET(Model model) {
+	@RequestMapping(value = "/{m_id}/mModify.do", method = RequestMethod.GET)
+	public String mModifyGET(@PathVariable String m_id, Model model) {
 
 		logger.info("mModifyGET PAGE...............");
 		
-		// 시큐리티에서 로그인한 유저 id 받아오는 코드
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String m_id = user.getUsername();
 		MemberVO vo = memberSerive.selectContent(m_id);
 		model.addAttribute("dto", vo);
 
@@ -128,6 +126,11 @@ public class MemberController {
 	public String mModifyPOST(@ModelAttribute MemberVO vo, Model model) throws Exception {
 		logger.info("mModifyPOST post ...........");
 
+		
+		// 비번 암호화
+		String tmpPW = encoder.encoding(vo.getM_pwd());
+		vo.setM_pwd(tmpPW);
+		
 		boolean result = memberSerive.checkPw(vo.getM_id(), vo.getM_pwd());
 
 		if (result) {
@@ -136,7 +139,7 @@ public class MemberController {
 		} else {
 			model.addAttribute("dto", vo);
 			model.addAttribute("message", "비밀번호 불일치");
-			return "mContent";
+			return "mModify";
 		}
 
 	}
