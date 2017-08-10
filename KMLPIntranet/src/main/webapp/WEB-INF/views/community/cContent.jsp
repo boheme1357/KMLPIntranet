@@ -139,7 +139,7 @@ ul, li {
 				<!-- timeline time label -->
 				<li class="time-label" id="repliesDiv"><span class="bg-green">
 					<button type="button" class="btn btn-warning timeline" id="repliesDiv">댓글 리스트</button>
-					<small id='replycntSmall'> [댓글 리스트 보기] </small>
+<!-- 					<small id='replycntSmall'> [댓글 리스트 보기] </small> -->
 				</span></li>
 			</ul>
 
@@ -195,9 +195,9 @@ ul, li {
      <a class="btn btn-danger btn-xs" 
 	    data-toggle="modal" data-target="#modifyModal">수정</a>
     </div>
-  </div>		
+  </div>
+<hr>		
 </li>
-<hr>
 {{/each}}
 </script>
 

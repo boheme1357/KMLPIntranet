@@ -71,11 +71,11 @@ th {
 				<div class="box-body">
 					<table class="table table-bordered w3-center">
 						<tr>
-							<th style="width: 10px">NO</th>
-							<th>제&nbsp;목</th>
+							<th width="10%">NO</th>
+							<th width="40%">제&nbsp;목</th>
 							<th>작 성 자</th>
-							<th>작 성 일</th>
-							<th style="width: 80px">조회횟수</th>
+							<th width="20%">작성일자</th>
+							<th width="10%">조회횟수</th>
 						</tr>
 
 						<c:forEach items="${list}" var="boardVO">
