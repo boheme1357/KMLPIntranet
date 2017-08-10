@@ -193,7 +193,8 @@ a:active {
 								<br>업무내용
 							</th>
 							<td colspan="3"><textarea name="d_content" id="d_content"
-									readonly="readonly" style="resize: none; padding:1em!important">${dto.d_content}</textarea></td>
+									readonly="readonly"
+									style="resize: none; padding: 1em !important">${dto.d_content}</textarea></td>
 						</tr>
 						<tr colsapn="4" style="height: 20px;">
 						</tr>
@@ -205,50 +206,55 @@ a:active {
 			</div>
 			<!-- 끝: 결재문서 -->
 
-			<!-- 시작 : 승인 반려 버튼 조건문 -->
-			<c:if test="${m_id == dto.d_id}">
-				<center>
-					<input type="submit"  value="수&nbsp;정"
-						id="btn_update" class="button">
-				</center>
+			<!-- 시작 : 버튼 조건문 -->
+			<c:if test="${dto.d_final_condition != true}">
+				<c:if test="${m_id == dto.d_id}">
+					<center>
+						<input type="submit" value="수&nbsp;정" id="btn_update"
+							class="button">
+					</center>
+				</c:if>
+
+
+				<c:if test="${m_id != dto.d_id}">
+					<center>
+
+
+						<!--버튼 그룹-->
+						<div id="btn_group">
+							<button id="btn_approve">승&nbsp;인</button>
+							<!--처음 보여지는 버튼-->
+							<button id="btn_return_1" class="animation_test">반&nbsp;려</button>
+							<!--다음 보여지는 버튼-->
+							<button id="btn_cancel" class="animation_test hide">취&nbsp;소</button>
+							<br>
+							<!--Hide Checkbox-->
+							<input type="checkbox" class="hide" />
+						</div>
+					</center>
+					<br>
+					<center>
+						<div id='return_div'></div>
+					</center>
+				</c:if>
 			</c:if>
 
-			<c:if test="${m_id != dto.d_id}">
-				<center>
-
-
-					<!--버튼 그룹-->
-					<div id="btn_group">
-						<button id="btn_approve" >승&nbsp;인</button>
-						<!--처음 보여지는 버튼-->
-						<button id="btn_return_1" class="animation_test">반&nbsp;려</button>
-						<!--다음 보여지는 버튼-->
-						<button id="btn_cancel"
-							class="animation_test hide">취&nbsp;소</button>
-						<br>
-						<!--Hide Checkbox-->
-						<input type="checkbox" class="hide" />
-					</div>
-				</center>
-				<br>
-				<center>
-					<div id='return_div'></div>
-				</center>
-			</c:if>
-
-			<!-- 끝 : 승인 반려 버튼 조건문 -->
+			<!-- 끝 : 버튼 조건문 -->
 
 			<!-- 시작 : 반려 메시지 리스트 -->
 			<br>
 			<c:if
 				test="${!empty returnContentList || fn:length(returnContentList) > 0}">
 
-				<table border="1" width="800px" cellpadding="0" cellspacing="0" align="center">
+				<table border="1" width="800px" cellpadding="0" cellspacing="0"
+					align="center">
 					<tr>
-						<th colspan="5" style="font-size: 1.5em; height: 70px;">반려 메시지 리스트</th>
+						<th colspan="5" style="font-size: 1.5em; height: 70px;">반려
+							메시지 리스트</th>
 					</tr>
 					<tr>
-						<th style="width: 8%; height: 40px; background-color: beige;">작 성 자</th>
+						<th style="width: 8%; height: 40px; background-color: beige;">작
+							성 자</th>
 						<th style="width: 20%; height: 40px; background-color: beige;">작성일자</th>
 						<th style="width: 8%; height: 40px; background-color: beige;">결재단계</th>
 						<th style="width: 8%; height: 40px; background-color: beige;">반려횟수</th>
