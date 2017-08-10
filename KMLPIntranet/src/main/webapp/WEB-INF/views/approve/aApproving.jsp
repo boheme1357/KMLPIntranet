@@ -72,7 +72,7 @@
 		
 		<c:forEach var="row" items="${sentList}">
 		<tr>
-			<td>${row.d_num}</td>
+			<td><a href="${path}/approve/${row.d_num}/aContent.do">${row.d_num}</a></td>
 			<td>${row.d_id}</td>
 			<td><a href="${path}/approve/${row.d_num}/aContent.do">${row.d_title}</a></td>
 			<td>${row.d_date}</td>
@@ -98,7 +98,7 @@
 		<c:forEach var="row" items="${receiveList}">
 		<tr>
 			<!--회원정보 상세조회를 위해 a태그 추가  -->
-			<td>${row.d_num}</td>
+			<td><a href="${path}/approve/dContent?d_num=${row.d_num}">${row.d_num}</a></td>
 			<td>${row.d_id}</td>
 			<td><a href="${path}/approve/${row.d_num}/aContent.do">${row.d_title}</a></td>
 			<td>${row.d_date}</td>
