@@ -35,6 +35,28 @@
 		<constructor-arg index="0" name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
 
+	 	<!--이메일시작 -->
+	 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="boheme1357@gmail.com" />  <!--본인이메일-->
+		<property name="password" value="비번입력" />
+
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!--이메일종료 -->
+
+
+
+
 	<context:component-scan base-package="org.KMLP.persistence"></context:component-scan>
 	<context:component-scan base-package="org.KMLP.service"></context:component-scan>
 

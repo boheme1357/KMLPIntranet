@@ -106,6 +106,8 @@
 	select * from member where m_id=#{m_id} and m_email_id=#{m_email_id} and m_email_do=#{m_email_do}
 	</select>
 	
+	
+	
 	<!--10. 임시비밀번호로 변경  -->
 	<update id="updateTempPw">
 	update member set m_pwd=#{m_pwd} where m_id=#{m_id}	

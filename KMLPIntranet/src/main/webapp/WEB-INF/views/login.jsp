@@ -46,6 +46,52 @@
 		}
 		return true;
 	}
+	
+	
+	
+	
+	
+	//비밀번호찾기,임시번호메일로 보내기
+	/*  function openPop() {
+	
+	 var pop_title = "비밀번호찾기";
+	 var width = 500;
+	 var height = 300;
+	 var top = (screen.availHeight - height) / 2;
+	 var left = (screen.availWidth - width) / 2;
+
+	 var strFeature;
+	 strFeature = 'height='
+	 + height
+	 + ',width='
+	 + width
+	 + ',menubar=no,toolbar=no,location=no,resizable=no,status=no,scrollbars=yes,top='
+	 + top + ',left=' + left
+
+	 window.open("", pop_title, strFeature);
+	
+	
+	
+	
+	 alert(frmData.action);
+	 document.find.target = pop_title;
+	 document.find.action = "${pageContext.request.contextPath}/find.do";
+	 document.find.method="post";
+	 document.find.submit();
+	
+
+	 }  */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </script>
 
 <style>
@@ -141,10 +187,15 @@ h1 {
 
 				</sf:form>
 
+
+				<sf:form action="${path}/find.do" method="post">
 				<div style="margin-top: 20px">
-					<a href=""><input type="button" id="find" name="find"
-						class="w3-btn w3-white w3-round-xlarge" value="비밀번호 찾기"></a>
+					<a href=""><input type="submit" id="find" name="find"
+						class="w3-btn w3-white w3-round-xlarge" value="비밀번호 찾기"  ></a>
 				</div>
+				</sf:form>
+				
+				
 			</sec:authorize>
 			<sec:authorize access="isAuthenticated()">
 				<sf:form action="${pageContext.request.contextPath}/logout"
