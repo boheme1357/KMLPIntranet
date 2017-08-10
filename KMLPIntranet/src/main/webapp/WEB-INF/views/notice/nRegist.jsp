@@ -57,36 +57,6 @@ a:hover {
 a:active {
 	text-decoration: none;
 }
-
-
-/* button.button1 {
-    color: rgba(51, 102, 255, 0.8);
-  
-}
-
-button.button1:hover {
-    color: rgba(255, 255, 255, 0.85);
-    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
-}
-button.button2 {
-    color: rgba(51, 102, 255, 0.8);
-  
-}
-
-button.button2:hover {
-    color: rgba(255, 255, 255, 0.85);
-    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
-}
-button.button3 {
-    color: rgba(51, 102, 255, 0.8);
-  
-}
-
-button.button3:hover {
-    color: rgba(255, 255, 255, 0.85);
-    box-shadow: rgba(30, 22, 54, 0.7) 0 0px 0px 40px inset;
-} */
-}
 </style>
 </head>
 
@@ -97,20 +67,6 @@ button.button3:hover {
 <sf:form action="${path}/notice/nRegist.do" name="form" method="post">
 
 <table border="1" width="100%" cellpadding="0" cellspacing="0">
-	<!--  일련번호, 작성일자는  default값으로 자동추가
-	<tr>
-		<td>일련번호</td>
-		<td><input name="n_num"></td>
-	</tr>
-	
-	
-	<tr>
-		<td>작성일자</td>
-		<td><input name="n_wdate"></td>
-	</tr> 
-	
-	-->
-
 	<tr>
 		<th width="15%">사&emsp;번</th>
 		<td><input name="n_id"   value = '${m_id}' readonly="readonly" style="width: 100%; height: 30px;"></td>
@@ -140,11 +96,6 @@ button.button3:hover {
 	</div>
 	<br><br><div style="color: red;">${message}</div>
 </div>
-<<<<<<< HEAD
-
-
-=======
->>>>>>> branch 'master' of https://github.com/boheme1357/KMLPIntranet.git
 </sf:form>
 </div>
 </body>
